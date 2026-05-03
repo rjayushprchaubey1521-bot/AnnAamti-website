@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnnAamrit | भारत की रसोई - Premium Home Style Meals</title>
-    <meta name="description" content="AnnAamrit: Pure, organic-style home-cooked meals in Patna. Har Nivala Ek Aashirvaad.">
+    <title>AnnAamrit | भारत की रसोई - Premium Cloud Kitchen</title>
+    <meta name="description" content="AnnAamrit: जहाँ स्वाद भी संस्कार है, और हर निवाला आशीर्वाद है। Premium home-style meals in Patna.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- CORE BRANDING VARIABLES --- */
+        /* --- DESIGN TOKENS (For Auto-Adaptability & Easy Redesign) --- */
         :root {
-            --bg-deep-green: #072e1d; /* Base deep green */
-            --text-gold: #D4AF37;     /* Premium gold */
-            --accent-saffron: #FF8C00; /* Deep Saffron Orange */
-            --saffron-glow: rgba(255, 140, 0, 0.7);
-            --white: #FFFFFF;
-            --text-dark: #2C3E50;
-            --bg-light: #F9FCFA;
-            --transition: all 0.3s ease;
+            --bg-center: #0d4a2c; /* Lighter green for center radial glow */
+            --bg-edge: #021a0e;   /* Dark almost-black green for vignette edges */
+            --gold-primary: #d4b254;
+            --gold-light: #fbe69e;
+            --text-cream: #f8f9fa;
+            --accent-orange: #e67e22;
+            --glass-bg: rgba(2, 26, 14, 0.7);
+            --transition-speed: 0.4s;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,30 +27,41 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            background: radial-gradient(circle at center, var(--bg-center) 0%, var(--bg-edge) 100%);
+            background-attachment: fixed;
+            color: var(--text-cream);
             position: relative;
+            min-height: 100vh;
         }
 
-        /* --- GLOBAL ICON WATERMARK --- */
+        /* --- BACKGROUND MANDALA/PATTERN WATERMARK --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 C60 40 90 50 100 50 C90 50 60 60 50 100 C40 60 10 50 0 50 C10 50 40 40 50 0 Z" fill="%23d4b254" opacity="0.03"/></svg>');
+            background-size: 150px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* --- GLOBAL LOGO WATERMARK (From your image) --- */
         body::after {
             content: '';
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 80vw; height: 80vh;
-            background-image: url('logo.png'); /* REQUIRES YOUR ICON SAVED AS logo.png */
+            width: 60vw; height: 60vh;
+            background-image: url('logo.png'); /* Exact Logo Icon */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.04;
+            opacity: 0.05;
             z-index: -1;
             pointer-events: none;
         }
 
-        /* Typography */
-        .brand-font { font-family: 'Great Vibes', cursive; }
-        .heading-font { font-family: 'Playfair Display', serif; }
+        .royal-font { font-family: 'Playfair Display', serif; }
         .hindi-font { font-family: 'Noto Sans Devanagari', sans-serif; }
 
         /* --- NAVBAR --- */
@@ -62,292 +73,345 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            transition: var(--transition);
+            transition: var(--transition-speed);
+            border-bottom: 1px solid transparent;
         }
         .navbar.scrolled {
-            background: rgba(7, 46, 29, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            border-bottom: 2px solid var(--accent-saffron);
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212, 178, 84, 0.2);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
         }
-        .nav-logo-container {
+        .nav-brand {
             display: flex;
             align-items: center;
             gap: 15px;
             text-decoration: none;
+            color: var(--gold-primary);
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
-        .nav-icon { height: 45px; width: auto; }
-        .nav-brand {
-            color: var(--text-gold);
-            font-size: 2.5rem;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-        }
-        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-logo-icon { height: 45px; }
         .nav-links a {
-            color: var(--white);
+            color: var(--text-cream);
             text-decoration: none;
+            margin-left: 30px;
             font-weight: 500;
-            font-size: 1rem;
-            transition: var(--transition);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-speed);
         }
-        .nav-links a:hover { color: var(--accent-saffron); }
-        .social-icons a { color: var(--text-gold); font-size: 1.2rem; }
-        .social-icons a:hover { color: var(--accent-saffron); }
+        .nav-links a:hover { color: var(--gold-primary); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO POSTER SECTION --- */
         .hero {
-            height: 100vh;
-            background-color: var(--bg-deep-green);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
+            padding: 120px 20px 50px;
             position: relative;
-            background-image: linear-gradient(rgba(7, 46, 29, 0.8), rgba(7, 46, 29, 0.95)), url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
         }
-        .main-logo-icon {
-            height: 150px;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 0 15px var(--text-gold));
-        }
-        .hero h1 {
-            color: var(--text-gold);
-            font-size: 6.5rem;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-        .hero h2 {
-            font-size: 3.5rem;
-            color: var(--accent-saffron);
-            text-shadow: 0 0 20px var(--saffron-glow);
+        
+        .hero-top-spiritual {
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        .hero p {
-            font-size: 1.5rem;
-            color: var(--white);
-            font-style: italic;
-            margin-bottom: 40px;
+
+        .main-logo-icon {
+            height: 120px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 20px rgba(212, 178, 84, 0.4));
+        }
+
+        .brand-title {
+            color: var(--gold-light);
+            font-size: 6rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 5px;
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+        }
+
+        .hero-tagline-hindi {
+            font-size: 2.8rem;
+            color: var(--text-cream);
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .hero-tagline-eng {
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 30px;
+            letter-spacing: 1.5px;
+        }
+
+        .quote-box {
+            border-top: 1px solid var(--gold-primary);
+            border-bottom: 1px solid var(--gold-primary);
+            padding: 15px 40px;
+            margin: 20px 0 40px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .quote-text {
+            font-size: 1.6rem;
+            color: var(--gold-light);
+            font-weight: 600;
             letter-spacing: 1px;
         }
 
-        /* --- TRUST & OFFERS BANNER --- */
-        .trust-banner {
-            background-color: var(--bg-deep-green);
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 30px 20px;
+        /* Dynamic Time Greeting */
+        #dynamic-greeting {
+            font-size: 1.1rem;
+            color: var(--text-cream);
+            opacity: 0.8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- TRUST BADGES (Exact Poster Style) --- */
+        .trust-grid {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 20px;
             flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto 40px;
         }
-        .trust-item {
-            color: var(--text-gold);
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-        .saffron-bar {
-            background: var(--accent-saffron);
-            color: var(--bg-deep-green);
-            text-align: center;
-            padding: 15px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        /* --- ABOUT STORY SECTION --- */
-        .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        .about-container {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            border-left: 8px solid var(--accent-saffron);
+        .trust-card {
+            border: 1px solid var(--gold-primary);
+            border-radius: 8px;
+            padding: 15px 25px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            align-items: center;
+            gap: 10px;
+            background: rgba(2, 26, 14, 0.5);
+            min-width: 200px;
+            backdrop-filter: blur(5px);
         }
-        .section-title {
-            color: var(--bg-deep-green);
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .about-text {
-            font-size: 1.1rem;
-            color: #444;
-            line-height: 1.8;
-            text-align: justify;
+        .trust-card i { color: var(--gold-primary); font-size: 2rem; }
+        .trust-card span { color: var(--text-cream); font-weight: 600; font-size: 1.1rem; text-align: center;}
+
+        /* --- THALI DISPLAY SECTION --- */
+        .thali-showcase {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(212, 178, 84, 0.15);
         }
 
-        /* --- 4K MENU GRID --- */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+        /* --- MENU SYSTEM --- */
+        .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
         }
-        .menu-card {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border: 1px solid #eee;
-            transition: var(--transition);
-        }
-        .menu-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-saffron);
-            box-shadow: 0 15px 35px rgba(255, 140, 0, 0.2);
-        }
-        .card-img {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        .day-tag {
-            position: absolute;
-            top: 15px; right: 15px;
-            background: var(--accent-saffron);
-            color: var(--white);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-        .card-body { padding: 25px; }
-        .meal-type {
-            color: var(--bg-deep-green);
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            border-bottom: 2px solid var(--text-gold);
+        .section-header h2 {
+            color: var(--gold-light);
+            font-size: 3rem;
+            border-bottom: 2px solid var(--gold-primary);
             display: inline-block;
+            padding-bottom: 10px;
         }
-        .meal-text { font-size: 0.95rem; margin-bottom: 15px; color: #555; }
+
+        .menu-wrapper {
+            background: rgba(2, 26, 14, 0.8);
+            border: 1px solid var(--gold-primary);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .menu-row {
+            display: flex;
+            border-bottom: 1px solid rgba(212, 178, 84, 0.2);
+            padding: 20px 0;
+            align-items: center;
+        }
+        .menu-row:last-child { border-bottom: none; }
+        .menu-day {
+            width: 150px;
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .menu-details { flex: 1; color: var(--text-cream); font-size: 1rem; }
+        .menu-details span { color: var(--gold-light); font-weight: 600; }
 
         /* --- BUTTONS & FORMS --- */
-        .btn-primary {
-            background: var(--accent-saffron);
-            color: var(--white);
-            padding: 15px 35px;
+        .btn-gold {
+            background: linear-gradient(135deg, #d4b254, #fbe69e, #d4b254);
+            color: #021a0e;
+            padding: 15px 40px;
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             text-transform: uppercase;
-            transition: var(--transition);
+            transition: var(--transition-speed);
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-        .btn-primary:hover { background: #e67e00; transform: scale(1.02); }
-        
-        form { background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(212, 178, 84, 0.4); }
+
+        .form-box {
+            background: rgba(2, 26, 14, 0.8);
+            border: 1px solid var(--gold-primary);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
         input, select {
-            width: 100%; padding: 15px; margin-bottom: 20px;
-            border: 1px solid #ddd; border-radius: 8px;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 178, 84, 0.4);
+            color: var(--text-cream);
+            border-radius: 5px;
             font-family: 'Poppins', sans-serif;
         }
-        input:focus, select:focus { border-color: var(--accent-saffron); outline: none; }
+        input:focus, select:focus { border-color: var(--gold-primary); outline: none; background: rgba(255,255,255,0.1); }
+        select option { background: var(--bg-edge); color: var(--text-cream); }
 
-        /* --- FOOTER --- */
         footer {
-            background: var(--bg-deep-green);
-            color: var(--white);
-            padding: 60px 20px 20px;
+            border-top: 1px solid rgba(212, 178, 84, 0.3);
             text-align: center;
-            border-top: 4px solid var(--accent-saffron);
+            padding: 40px 20px;
+            background: var(--bg-edge);
         }
-        .footer-socials { margin: 20px 0; font-size: 1.5rem; }
-        .footer-socials a { color: var(--text-gold); margin: 0 15px; transition: 0.3s; }
-        .footer-socials a:hover { color: var(--accent-saffron); }
 
         /* Animations */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.6s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 4.5rem; }
-            .hero h2 { font-size: 2.2rem; }
+            .brand-title { font-size: 4rem; }
+            .hero-tagline-hindi { font-size: 2rem; }
+            .quote-text { font-size: 1.2rem; }
             .nav-links { display: none; }
-            .about-container { padding: 30px 20px; }
+            .menu-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .trust-card { min-width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar" id="navbar">
-        <a href="#" class="nav-logo-container">
-            <img src="logo.png" alt="Icon" class="nav-icon" onerror="this.style.display='none'">
-            <span class="nav-brand brand-font">AnnAamrit</span>
+        <a href="#" class="nav-brand royal-font">
+            <img src="logo.png" alt="Icon" class="nav-logo-icon" onerror="this.style.display='none'">
+            AnnAamrit
         </a>
         <div class="nav-links">
-            <a href="#about">Our Story</a>
-            <a href="#menu">Premium Menu</a>
+            <a href="#menu">Menu</a>
             <a href="#order">Subscribe</a>
-            <div class="social-icons">
-                <a href="https://instagram.com/annaamrit"><i class="fab fa-instagram"></i></a>
-                <a href="https://facebook.com/annaamrit"><i class="fab fa-facebook-f"></i></a>
-            </div>
+            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
     </nav>
 
     <header class="hero">
-        <img src="logo.png" alt="AnnAamrit Logo" class="main-logo-icon" onerror="this.style.display='none'">
-        <h1 class="brand-font reveal active">AnnAamrit</h1>
-        <h2 class="hindi-font reveal active">भारत की रसोई</h2>
-        <p class="reveal active">Har Nivala Ek Aashirvaad</p>
-        <a href="#menu" class="btn-primary reveal active">View Premium Plans</a>
+        <div class="hero-top-spiritual hindi-font fade-in">
+            <span>卐</span> ॥ जय श्री राम ॥ <span>卐</span>
+        </div>
+        
+        <img src="logo.png" alt="AnnAamrit Logo" class="main-logo-icon fade-in" onerror="this.style.display='none'">
+        
+        <h1 class="brand-title royal-font fade-in">AnnAamrit</h1>
+        <h2 class="hero-tagline-hindi hindi-font fade-in">भारत की रसोई...</h2>
+        <p class="hero-tagline-eng royal-font fade-in">Har Nivala Ek Aashirvaad</p>
+        
+        <div class="quote-box fade-in">
+            <p class="quote-text hindi-font">“जहाँ स्वाद भी संस्कार है, और हर निवाला आशीर्वाद है।”</p>
+        </div>
+
+        <p id="dynamic-greeting" class="hindi-font fade-in"></p>
+
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800" alt="Premium Thali" class="thali-showcase fade-in" style="margin-bottom: 40px; border: 2px solid var(--gold-primary);">
+
+        <div class="trust-grid hindi-font fade-in">
+            <div class="trust-card">
+                <i class="fas fa-briefcase"></i>
+                <span>लंच बॉक्स<br>स्पेशलिस्ट</span>
+            </div>
+            <div class="trust-card">
+                <i class="fas fa-home"></i>
+                <span>घर जैसा<br>संतोषजनक स्वाद</span>
+            </div>
+            <div class="trust-card">
+                <i class="fas fa-leaf"></i>
+                <span>ऑर्गेनिक शैली में<br>बना शुद्ध भोजन</span>
+            </div>
+            <div class="trust-card">
+                <i class="fas fa-hands-praying"></i>
+                <span>शुद्धता और<br>पवित्रता की गारंटी</span>
+            </div>
+        </div>
+
+        <p style="color: var(--text-cream); opacity: 0.8; letter-spacing: 1px; font-size: 0.9rem;" class="fade-in">A startup cloud kitchen initiative</p>
     </header>
 
-    <div class="trust-banner hindi-font">
-        <div class="trust-item"><i class="fas fa-briefcase" style="color:var(--accent-saffron)"></i> लंच बॉक्स स्पेशलिस्ट</div>
-        <div class="trust-item"><i class="fas fa-home" style="color:var(--accent-saffron)"></i> घर जैसा संतोषजनक स्वाद</div>
-        <div class="trust-item"><i class="fas fa-leaf" style="color:var(--accent-saffron)"></i> ऑर्गेनिक शैली में बना शुद्ध भोजन</div>
-        <div class="trust-item"><i class="fas fa-check-circle" style="color:var(--accent-saffron)"></i> शुद्धता और पवित्रता की गारंटी</div>
-    </div>
-    
-    <div class="saffron-bar hindi-font">
-        🚫🧅 Onion-Garlic Free Meal At Same Price | 🚫🍬 Sugar Free Meal available (+ ₹7.5 extra/meal)
-    </div>
-
-    <section class="section" id="about">
-        <div class="about-container reveal">
-            <h2 class="section-title heading-font">The Mother's Touch</h2>
-            <p class="about-text">
-                <strong>AnnAamrit</strong> was not born in a boardroom; it was born from a very real family need. When our family moved from <strong>Bettiah, West Champaran to Patna</strong> for better education, the most basic daily problem became obvious: good, pure food was missing. Outside food created struggle and health issues.
-            </p>
-            <p class="about-text">
-                That is when our mother, <strong>Rubi Devi</strong>, stepped in. She began cooking with love, and her home-style food naturally created a deep emotional response. Neighbors and students living nearby noticed, and they too craved the comfort of real home cooking. What started as lunchboxes for nearby students has grown into a <strong>cultural food movement</strong>. 
-            </p>
-            <p class="about-text">
-                Today, AnnAamrit stands as Patna's premier food ecosystem. We promise food that heals, nourishes, and restores the trust of <em>'Ghar ka khana'</em>. 
-            </p>
+    <section class="section" id="menu">
+        <div class="section-header fade-in">
+            <h2 class="royal-font">Premium Menu Plans</h2>
         </div>
-    </section>
-
-    <section class="section" id="menu" style="background: #f4f7f6;">
-        <h2 class="section-title heading-font">Premium Daily Menu</h2>
-        <p style="text-align:center; color:#666;">Showing Premium Tier (₹ 3549/- / ₹ 2999/-)</p>
-        
-        <div class="menu-grid hindi-font" id="menu-container">
+        <div class="menu-wrapper hindi-font fade-in">
+            <p style="text-align: center; color: var(--accent-orange); margin-bottom: 20px; font-weight: bold;">
+                🚫🧅 Onion-Garlic Free Meal At Same Price | 🍬 Sugar Free (+ ₹7.5/meal)
+            </p>
+            
+            <div class="menu-row">
+                <div class="menu-day royal-font">MONDAY</div>
+                <div class="menu-details">
+                    <span>Lunch:</span> चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद<br>
+                    <span>Dinner:</span> 6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद
+                </div>
+            </div>
+            <div class="menu-row">
+                <div class="menu-day royal-font">TUESDAY</div>
+                <div class="menu-details">
+                    <span>Lunch:</span> चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद<br>
+                    <span>Dinner:</span> खीर + 4-चना दाल पराठा + चना छोला + सलाद
+                </div>
+            </div>
+            <div class="menu-row">
+                <div class="menu-day royal-font">WEDNESDAY</div>
+                <div class="menu-details">
+                    <span>Lunch:</span> पुलाव + 2-रोटी + चना दाल तड़का + कढ़ी पकोड़ा + सलाद<br>
+                    <span>Dinner:</span> 6-रोटी + हरी सब्जियाँ (फ्राइड) + खीर + सलाद
+                </div>
+            </div>
             </div>
     </section>
 
     <section class="section" id="order">
-        <h2 class="section-title heading-font">Subscribe Now</h2>
-        <div style="max-width: 600px; margin: 0 auto;" class="reveal">
+        <div class="section-header fade-in">
+            <h2 class="royal-font">Start Your Subscription</h2>
+        </div>
+        <div class="form-box fade-in">
             <form id="orderForm">
                 <select name="plan" required>
                     <option value="" disabled selected>Select Your Menu Plan</option>
-                    <option value="menu1">Menu 1 Premium Plan – ₹ 3549 /-</option>
-                    <option value="menu2">Menu 2 Standard Plan – ₹ 2999 /-</option>
+                    <option value="menu1">Premium Plan – ₹ 3549 /-</option>
+                    <option value="menu2">Standard Plan – ₹ 2999 /-</option>
                 </select>
                 <select name="diet" required>
                     <option value="" disabled selected>Dietary Preference</option>
@@ -357,67 +421,65 @@
                 </select>
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="tel" name="phone" placeholder="WhatsApp Number" required pattern="[0-9]{10}">
-                <button type="submit" id="submitBtn" class="btn-primary" style="width: 100%;">Book My Meal Plan</button>
+                <button type="submit" id="submitBtn" class="btn-gold" style="width: 100%;">Book My Meal Plan</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <h3 class="brand-font" style="color: var(--text-gold); font-size: 3.5rem; margin-bottom: 5px;">AnnAamrit</h3>
-        <p class="hindi-font" style="font-size: 1.2rem; color: var(--accent-saffron);">शुद्धता और परिष्कार की गारंटी</p>
-        
-        <div class="footer-socials">
-            <a href="https://instagram.com/annaamrit" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com/annaamrit" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        </div>
-        <p style="opacity: 0.5; font-size: 0.9rem; margin-top: 20px;">&copy; 2026 AnnAamrit (Bharat Ki Rasoi). All rights reserved.</p>
+        <h3 class="royal-font" style="color: var(--gold-primary); font-size: 2.5rem; margin-bottom: 10px;">AnnAamrit</h3>
+        <p class="hindi-font" style="color: var(--text-cream); opacity: 0.8;">शुद्धता और परिष्कार की गारंटी</p>
+        <p style="opacity: 0.4; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 AnnAamrit. All rights reserved.</p>
     </footer>
 
     <script>
-        // Navbar Scroll
+        // Contextual Time-Based Dynamic Redesign/Greeting Logic
+        function updateDynamicElements() {
+            const hour = new Date().getHours();
+            let greeting = "";
+            let root = document.documentElement;
+
+            if (hour >= 5 && hour < 12) {
+                greeting = "शुभ प्रभात (Good Morning)";
+                root.style.setProperty('--bg-center', '#0d4a2c'); // Brighter morning green
+            } else if (hour >= 12 && hour < 17) {
+                greeting = "शुभ दोपहर (Good Afternoon)";
+                root.style.setProperty('--bg-center', '#0a3d24'); // Standard afternoon
+            } else {
+                greeting = "शुभ संध्या (Good Evening)";
+                root.style.setProperty('--bg-center', '#062616'); // Darker evening green
+            }
+            document.getElementById('dynamic-greeting').innerText = greeting;
+        }
+        updateDynamicElements();
+
+        // Navbar Blur on Scroll
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
         });
 
-        // Scroll Reveal
-        const revealElements = document.querySelectorAll('.reveal');
+        // Intersection Observer for Smooth Fade-ins
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) entry.target.classList.add('active');
+                if(entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
-        revealElements.forEach(el => observer.observe(el));
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Verbatim Menu Data & 4K Images
-        const menuData = [
-            { day: "MONDAY", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ और रसदार) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ और रसदार) + सलाद" },
-            { day: "TUESDAY", img: "https://images.unsplash.com/photo-1626779844431-15a133b3a726?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ और रसदार) + सलाद", dinner: "खीर + 4-चना दाल पराठा / आलू पराठा + चना छोला + सलाद" },
-            { day: "WEDNESDAY", img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800", lunch: "पुलाव + 2-रोटी + चना दाल तड़का + हरी सब्जियाँ कढ़ी पकोड़ा + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (फ्राइड) + सलाद + खीर" },
-            { day: "THURSDAY", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800", lunch: "बेसन कढ़ी पकोड़ा + चावल + 2-रोटी + हरी सब्जियाँ पकोड़ा + सलाद", dinner: "खीर + 8-पूरी / 6-रोटी + हरी सब्जियाँ (कढ़ी) + सलाद" },
-            { day: "FRIDAY", img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ और रसदार) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ और रसदार) + सलाद" },
-            { day: "SATURDAY", img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800", lunch: "वेज खिचड़ी (देसी घी के साथ) + चोखा + अचार/दही + पापड़-चिप्स + सलाद", dinner: "4-सत्तू पराठा / 6-रोटी + बैगन/टमाटर चोखा + चना छोला + सलाद" },
-            { day: "SUNDAY", img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc0?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ और रसदार) + सलाद", dinner: "6-रोटी + मटर पनीर + हरी सब्जियाँ (भूना हुआ) + सलाद" }
-        ];
-
-        const container = document.getElementById('menu-container');
-        menuData.forEach((item, index) => {
-            const card = document.createElement('div');
-            card.className = 'menu-card reveal';
-            card.style.transitionDelay = `${index * 0.1}s`;
-            card.innerHTML = `
-                <div class="card-img" style="background-image: url('${item.img}')">
-                    <span class="day-tag">${item.day}</span>
-                </div>
-                <div class="card-body">
-                    <div class="meal-type">LUNCH</div>
-                    <div class="meal-text">${item.lunch}</div>
-                    <div class="meal-type">DINNER</div>
-                    <div class="meal-text">${item.dinner}</div>
-                </div>
-            `;
-            container.appendChild(card);
+        // Form Submit
+        document.getElementById("orderForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const btn = document.getElementById("submitBtn");
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+            setTimeout(() => {
+                alert("Thank you! Your AnnAamrit subscription request is received.");
+                this.reset();
+                btn.innerText = "Book My Meal Plan";
+                btn.disabled = false;
+            }, 1500);
         });
     </script>
 </body>
