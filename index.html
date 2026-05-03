@@ -18,9 +18,9 @@
             --gold-primary: #d4b254;
             --gold-light: #fbe69e;
             --text-cream: #f8f9fa;
-            --accent-orange: #FF8C00; /* Vibrant Saffron Orange */
+            --accent-orange: #FF8C00;
             --pure-veg-green: #2ecc71;
-            --glass-bg: rgba(2, 26, 14, 0.7);
+            --glass-bg: rgba(2, 26, 14, 0.85);
             --transition-speed: 0.4s;
         }
 
@@ -36,12 +36,12 @@
             min-height: 100vh;
         }
 
-        /* --- BACKGROUND MANDALA WATERMARK --- */
+        /* --- SANATAN TRADITIONAL MANDALA TEXTURE --- */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 C60 40 90 50 100 50 C90 50 60 60 50 100 C40 60 10 50 0 50 C10 50 40 40 50 0 Z" fill="%23d4b254" opacity="0.03"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M60 0 L65 25 L90 15 L75 35 L100 50 L75 60 L100 70 L75 85 L90 105 L65 95 L60 120 L55 95 L30 105 L45 85 L20 70 L45 60 L20 50 L45 35 L30 15 L55 25 Z" fill="%23d4b254" fill-opacity="0.04"/></svg>');
             background-size: 150px;
             z-index: -2;
             pointer-events: none;
@@ -53,8 +53,8 @@
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 60vw; height: 60vh;
-            background-image: url('logo.png'); 
+            width: 50vw; height: 50vh;
+            background-image: url('logo.png'); /* The golden sun/bowl logo you provided */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -122,10 +122,11 @@
             letter-spacing: 1px;
         }
         .nav-logo-icon { height: 45px; }
+        .nav-links { display: flex; align-items: center; gap: 20px;}
         .nav-links a {
             color: var(--text-cream);
             text-decoration: none;
-            margin-left: 30px;
+            margin-left: 15px;
             font-weight: 500;
             font-size: 0.95rem;
             text-transform: uppercase;
@@ -146,18 +147,8 @@
             position: relative;
         }
         
-        .hero-top-spiritual {
-            color: var(--gold-primary);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
         .main-logo-icon {
-            height: 120px;
+            height: 140px;
             margin-bottom: 15px;
             filter: drop-shadow(0 0 20px rgba(212, 178, 84, 0.4));
         }
@@ -177,28 +168,7 @@
             color: var(--accent-orange);
             margin-top: 10px;
             margin-bottom: 5px;
-            text-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
-        }
-
-        .hero-tagline-eng {
-            font-size: 1.8rem;
-            color: var(--gold-primary);
-            margin-bottom: 30px;
-            letter-spacing: 1.5px;
-        }
-
-        .quote-box {
-            border-top: 1px solid var(--gold-primary);
-            border-bottom: 1px solid var(--gold-primary);
-            padding: 15px 40px;
-            margin: 10px 0 30px;
-            background: rgba(0,0,0,0.2);
-        }
-        .quote-text {
-            font-size: 1.6rem;
-            color: var(--gold-light);
-            font-weight: 600;
-            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
         }
 
         /* --- TRUST BADGES --- */
@@ -223,9 +193,8 @@
             backdrop-filter: blur(5px);
         }
         .trust-card i { color: var(--gold-primary); font-size: 2rem; }
-        .trust-card span { color: var(--text-cream); font-weight: 600; font-size: 1.1rem; text-align: center;}
 
-        /* --- ABOUT STORY SECTION --- */
+        /* --- SECTIONS COMMON --- */
         .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 {
@@ -235,20 +204,17 @@
             display: inline-block;
             padding-bottom: 10px;
         }
-
-        .story-container {
-            background: rgba(2, 26, 14, 0.6);
+        .content-container {
+            background: rgba(2, 26, 14, 0.7);
             border: 1px solid var(--gold-primary);
             border-radius: 15px;
-            padding: 50px;
+            padding: 40px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             backdrop-filter: blur(10px);
             line-height: 1.8;
             font-size: 1.1rem;
             text-align: center;
         }
-        .story-container p { margin-bottom: 20px; }
-        .story-container strong { color: var(--accent-orange); }
 
         /* --- MENU IMAGE GRID --- */
         .menu-grid {
@@ -257,97 +223,83 @@
             gap: 30px;
         }
         .menu-card {
-            background: rgba(2, 26, 14, 0.8);
+            background: rgba(2, 26, 14, 0.9);
             border: 1px solid var(--gold-primary);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transition: var(--transition-speed);
-            position: relative;
         }
         .menu-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent-orange);
-            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.3);
         }
         .menu-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
+            width: 100%; height: 220px; object-fit: cover;
             border-bottom: 2px solid var(--gold-primary);
         }
         .menu-content { padding: 25px; }
         .menu-day {
-            color: var(--gold-light);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-transform: uppercase;
+            color: var(--gold-light); font-size: 1.5rem; font-weight: 700;
+            margin-bottom: 15px; text-transform: uppercase;
         }
         .meal-time { color: var(--accent-orange); font-weight: 600; margin-top: 10px; font-size: 1.1rem; }
         .meal-desc { color: var(--text-cream); font-size: 0.95rem; margin-top: 5px; }
 
         /* --- CONTACT SECTION --- */
         .contact-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 20px;
+            display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;
         }
         .contact-card {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(212, 178, 84, 0.3);
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            flex: 1;
-            min-width: 250px;
-            max-width: 350px;
+            padding: 30px; border-radius: 12px; text-align: center;
+            flex: 1; min-width: 250px; max-width: 350px;
         }
         .contact-card i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 15px; }
         .contact-card h3 { color: var(--gold-light); margin-bottom: 10px; }
         .contact-card a, .contact-card p { color: var(--text-cream); text-decoration: none; font-size: 1.1rem; }
         .contact-card a:hover { color: var(--gold-primary); }
 
-        /* --- BUTTONS & FORMS --- */
-        .btn-gold {
-            background: linear-gradient(135deg, #d4b254, #fbe69e, #d4b254);
-            color: #021a0e;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: var(--transition-speed);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(212, 178, 84, 0.4); }
-
-        /* --- ADMIN MODAL --- */
+        /* --- ADMIN PANEL --- */
         .admin-modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;
+            background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center;
         }
-        .admin-content {
+        .admin-wrapper {
             background: var(--bg-center); border: 2px solid var(--gold-primary);
-            padding: 30px; border-radius: 15px; width: 90%; max-width: 600px;
-            max-height: 90vh; overflow-y: auto;
+            border-radius: 15px; width: 95%; max-width: 800px;
+            max-height: 90vh; display: flex; flex-direction: column; overflow: hidden;
         }
-        .admin-content input, .admin-content textarea {
-            width: 100%; padding: 10px; margin-bottom: 15px; background: rgba(0,0,0,0.2);
-            border: 1px solid var(--gold-primary); color: white;
+        .admin-header {
+            padding: 20px; background: var(--bg-edge); border-bottom: 1px solid var(--gold-primary);
+            display: flex; justify-content: space-between; align-items: center;
         }
+        .admin-tabs { display: flex; background: rgba(0,0,0,0.2); }
+        .admin-tab {
+            padding: 15px 20px; cursor: pointer; color: white; font-weight: bold;
+            border-right: 1px solid var(--gold-primary); border-bottom: 2px solid transparent;
+        }
+        .admin-tab.active { border-bottom: 2px solid var(--accent-orange); color: var(--accent-orange); }
+        .admin-body { padding: 30px; overflow-y: auto; flex: 1; }
+        
+        .admin-group { margin-bottom: 20px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; border: 1px solid rgba(212,178,84,0.3); }
+        .admin-group label { display: block; color: var(--gold-light); margin-bottom: 5px; font-weight: bold; }
+        .admin-group input, .admin-group textarea {
+            width: 100%; padding: 12px; background: rgba(255,255,255,0.05);
+            border: 1px solid var(--gold-primary); color: white; border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, #d4b254, #fbe69e, #d4b254); color: #021a0e;
+            padding: 12px 30px; border: none; border-radius: 30px; font-size: 1rem; font-weight: 700;
+            cursor: pointer; text-transform: uppercase; transition: var(--transition-speed);
+        }
+        .btn-red { background: #e74c3c; color: white; padding: 12px 30px; border: none; border-radius: 30px; cursor: pointer; font-weight: bold;}
 
-        footer {
-            border-top: 1px solid rgba(212, 178, 84, 0.3);
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--bg-edge);
-        }
-
+        /* Animations */
         .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
@@ -386,13 +338,9 @@
         
         <img src="logo.png" alt="AnnAamrit Logo" class="main-logo-icon fade-in" onerror="this.style.display='none'">
         
-        <h1 class="brand-title royal-font fade-in">AnnAamrit</h1>
-        <h2 class="hero-tagline-hindi hindi-font fade-in">भारत की रसोई...</h2>
-        <p class="hero-tagline-eng royal-font fade-in">Har Nivala Ek Aashirvaad</p>
-        
-        <div class="quote-box fade-in">
-            <p class="quote-text hindi-font">“जहाँ स्वाद भी संस्कार है, और हर निवाला आशीर्वाद है।”</p>
-        </div>
+        <h1 class="brand-title royal-font fade-in" id="display-heroTitle">AnnAamrit</h1>
+        <h2 class="hero-tagline-hindi hindi-font fade-in" id="display-heroHindi">भारत की रसोई...</h2>
+        <p class="royal-font fade-in" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 20px;" id="display-heroSub">Har Nivala Ek Aashirvaad</p>
 
         <div class="trust-grid hindi-font fade-in">
             <div class="trust-card"><i class="fas fa-briefcase"></i><span>लंच बॉक्स स्पेशलिस्ट</span></div>
@@ -407,14 +355,13 @@
         <div class="section-header fade-in">
             <h2 class="royal-font">Our Brand Story</h2>
         </div>
-        <div class="story-container fade-in">
-            <p><strong>AnnAamrit</strong> was born from a very simple yet profound realization: the deep yearning for home and purity. In a fast-paced world where food has become a transactional commodity, we realized that people—students building their futures and professionals driving the economy—were starved not just of nutrition, but of the emotional comfort of <em>'Ghar Ka Khana'</em>.</p>
-            <p>Our kitchen strictly adheres to traditional, <strong>100% Pure Vegetarian</strong> and organic-style cooking methods. We prepare every meal as if it is being served to our own family, ensuring that our food acts as medicine, nourishment, and a blessing. We are not just building a cloud kitchen; we are building a legacy of trust, aiming to be the gold standard in daily dining.</p>
+        <div class="content-container fade-in">
+            <p id="display-aboutText">AnnAamrit was born from a simple yet profound realization: the deep yearning for home and purity. In a fast-paced world, students and professionals are starved not just of nutrition, but of the emotional comfort of 'Ghar Ka Khana'. Our kitchen strictly adheres to traditional, 100% Pure Vegetarian and organic-style cooking methods. We prepare every meal as if it is being served to our own family, ensuring that our food acts as medicine, nourishment, and a blessing.</p>
             <p class="hindi-font" style="font-size: 1.3rem; margin-top: 30px; color: var(--gold-light);">“हम भोजन नहीं, माँ का प्यार परोसते हैं।”</p>
         </div>
     </section>
 
-    <!-- DYNAMIC MENU SECTION WITH IMAGES -->
+    <!-- DYNAMIC MENU SECTION WITH EXACT FOOD IMAGES -->
     <section class="section" id="menu">
         <div class="section-header fade-in">
             <h2 class="royal-font">Premium Menu Plans</h2>
@@ -423,9 +370,11 @@
             🚫🧅 Onion-Garlic Free (Satvik) Available | 🍬 Sugar Free Available
         </p>
         
-        <!-- Menu Grid injected by JavaScript -->
         <div class="menu-grid hindi-font" id="menuGridContainer"></div>
     </section>
+
+    <!-- DYNAMIC CUSTOM SECTIONS (Added by Admin) -->
+    <div id="dynamicSectionsContainer"></div>
 
     <!-- CONTACT INFORMATION -->
     <section class="section" id="contact">
@@ -435,144 +384,75 @@
         <div class="contact-wrapper fade-in">
             <div class="contact-card">
                 <i class="fab fa-whatsapp"></i>
-                <h3>WhatsApp Us</h3>
-                <a href="https://wa.me/919128965956" target="_blank">+91 9128965956</a>
+                <h3>WhatsApp</h3>
+                <a href="#" id="display-whatsappLink" target="_blank" id="display-whatsapp">+91 9128965956</a>
             </div>
             <div class="contact-card">
                 <i class="fas fa-map-marker-alt"></i>
-                <h3>Office Address</h3>
-                <p>Behind PnB, M G Nagar, Kanji Factory Road, Kankarbagh, Patna</p>
+                <h3>Office</h3>
+                <p id="display-address">Behind PnB, M G Nagar, Kanji Factory Road, Kankarbagh, Patna</p>
             </div>
             <div class="contact-card">
                 <i class="fas fa-hashtag"></i>
                 <h3>Social Media</h3>
-                <a href="https://instagram.com/ann_aamrit" target="_blank" style="display:block; margin-bottom: 5px;"><i class="fab fa-instagram" style="font-size: 1.2rem; margin:0 5px 0 0;"></i> ann_aamrit</a>
-                <a href="https://facebook.com/AnnAamrit" target="_blank"><i class="fab fa-facebook-f" style="font-size: 1.2rem; margin:0 5px 0 0;"></i> AnnAamrit</a>
+                <a href="#" id="display-instaLink" target="_blank" style="display:block; margin-bottom: 5px;"><i class="fab fa-instagram" style="margin-right:5px;"></i> <span id="display-insta">ann_aamrit</span></a>
+                <a href="#" id="display-fbLink" target="_blank"><i class="fab fa-facebook-f" style="margin-right:5px;"></i> <span id="display-fb">AnnAamrit</span></a>
             </div>
         </div>
     </section>
 
-    <!-- ADMIN UPDATE MODAL (Frontend Simulation) -->
+    <!-- ADMIN CMS MODAL -->
     <div class="admin-modal" id="adminModal">
-        <div class="admin-content">
-            <h2 class="royal-font" style="color: var(--gold-primary); margin-bottom: 20px;">Admin: Update Menu</h2>
-            <select id="editDaySelect" onchange="loadDayDataForEdit()">
-                <option value="0">Monday</option>
-                <option value="1">Tuesday</option>
-                <option value="2">Wednesday</option>
-                <option value="3">Thursday</option>
-                <option value="4">Friday</option>
-                <option value="5">Saturday</option>
-                <option value="6">Sunday</option>
-            </select>
-            <label>Image URL:</label>
-            <input type="text" id="editImage">
-            <label>Lunch Menu:</label>
-            <textarea id="editLunch" rows="3"></textarea>
-            <label>Dinner Menu:</label>
-            <textarea id="editDinner" rows="3"></textarea>
+        <div class="admin-wrapper">
+            <div class="admin-header">
+                <h2 class="royal-font" style="color: var(--gold-primary); margin:0;">Admin Dashboard</h2>
+                <button onclick="closeAdmin()" style="background: transparent; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 5px; cursor:pointer;">Close</button>
+            </div>
+            <div class="admin-tabs">
+                <div class="admin-tab active" onclick="switchTab('tab-general')">General Info</div>
+                <div class="admin-tab" onclick="switchTab('tab-menu')">Manage Menu</div>
+                <div class="admin-tab" onclick="switchTab('tab-sections')">Custom Sections</div>
+            </div>
             
-            <button class="btn-gold" onclick="saveMenuUpdate()" style="padding: 10px 20px; font-size: 1rem;">Save Changes</button>
-            <button onclick="closeAdmin()" style="padding: 10px; margin-left: 10px; background: transparent; color: white; border: 1px solid white; cursor: pointer;">Close</button>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <img src="logo.png" alt="Icon" height="60" onerror="this.style.display='none'">
-        <h3 class="royal-font" style="color: var(--gold-primary); font-size: 2.5rem; margin: 10px 0;">AnnAamrit</h3>
-        <p class="hindi-font" style="color: var(--text-cream); opacity: 0.8;">शुद्धता और परिष्कार की गारंटी</p>
-        <p style="opacity: 0.4; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 AnnAamrit. All rights reserved. | <a href="#" onclick="openAdminPrompt()" style="color: gray; text-decoration: none;">Admin Login</a></p>
-    </footer>
-
-    <!-- SCRIPTS -->
-    <script>
-        // 1. Default Menu Data (Will use LocalStorage if Admin updates it)
-        const defaultMenu = [
-            { day: "MONDAY", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=600", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
-            { day: "TUESDAY", img: "https://images.unsplash.com/photo-1626779844431-15a133b3a726?q=80&w=600", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "खीर + 4-चना दाल पराठा + चना छोला + सलाद" },
-            { day: "WEDNESDAY", img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600", lunch: "पुलाव + 2-रोटी + चना दाल तड़का + कढ़ी पकोड़ा + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (फ्राइड) + खीर + सलाद" },
-            { day: "THURSDAY", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600", lunch: "बेसन कढ़ी पकोड़ा + चावल + 2-रोटी + हरी सब्जियाँ पकोड़ा + सलाद", dinner: "खीर + 8-पूरी / 6-रोटी + हरी सब्जियाँ (कढ़ी) + सलाद" },
-            { day: "FRIDAY", img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=600", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
-            { day: "SATURDAY", img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600", lunch: "वेज खिचड़ी (देसी घी) + चोखा + अचार/दही + पापड़-चिप्स + सलाद", dinner: "4-सत्तू पराठा / 6-रोटी + बैगन चोखा + चना छोला + सलाद" },
-            { day: "SUNDAY", img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc0?q=80&w=600", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "6-रोटी + मटर पनीर + हरी सब्जियाँ + सलाद" }
-        ];
-
-        let currentMenu = JSON.parse(localStorage.getItem("annAamritMenu")) || defaultMenu;
-
-        // 2. Render Menu UI
-        function renderMenu() {
-            const container = document.getElementById("menuGridContainer");
-            container.innerHTML = "";
-            currentMenu.forEach((item, index) => {
-                container.innerHTML += `
-                    <div class="menu-card fade-in">
-                        <img src="${item.img}" alt="${item.day} Menu" class="menu-image">
-                        <div class="menu-content">
-                            <div class="menu-day royal-font">${item.day}</div>
-                            <div class="meal-time"><i class="fas fa-sun"></i> LUNCH</div>
-                            <div class="meal-desc">${item.lunch}</div>
-                            <div class="meal-time" style="margin-top: 15px;"><i class="fas fa-moon"></i> DINNER</div>
-                            <div class="meal-desc">${item.dinner}</div>
-                        </div>
+            <div class="admin-body">
+                <!-- TAB 1: GENERAL INFO -->
+                <div id="tab-general">
+                    <div class="admin-group">
+                        <label>Brand Name (Hero)</label>
+                        <input type="text" id="input-heroTitle">
                     </div>
-                `;
-            });
-            // Re-trigger animations for newly added elements
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        }
+                    <div class="admin-group">
+                        <label>Hindi Tagline</label>
+                        <input type="text" id="input-heroHindi">
+                    </div>
+                    <div class="admin-group">
+                        <label>Sub Tagline</label>
+                        <input type="text" id="input-heroSub">
+                    </div>
+                    <div class="admin-group">
+                        <label>About Story</label>
+                        <textarea id="input-aboutText" rows="4"></textarea>
+                    </div>
+                    <div class="admin-group">
+                        <label>WhatsApp Number (e.g. 9128965956)</label>
+                        <input type="text" id="input-whatsapp">
+                    </div>
+                    <div class="admin-group">
+                        <label>Instagram ID</label>
+                        <input type="text" id="input-insta">
+                    </div>
+                    <div class="admin-group">
+                        <label>Facebook ID</label>
+                        <input type="text" id="input-fb">
+                    </div>
+                    <div class="admin-group">
+                        <label>Full Address</label>
+                        <textarea id="input-address" rows="2"></textarea>
+                    </div>
+                    <button class="btn-gold" onclick="saveGeneralInfo()">Save General Info</button>
+                </div>
 
-        // 3. Admin Functionality (Frontend Simulation)
-        function openAdminPrompt() {
-            const password = prompt("Enter Admin Password (Hint: admin123):");
-            if(password === "admin123") {
-                document.getElementById("adminModal").style.display = "flex";
-                loadDayDataForEdit();
-            } else if (password !== null) {
-                alert("Incorrect Password!");
-            }
-        }
-
-        function closeAdmin() {
-            document.getElementById("adminModal").style.display = "none";
-        }
-
-        function loadDayDataForEdit() {
-            const index = document.getElementById("editDaySelect").value;
-            const data = currentMenu[index];
-            document.getElementById("editImage").value = data.img;
-            document.getElementById("editLunch").value = data.lunch;
-            document.getElementById("editDinner").value = data.dinner;
-        }
-
-        function saveMenuUpdate() {
-            const index = document.getElementById("editDaySelect").value;
-            currentMenu[index].img = document.getElementById("editImage").value;
-            currentMenu[index].lunch = document.getElementById("editLunch").value;
-            currentMenu[index].dinner = document.getElementById("editDinner").value;
-            
-            // Save locally
-            localStorage.setItem("annAamritMenu", JSON.stringify(currentMenu));
-            alert("Menu Updated Successfully!");
-            renderMenu();
-        }
-
-        // 4. UI Listeners
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        
-        // Initialize
-        renderMenu();
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
-</body>
-</html>
+                <!-- TAB 2: MANAGE MENU -->
+                <div id="tab-menu" style="display:none;">
+                    <div class="admin-group" style="border-color: var(--pure-veg-green);">
+                        <h3 style="color: var(--pure-veg-green); margin-bott
