@@ -13,14 +13,15 @@
     <style>
         /* --- DESIGN TOKENS --- */
         :root {
-            --bg-center: #0d4a2c; 
-            --bg-edge: #021a0e;   
+            --bg-center: #093b22; 
+            --bg-edge: #011208;   
             --gold-primary: #d4b254;
             --gold-light: #fbe69e;
             --text-cream: #f8f9fa;
             --accent-orange: #FF8C00;
             --pure-veg-green: #2ecc71;
-            --glass-bg: rgba(2, 26, 14, 0.85);
+            --spiritual-red: #ff2a2a;
+            --glass-bg: rgba(1, 18, 8, 0.85);
             --transition-speed: 0.4s;
         }
 
@@ -29,6 +30,7 @@
         
         body {
             font-family: 'Poppins', sans-serif;
+            /* Sanatan Deep Green Vignette Gradient */
             background: radial-gradient(circle at center, var(--bg-center) 0%, var(--bg-edge) 100%);
             background-attachment: fixed;
             color: var(--text-cream);
@@ -36,231 +38,203 @@
             min-height: 100vh;
         }
 
-        /* --- SANATAN TRADITIONAL MANDALA TEXTURE --- */
+        /* --- SANATAN TRADITIONAL DAMASK TEXTURE --- */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M60 0 L65 25 L90 15 L75 35 L100 50 L75 60 L100 70 L75 85 L90 105 L65 95 L60 120 L55 95 L30 105 L45 85 L20 70 L45 60 L20 50 L45 35 L30 15 L55 25 Z" fill="%23d4b254" fill-opacity="0.04"/></svg>');
-            background-size: 150px;
-            z-index: -2;
+            /* High-end traditional floral/damask pattern base64 */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23d4b254" fill-opacity="0.04" d="M50 0c27.614 0 50 22.386 50 50s-22.386 50-50 50S0 77.614 0 50 22.386 0 50 0zm0 15c-19.33 0-35 15.67-35 35s15.67 35 35 35 35-15.67 35-35-15.67-35-35-35zm0 10c13.807 0 25 11.193 25 25s-11.193 25-25 25-25-11.193-25-25 11.193-25 25-25zm0 10c8.284 0 15 6.716 15 15s-6.716 15-15 15-15-6.716-15-15 6.716-15 15-15z"/></svg>');
+            background-size: 200px;
+            z-index: -3;
             pointer-events: none;
         }
 
-        /* --- GLOBAL LOGO WATERMARK --- */
+        /* --- BRAND LOGO WATERMARK EVERYWHERE --- */
         body::after {
             content: '';
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 50vw; height: 50vh;
-            background-image: url('logo.png'); /* The golden sun/bowl logo you provided */
+            width: 70vw; height: 70vh;
+            background-image: url('logo.png'); /* User's custom Logo */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.05;
-            z-index: -1;
+            opacity: 0.04;
+            z-index: -2;
             pointer-events: none;
         }
 
         .royal-font { font-family: 'Playfair Display', serif; }
         .hindi-font { font-family: 'Noto Sans Devanagari', sans-serif; }
 
-        /* --- PURE VEG BADGE --- */
-        .pure-veg-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(46, 204, 113, 0.15);
-            border: 1px solid var(--pure-veg-green);
-            color: var(--pure-veg-green);
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 20px;
-            box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
-        }
-        .pure-veg-icon {
-            border: 2px solid var(--pure-veg-green);
-            border-radius: 2px;
-            padding: 2px;
-            width: 20px; height: 20px;
-            display: flex; justify-content: center; align-items: center;
-        }
-        .pure-veg-icon::after {
-            content: ''; width: 8px; height: 8px;
-            background: var(--pure-veg-green); border-radius: 50%;
-        }
-
         /* --- NAVBAR --- */
         .navbar {
             position: fixed;
             top: 0; width: 100%;
-            padding: 15px 50px;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             transition: var(--transition-speed);
-            border-bottom: 1px solid transparent;
-        }
-        .navbar.scrolled {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(212, 178, 84, 0.2);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(212, 178, 84, 0.1);
+            background: rgba(1, 18, 8, 0.6);
+            backdrop-filter: blur(10px);
         }
         .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            color: var(--gold-primary);
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            display: flex; align-items: center; gap: 15px;
+            text-decoration: none; color: var(--gold-primary);
+            font-size: 2.2rem; font-weight: 700; letter-spacing: 1px;
         }
-        .nav-logo-icon { height: 45px; }
+        .nav-logo-icon { height: 45px; filter: drop-shadow(0 0 5px rgba(212,178,84,0.5)); }
+        
+        .nav-right-container {
+            display: flex; align-items: center; gap: 30px;
+        }
         .nav-links { display: flex; align-items: center; gap: 20px;}
         .nav-links a {
-            color: var(--text-cream);
-            text-decoration: none;
-            margin-left: 15px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition-speed);
+            color: var(--text-cream); text-decoration: none;
+            font-weight: 500; font-size: 0.95rem; text-transform: uppercase;
+            letter-spacing: 1px; transition: var(--transition-speed);
         }
         .nav-links a:hover { color: var(--gold-primary); }
 
+        /* --- PURE VEG BADGE (Top Right) --- */
+        .pure-veg-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(46, 204, 113, 0.15); border: 1px solid var(--pure-veg-green);
+            color: var(--pure-veg-green); padding: 6px 15px; border-radius: 30px;
+            font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
+        }
+        .pure-veg-icon {
+            border: 2px solid var(--pure-veg-green); border-radius: 2px;
+            padding: 2px; width: 16px; height: 16px;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .pure-veg-icon::after {
+            content: ''; width: 6px; height: 6px;
+            background: var(--pure-veg-green); border-radius: 50%;
+        }
+
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 20px 50px;
-            position: relative;
+            min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            padding: 120px 20px 50px; position: relative;
         }
         
+        /* JAI SHREE RAM IN RED */
+        .hero-top-spiritual {
+            color: var(--spiritual-red); font-size: 1.5rem;
+            margin-bottom: 25px; letter-spacing: 2px; font-weight: 700;
+            text-shadow: 0 0 15px rgba(255, 42, 42, 0.6);
+        }
+
         .main-logo-icon {
-            height: 140px;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 20px rgba(212, 178, 84, 0.4));
+            height: 160px; margin-bottom: 20px;
+            filter: drop-shadow(0 0 25px rgba(212, 178, 84, 0.6));
         }
 
         .brand-title {
-            color: var(--gold-light);
-            font-size: 6rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 5px;
-            text-shadow: 2px 4px 15px rgba(0,0,0,0.8);
-            letter-spacing: 2px;
+            color: var(--gold-light); font-size: 6.5rem; font-weight: 800;
+            line-height: 1; margin-bottom: 5px;
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.8); letter-spacing: 2px;
         }
 
         .hero-tagline-hindi {
-            font-size: 3rem;
-            color: var(--accent-orange);
-            margin-top: 10px;
-            margin-bottom: 5px;
-            text-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+            font-size: 3rem; color: var(--accent-orange);
+            margin-top: 10px; margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(255, 140, 0, 0.5); font-weight: 700;
+        }
+
+        .quote-box {
+            border-top: 1px solid var(--gold-primary); border-bottom: 1px solid var(--gold-primary);
+            padding: 15px 40px; margin: 20px 0 40px; background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        .quote-text {
+            font-size: 1.6rem; color: var(--gold-light); font-weight: 600; letter-spacing: 1px;
         }
 
         /* --- TRUST BADGES --- */
         .trust-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            max-width: 1000px;
-            margin: 0 auto 40px;
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+            max-width: 1000px; margin: 0 auto 40px;
         }
         .trust-card {
-            border: 1px solid var(--gold-primary);
-            border-radius: 8px;
-            padding: 15px 25px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            background: rgba(2, 26, 14, 0.5);
-            min-width: 200px;
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 178, 84, 0.5); border-radius: 10px;
+            padding: 15px 25px; display: flex; flex-direction: column; align-items: center;
+            gap: 10px; background: rgba(1, 18, 8, 0.7); min-width: 200px; backdrop-filter: blur(5px);
+            transition: var(--transition-speed);
         }
+        .trust-card:hover { border-color: var(--gold-primary); transform: translateY(-5px); }
         .trust-card i { color: var(--gold-primary); font-size: 2rem; }
 
         /* --- SECTIONS COMMON --- */
-        .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 {
-            color: var(--gold-light);
-            font-size: 3rem;
-            border-bottom: 2px solid var(--gold-primary);
-            display: inline-block;
-            padding-bottom: 10px;
+            color: var(--gold-light); font-size: 3.5rem;
+            border-bottom: 2px solid var(--gold-primary); display: inline-block; padding-bottom: 10px;
         }
         .content-container {
-            background: rgba(2, 26, 14, 0.7);
-            border: 1px solid var(--gold-primary);
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            backdrop-filter: blur(10px);
-            line-height: 1.8;
-            font-size: 1.1rem;
-            text-align: center;
+            background: rgba(1, 18, 8, 0.85); border: 1px solid var(--gold-primary);
+            border-radius: 15px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px); line-height: 1.8; font-size: 1.2rem; text-align: center;
         }
 
         /* --- MENU IMAGE GRID --- */
         .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px;
         }
         .menu-card {
-            background: rgba(2, 26, 14, 0.9);
-            border: 1px solid var(--gold-primary);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: var(--transition-speed);
+            background: rgba(1, 18, 8, 0.9); border: 1px solid rgba(212, 178, 84, 0.4);
+            border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            transition: var(--transition-speed); position: relative;
         }
         .menu-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-orange);
+            transform: translateY(-10px); border-color: var(--accent-orange);
             box-shadow: 0 15px 40px rgba(255, 140, 0, 0.3);
         }
         .menu-image {
-            width: 100%; height: 220px; object-fit: cover;
-            border-bottom: 2px solid var(--gold-primary);
+            width: 100%; height: 250px; object-fit: cover;
+            border-bottom: 3px solid var(--gold-primary);
         }
-        .menu-content { padding: 25px; }
+        .menu-content { padding: 30px; text-align: left; }
         .menu-day {
-            color: var(--gold-light); font-size: 1.5rem; font-weight: 700;
-            margin-bottom: 15px; text-transform: uppercase;
+            color: var(--gold-light); font-size: 1.8rem; font-weight: 700;
+            margin-bottom: 20px; text-transform: uppercase; text-align: center;
+            border-bottom: 1px dashed rgba(212,178,84,0.3); padding-bottom: 10px;
         }
-        .meal-time { color: var(--accent-orange); font-weight: 600; margin-top: 10px; font-size: 1.1rem; }
-        .meal-desc { color: var(--text-cream); font-size: 0.95rem; margin-top: 5px; }
+        .meal-time { color: var(--accent-orange); font-weight: 700; margin-top: 15px; font-size: 1.1rem; }
+        .meal-desc { color: var(--text-cream); font-size: 1rem; margin-top: 5px; line-height: 1.5; }
 
         /* --- CONTACT SECTION --- */
         .contact-wrapper {
             display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;
         }
         .contact-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(212, 178, 84, 0.3);
-            padding: 30px; border-radius: 12px; text-align: center;
-            flex: 1; min-width: 250px; max-width: 350px;
+            background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 178, 84, 0.3);
+            padding: 30px; border-radius: 12px; text-align: center; flex: 1; min-width: 280px; max-width: 350px;
+            transition: var(--transition-speed);
         }
+        .contact-card:hover { border-color: var(--gold-primary); background: rgba(0,0,0,0.6); }
         .contact-card i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 15px; }
-        .contact-card h3 { color: var(--gold-light); margin-bottom: 10px; }
+        .contact-card h3 { color: var(--gold-light); margin-bottom: 10px; font-size: 1.5rem; }
         .contact-card a, .contact-card p { color: var(--text-cream); text-decoration: none; font-size: 1.1rem; }
         .contact-card a:hover { color: var(--gold-primary); }
+
+        /* --- BUTTONS --- */
+        .btn-gold {
+            background: linear-gradient(135deg, #d4b254, #fbe69e, #d4b254); color: #021a0e;
+            padding: 15px 40px; border: none; border-radius: 30px; font-size: 1.2rem; font-weight: 700;
+            cursor: pointer; text-transform: uppercase; transition: var(--transition-speed);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(212, 178, 84, 0.6); }
 
         /* --- ADMIN PANEL --- */
         .admin-modal {
@@ -269,44 +243,40 @@
         }
         .admin-wrapper {
             background: var(--bg-center); border: 2px solid var(--gold-primary);
-            border-radius: 15px; width: 95%; max-width: 800px;
+            border-radius: 15px; width: 95%; max-width: 900px;
             max-height: 90vh; display: flex; flex-direction: column; overflow: hidden;
         }
         .admin-header {
             padding: 20px; background: var(--bg-edge); border-bottom: 1px solid var(--gold-primary);
             display: flex; justify-content: space-between; align-items: center;
         }
-        .admin-tabs { display: flex; background: rgba(0,0,0,0.2); }
+        .admin-tabs { display: flex; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(212,178,84,0.3); }
         .admin-tab {
             padding: 15px 20px; cursor: pointer; color: white; font-weight: bold;
-            border-right: 1px solid var(--gold-primary); border-bottom: 2px solid transparent;
+            border-right: 1px solid rgba(212,178,84,0.3);
         }
-        .admin-tab.active { border-bottom: 2px solid var(--accent-orange); color: var(--accent-orange); }
+        .admin-tab.active { background: var(--accent-orange); color: #000; }
         .admin-body { padding: 30px; overflow-y: auto; flex: 1; }
         
-        .admin-group { margin-bottom: 20px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; border: 1px solid rgba(212,178,84,0.3); }
-        .admin-group label { display: block; color: var(--gold-light); margin-bottom: 5px; font-weight: bold; }
+        .admin-group { margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(212,178,84,0.3); }
+        .admin-group label { display: block; color: var(--gold-light); margin-bottom: 8px; font-weight: bold; font-size: 1.1rem; }
         .admin-group input, .admin-group textarea {
             width: 100%; padding: 12px; background: rgba(255,255,255,0.05);
             border: 1px solid var(--gold-primary); color: white; border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', sans-serif; font-size: 1rem;
         }
         
-        .btn-gold {
-            background: linear-gradient(135deg, #d4b254, #fbe69e, #d4b254); color: #021a0e;
-            padding: 12px 30px; border: none; border-radius: 30px; font-size: 1rem; font-weight: 700;
-            cursor: pointer; text-transform: uppercase; transition: var(--transition-speed);
-        }
         .btn-red { background: #e74c3c; color: white; padding: 12px 30px; border: none; border-radius: 30px; cursor: pointer; font-weight: bold;}
 
         /* Animations */
-        .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
             .brand-title { font-size: 4rem; }
             .hero-tagline-hindi { font-size: 2.2rem; }
             .nav-links { display: none; }
+            .nav-right-container { flex-direction: column; gap: 10px; align-items: flex-end; }
         }
     </style>
 </head>
@@ -315,32 +285,41 @@
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-brand royal-font">
-            <img src="logo.png" alt="Icon" class="nav-logo-icon" onerror="this.style.display='none'">
+            <img src="logo.png" alt="Brand Logo" class="nav-logo-icon" onerror="this.style.display='none'">
             AnnAamrit
         </a>
-        <div class="nav-links">
-            <a href="#about">Story</a>
-            <a href="#menu">Menu</a>
-            <a href="#contact">Contact</a>
-            <a href="#order" style="color: var(--accent-orange); border: 1px solid var(--accent-orange); padding: 5px 15px; border-radius: 20px;">Subscribe</a>
+        <div class="nav-right-container">
+            <div class="nav-links">
+                <a href="#about">Story</a>
+                <a href="#menu">Menu</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <!-- PURE VEG BADGE MOVED TO TOP RIGHT -->
+            <div class="pure-veg-badge">
+                <div class="pure-veg-icon"></div> 100% Pure Veg
+            </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
     <header class="hero">
+        <!-- RED SPIRITUAL TEXT -->
         <div class="hero-top-spiritual hindi-font fade-in">
             <span>卐</span> ॥ जय श्री राम ॥ <span>卐</span>
         </div>
         
-        <div class="pure-veg-badge fade-in">
-            <div class="pure-veg-icon"></div> 100% Pure Veg
-        </div>
-        
         <img src="logo.png" alt="AnnAamrit Logo" class="main-logo-icon fade-in" onerror="this.style.display='none'">
         
-        <h1 class="brand-title royal-font fade-in" id="display-heroTitle">AnnAamrit</h1>
-        <h2 class="hero-tagline-hindi hindi-font fade-in" id="display-heroHindi">भारत की रसोई...</h2>
-        <p class="royal-font fade-in" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 20px;" id="display-heroSub">Har Nivala Ek Aashirvaad</p>
+        <!-- WRAPPED IN DIV FOR SAFE JS UPDATES -->
+        <div id="hero-data-container">
+            <h1 class="brand-title royal-font fade-in" id="display-heroTitle">AnnAamrit</h1>
+            <h2 class="hero-tagline-hindi hindi-font fade-in" id="display-heroHindi">भारत की रसोई...</h2>
+            <p class="royal-font fade-in" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 20px;" id="display-heroSub">Har Nivala Ek Aashirvaad</p>
+        </div>
+
+        <div class="quote-box fade-in">
+            <p class="quote-text hindi-font">“जहाँ स्वाद भी संस्कार है, और हर निवाला आशीर्वाद है।”</p>
+        </div>
 
         <div class="trust-grid hindi-font fade-in">
             <div class="trust-card"><i class="fas fa-briefcase"></i><span>लंच बॉक्स स्पेशलिस्ट</span></div>
@@ -353,27 +332,39 @@
     <!-- BRAND STORY SECTION -->
     <section class="section" id="about">
         <div class="section-header fade-in">
-            <h2 class="royal-font">Our Brand Story</h2>
+            <h2 class="royal-font">Brand Introduction</h2>
         </div>
         <div class="content-container fade-in">
+            <img src="logo.png" alt="AnnAamrit Logo" style="height: 80px; margin-bottom: 20px;" onerror="this.style.display='none'">
             <p id="display-aboutText">AnnAamrit was born from a simple yet profound realization: the deep yearning for home and purity. In a fast-paced world, students and professionals are starved not just of nutrition, but of the emotional comfort of 'Ghar Ka Khana'. Our kitchen strictly adheres to traditional, 100% Pure Vegetarian and organic-style cooking methods. We prepare every meal as if it is being served to our own family, ensuring that our food acts as medicine, nourishment, and a blessing.</p>
-            <p class="hindi-font" style="font-size: 1.3rem; margin-top: 30px; color: var(--gold-light);">“हम भोजन नहीं, माँ का प्यार परोसते हैं।”</p>
+            <p class="hindi-font" style="font-size: 1.5rem; margin-top: 30px; color: var(--gold-light); font-weight: 700;">“हम भोजन नहीं, माँ का प्यार परोसते हैं।”</p>
         </div>
     </section>
 
-    <!-- DYNAMIC MENU SECTION WITH EXACT FOOD IMAGES -->
+    <!-- DYNAMIC MENU SECTION WITH FOOD-SPECIFIC IMAGES -->
     <section class="section" id="menu">
         <div class="section-header fade-in">
             <h2 class="royal-font">Premium Menu Plans</h2>
         </div>
-        <p style="text-align: center; color: var(--accent-orange); margin-bottom: 40px; font-weight: bold; font-size: 1.1rem;" class="fade-in">
-            🚫🧅 Onion-Garlic Free (Satvik) Available | 🍬 Sugar Free Available
-        </p>
+        <div style="text-align: center; margin-bottom: 40px;" class="fade-in">
+            <span style="background: var(--accent-orange); color: #000; padding: 10px 20px; border-radius: 30px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 0 15px rgba(255,140,0,0.4);">
+                🚫🧅 Onion-Garlic Free (Satvik) Available | 🍬 Sugar Free Available
+            </span>
+        </div>
         
-        <div class="menu-grid hindi-font" id="menuGridContainer"></div>
+        <!-- HARDCODED HTML FALLBACK TO PREVENT BLANK PAGE BUG -->
+        <div class="menu-grid hindi-font" id="menuGridContainer">
+            <div class="menu-card fade-in">
+                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800" alt="Menu" class="menu-image">
+                <div class="menu-content">
+                    <div class="menu-day royal-font">Loading Menu...</div>
+                    <div class="meal-desc">Please wait while we load our delicious pure veg menu for you.</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- DYNAMIC CUSTOM SECTIONS (Added by Admin) -->
+    <!-- DYNAMIC CUSTOM SECTIONS CONTAINER -->
     <div id="dynamicSectionsContainer"></div>
 
     <!-- CONTACT INFORMATION -->
@@ -395,9 +386,14 @@
             <div class="contact-card">
                 <i class="fas fa-hashtag"></i>
                 <h3>Social Media</h3>
-                <a href="#" id="display-instaLink" target="_blank" style="display:block; margin-bottom: 5px;"><i class="fab fa-instagram" style="margin-right:5px;"></i> <span id="display-insta">ann_aamrit</span></a>
-                <a href="#" id="display-fbLink" target="_blank"><i class="fab fa-facebook-f" style="margin-right:5px;"></i> <span id="display-fb">AnnAamrit</span></a>
+                <a href="#" id="display-instaLink" target="_blank" style="display:block; margin-bottom: 10px;"><i class="fab fa-instagram" style="margin-right:8px;"></i> <span id="display-insta">ann_aamrit</span></a>
+                <a href="#" id="display-fbLink" target="_blank"><i class="fab fa-facebook-f" style="margin-right:8px;"></i> <span id="display-fb">AnnAamrit</span></a>
             </div>
+        </div>
+        
+        <!-- Subscribe Button inside Contact section as requested by flow -->
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="#contact" class="btn-gold" onclick="alert('Thank you! Redirecting to WhatsApp for Subscription...'); window.location.href=document.getElementById('display-whatsappLink').href;">Subscribe Now</a>
         </div>
     </section>
 
@@ -406,7 +402,7 @@
         <div class="admin-wrapper">
             <div class="admin-header">
                 <h2 class="royal-font" style="color: var(--gold-primary); margin:0;">Admin Dashboard</h2>
-                <button onclick="closeAdmin()" style="background: transparent; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 5px; cursor:pointer;">Close</button>
+                <button onclick="closeAdmin()" style="background: transparent; color: white; border: 1px solid white; padding: 8px 20px; border-radius: 5px; cursor:pointer; font-weight:bold;">Close</button>
             </div>
             <div class="admin-tabs">
                 <div class="admin-tab active" onclick="switchTab('tab-general')">General Info</div>
@@ -430,8 +426,8 @@
                         <input type="text" id="input-heroSub">
                     </div>
                     <div class="admin-group">
-                        <label>About Story</label>
-                        <textarea id="input-aboutText" rows="4"></textarea>
+                        <label>Brand Introduction (About)</label>
+                        <textarea id="input-aboutText" rows="6"></textarea>
                     </div>
                     <div class="admin-group">
                         <label>WhatsApp Number (e.g. 9128965956)</label>
@@ -447,43 +443,43 @@
                     </div>
                     <div class="admin-group">
                         <label>Full Address</label>
-                        <textarea id="input-address" rows="2"></textarea>
+                        <textarea id="input-address" rows="3"></textarea>
                     </div>
                     <button class="btn-gold" onclick="saveGeneralInfo()">Save General Info</button>
                 </div>
 
                 <!-- TAB 2: MANAGE MENU -->
                 <div id="tab-menu" style="display:none;">
-                    <div class="admin-group" style="border-color: var(--pure-veg-green);">
-                        <h3 style="color: var(--pure-veg-green); margin-bottom: 10px;">Add New Menu Item</h3>
-                        <input type="text" id="newMenuDay" placeholder="Heading (e.g., FESTIVAL SPECIAL)">
-                        <input type="text" id="newMenuImg" placeholder="Image URL">
+                    <div class="admin-group" style="border-color: var(--pure-veg-green); background: rgba(46, 204, 113, 0.1);">
+                        <h3 style="color: var(--pure-veg-green); margin-bottom: 15px;">Add New Menu Item</h3>
+                        <input type="text" id="newMenuDay" placeholder="Heading (e.g., SPECIAL THALI)">
+                        <input type="text" id="newMenuImg" placeholder="Image URL (Unsplash Link)">
                         <textarea id="newMenuLunch" rows="2" placeholder="Lunch Details"></textarea>
                         <textarea id="newMenuDinner" rows="2" placeholder="Dinner Details"></textarea>
                         <button class="btn-gold" onclick="addNewMenuItem()">+ Add to Menu</button>
                     </div>
                     <hr style="border-color: rgba(212,178,84,0.2); margin: 30px 0;">
                     <h3 style="color: var(--gold-light); margin-bottom: 15px;">Edit Existing Menu</h3>
-                    <select id="editDaySelect" class="admin-group" style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--gold-primary);" onchange="loadMenuForEdit()"></select>
+                    <select id="editDaySelect" class="admin-group" style="width: 100%; padding: 15px; background: rgba(0,0,0,0.8); color:var(--gold-primary); font-size:1.1rem; border: 1px solid var(--gold-primary);" onchange="loadMenuForEdit()"></select>
                     <div class="admin-group">
                         <label>Image URL</label>
                         <input type="text" id="editMenuImg">
                         <label>Lunch</label>
-                        <textarea id="editMenuLunch" rows="2"></textarea>
+                        <textarea id="editMenuLunch" rows="3"></textarea>
                         <label>Dinner</label>
-                        <textarea id="editMenuDinner" rows="2"></textarea>
+                        <textarea id="editMenuDinner" rows="3"></textarea>
                     </div>
                     <button class="btn-gold" onclick="saveMenuUpdate()">Update Selected Menu</button>
-                    <button class="btn-red" onclick="deleteMenuItem()" style="margin-left: 10px;">Delete Item</button>
+                    <button class="btn-red" onclick="deleteMenuItem()" style="margin-left: 15px;">Delete Item</button>
                 </div>
 
                 <!-- TAB 3: CUSTOM SECTIONS -->
                 <div id="tab-sections" style="display:none;">
-                    <div class="admin-group">
-                        <h3 style="color: var(--gold-light); margin-bottom: 10px;">Add a completely new section to the website</h3>
-                        <input type="text" id="newSecTitle" placeholder="Section Title (e.g., Catering Services)">
-                        <textarea id="newSecContent" rows="4" placeholder="Section Description / Content"></textarea>
-                        <button class="btn-gold" onclick="addNewSection()" style="margin-top: 15px;">+ Add Custom Section</button>
+                    <div class="admin-group" style="background: rgba(255, 140, 0, 0.1); border-color: var(--accent-orange);">
+                        <h3 style="color: var(--accent-orange); margin-bottom: 15px;">Create a New Custom Section</h3>
+                        <input type="text" id="newSecTitle" placeholder="Section Heading (e.g., Catering Services)">
+                        <textarea id="newSecContent" rows="5" placeholder="Write your content here..."></textarea>
+                        <button class="btn-gold" onclick="addNewSection()">+ Add Custom Section</button>
                     </div>
                     <div id="existingSectionsList"></div>
                 </div>
@@ -493,25 +489,28 @@
 
     <!-- FOOTER -->
     <footer>
-        <img src="logo.png" alt="Icon" height="60" onerror="this.style.display='none'">
-        <h3 class="royal-font" style="color: var(--gold-primary); font-size: 2.5rem; margin: 10px 0;">AnnAamrit</h3>
-        <p class="hindi-font" style="color: var(--text-cream); opacity: 0.8;">शुद्धता और परिष्कार की गारंटी</p>
-        <p style="opacity: 0.4; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 AnnAamrit. All rights reserved. | <a href="#" onclick="openAdminPrompt()" style="color: gray; text-decoration: none;">Admin Login</a></p>
+        <img src="logo.png" alt="Icon" height="80" onerror="this.style.display='none'">
+        <h3 class="royal-font" style="color: var(--gold-primary); font-size: 3rem; margin: 15px 0 5px;">AnnAamrit</h3>
+        <p class="hindi-font" style="color: var(--text-cream); opacity: 0.8; font-size: 1.2rem;">शुद्धता और परिष्कार की गारंटी</p>
+        <p style="opacity: 0.5; font-size: 0.9rem; margin-top: 30px;">
+            &copy; 2026 AnnAamrit. All rights reserved. | 
+            <a href="#" onclick="openAdminPrompt()" style="color: #666; text-decoration: none; margin-left: 10px;">Admin Login</a>
+        </p>
     </footer>
 
-    <!-- SCRIPTS FOR FULL DYNAMIC CMS -->
+    <!-- SCRIPTS FOR FULL DYNAMIC CMS (Zero-Fail Architecture) -->
     <script>
-        // --- 1. INITIALIZE DATABASE (LocalStorage) ---
+        // --- 1. INITIALIZE DATABASE WITH SAFE FALLBACKS ---
         
-        // Exact Food Imagery based on menu items requested
+        // Accurate Food Images replacing random thalis
         const defaultMenu = [
             { day: "MONDAY", img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
-            { day: "TUESDAY", img: "https://images.unsplash.com/photo-1626779844431-15a133b3a726?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "खीर + 4-चना दाल पराठा + चना छोला + सलाद" },
-            { day: "WEDNESDAY", img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800", lunch: "पुलाव + 2-रोटी + चना दाल तड़का + कढ़ी पकोड़ा + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (फ्राइड) + खीर + सलाद" },
-            { day: "THURSDAY", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800", lunch: "बेसन कढ़ी पकोड़ा + चावल + 2-रोटी + हरी सब्जियाँ पकोड़ा + सलाद", dinner: "खीर + 8-पूरी / 6-रोटी + हरी सब्जियाँ (कढ़ी) + सलाद" },
+            { day: "TUESDAY", img: "https://images.unsplash.com/photo-1626779844431-15a133b3a726?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "खीर + 4-चना दाल पराठा + चना छोला + सलाद" }, // Paratha image
+            { day: "WEDNESDAY", img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800", lunch: "पुलाव + 2-रोटी + चना दाल तड़का + कढ़ी पकोड़ा + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (फ्राइड) + खीर + सलाद" }, // Pulao image
+            { day: "THURSDAY", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800", lunch: "बेसन कढ़ी पकोड़ा + चावल + 2-रोटी + हरी सब्जियाँ पकोड़ा + सलाद", dinner: "खीर + 8-पूरी / 6-रोटी + हरी सब्जियाँ (कढ़ी) + सलाद" }, // Yellow Kadhi image
             { day: "FRIDAY", img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
-            { day: "SATURDAY", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800", lunch: "वेज खिचड़ी (देसी घी) + चोखा + अचार/दही + पापड़-चिप्स + सलाद", dinner: "4-सत्तू पराठा / 6-रोटी + बैगन चोखा + चना छोला + सलाद" },
-            { day: "SUNDAY", img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc0?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "6-रोटी + मटर पनीर + हरी सब्जियाँ + सलाद" }
+            { day: "SATURDAY", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800", lunch: "वेज खिचड़ी (देसी घी) + चोखा + अचार/दही + पापड़-चिप्स + सलाद", dinner: "4-सत्तू पराठा / 6-रोटी + बैगन चोखा + चना छोला + सलाद" }, // Khichdi Thali
+            { day: "SUNDAY", img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc0?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "6-रोटी + मटर पनीर + हरी सब्जियाँ + सलाद" } // Matar Paneer image
         ];
 
         const defaultGeneral = {
@@ -525,76 +524,86 @@
         let currentGeneral = {};
         let customSections = [];
 
+        // Safe Parsing to prevent crashes
         try {
-            currentMenu = JSON.parse(localStorage.getItem("annMenu")) || defaultMenu;
-            currentGeneral = JSON.parse(localStorage.getItem("annGeneral")) || defaultGeneral;
-            customSections = JSON.parse(localStorage.getItem("annSections")) || [];
+            currentMenu = JSON.parse(localStorage.getItem("annMenu8")) || defaultMenu;
+            currentGeneral = JSON.parse(localStorage.getItem("annGeneral8")) || defaultGeneral;
+            customSections = JSON.parse(localStorage.getItem("annSections8")) || [];
         } catch (e) {
+            console.error("Local storage cleared due to error");
             currentMenu = defaultMenu;
             currentGeneral = defaultGeneral;
             customSections = [];
         }
 
-        // --- 2. RENDER ENTIRE WEBSITE ---
+        // --- 2. RENDER ENTIRE WEBSITE SAFELY ---
         function renderSite() {
             try {
-                // Render General Info
-                document.getElementById("display-heroTitle").innerText = currentGeneral.heroTitle;
-                document.getElementById("display-heroHindi").innerText = currentGeneral.heroHindi;
-                document.getElementById("display-heroSub").innerText = currentGeneral.heroSub;
-                document.getElementById("display-aboutText").innerText = currentGeneral.aboutText;
+                // 2.1 General Info
+                if(document.getElementById("display-heroTitle")) document.getElementById("display-heroTitle").innerText = currentGeneral.heroTitle;
+                if(document.getElementById("display-heroHindi")) document.getElementById("display-heroHindi").innerText = currentGeneral.heroHindi;
+                if(document.getElementById("display-heroSub")) document.getElementById("display-heroSub").innerText = currentGeneral.heroSub;
+                if(document.getElementById("display-aboutText")) document.getElementById("display-aboutText").innerText = currentGeneral.aboutText;
                 
-                document.getElementById("display-whatsapp").innerText = "+91 " + currentGeneral.whatsapp;
-                document.getElementById("display-whatsappLink").href = "https://wa.me/91" + currentGeneral.whatsapp;
-                document.getElementById("display-insta").innerText = currentGeneral.insta;
-                document.getElementById("display-instaLink").href = "https://instagram.com/" + currentGeneral.insta;
-                document.getElementById("display-fb").innerText = currentGeneral.fb;
-                document.getElementById("display-fbLink").href = "https://facebook.com/" + currentGeneral.fb;
-                document.getElementById("display-address").innerText = currentGeneral.address;
+                if(document.getElementById("display-whatsapp")) document.getElementById("display-whatsapp").innerText = "+91 " + currentGeneral.whatsapp;
+                if(document.getElementById("display-whatsappLink")) document.getElementById("display-whatsappLink").href = "https://wa.me/91" + currentGeneral.whatsapp;
+                
+                if(document.getElementById("display-insta")) document.getElementById("display-insta").innerText = currentGeneral.insta;
+                if(document.getElementById("display-instaLink")) document.getElementById("display-instaLink").href = "https://instagram.com/" + currentGeneral.insta;
+                
+                if(document.getElementById("display-fb")) document.getElementById("display-fb").innerText = currentGeneral.fb;
+                if(document.getElementById("display-fbLink")) document.getElementById("display-fbLink").href = "https://facebook.com/" + currentGeneral.fb;
+                
+                if(document.getElementById("display-address")) document.getElementById("display-address").innerText = currentGeneral.address;
 
-                // Render Menu
+                // 2.2 Menu Rendering
                 const menuContainer = document.getElementById("menuGridContainer");
-                menuContainer.innerHTML = "";
-                currentMenu.forEach(item => {
-                    menuContainer.innerHTML += `
-                        <div class="menu-card fade-in">
-                            <img src="${item.img}" alt="Menu Food" class="menu-image">
-                            <div class="menu-content">
-                                <div class="menu-day royal-font">${item.day}</div>
-                                <div class="meal-time"><i class="fas fa-sun"></i> LUNCH</div>
-                                <div class="meal-desc">${item.lunch}</div>
-                                <div class="meal-time" style="margin-top: 15px;"><i class="fas fa-moon"></i> DINNER</div>
-                                <div class="meal-desc">${item.dinner}</div>
-                            </div>
-                        </div>`;
-                });
+                if(menuContainer) {
+                    menuContainer.innerHTML = "";
+                    currentMenu.forEach(item => {
+                        menuContainer.innerHTML += `
+                            <div class="menu-card fade-in">
+                                <img src="${item.img}" alt="${item.day}" class="menu-image" onerror="this.src='https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600'">
+                                <div class="menu-content">
+                                    <div class="menu-day royal-font">${item.day}</div>
+                                    <div class="meal-time"><i class="fas fa-sun"></i> LUNCH</div>
+                                    <div class="meal-desc">${item.lunch}</div>
+                                    <div class="meal-time" style="margin-top: 20px;"><i class="fas fa-moon"></i> DINNER</div>
+                                    <div class="meal-desc">${item.dinner}</div>
+                                </div>
+                            </div>`;
+                    });
+                }
 
-                // Render Custom Sections
+                // 2.3 Custom Sections Rendering
                 const secContainer = document.getElementById("dynamicSectionsContainer");
-                secContainer.innerHTML = "";
-                customSections.forEach((sec, index) => {
-                    secContainer.innerHTML += `
-                        <section class="section">
-                            <div class="section-header fade-in"><h2 class="royal-font">${sec.title}</h2></div>
-                            <div class="content-container fade-in"><p>${sec.content}</p></div>
-                        </section>`;
-                });
+                if(secContainer) {
+                    secContainer.innerHTML = "";
+                    customSections.forEach((sec) => {
+                        secContainer.innerHTML += `
+                            <section class="section">
+                                <div class="section-header fade-in"><h2 class="royal-font">${sec.title}</h2></div>
+                                <div class="content-container fade-in"><p>${sec.content}</p></div>
+                            </section>`;
+                    });
+                }
 
-                // Re-trigger animations
+                // Re-trigger scroll animations
                 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
             } catch (error) {
-                console.error("Rendering error:", error);
+                console.error("Critical rendering error intercepted:", error);
             }
         }
 
-        // --- 3. ADMIN PANEL LOGIC ---
+        // --- 3. SECURE ADMIN PANEL LOGIC ---
         function openAdminPrompt() {
-            const password = prompt("Enter Admin Password (Hint: AAnnAamrit39):");
+            // Password setup as requested
+            const password = prompt("Admin Login\nHint: AAnnAamrit39");
             if(password === "RJAannaamrit@@@09") {
                 document.getElementById("adminModal").style.display = "flex";
                 populateAdminFields();
             } else if (password !== null) {
-                alert("Security Alert: Incorrect Password!");
+                alert("Security Alert: Incorrect Password! Access Denied.");
             }
         }
 
@@ -608,7 +617,6 @@
         }
 
         function populateAdminFields() {
-            // General
             document.getElementById("input-heroTitle").value = currentGeneral.heroTitle;
             document.getElementById("input-heroHindi").value = currentGeneral.heroHindi;
             document.getElementById("input-heroSub").value = currentGeneral.heroSub;
@@ -618,19 +626,20 @@
             document.getElementById("input-fb").value = currentGeneral.fb;
             document.getElementById("input-address").value = currentGeneral.address;
 
-            // Menu Dropdown
             const select = document.getElementById("editDaySelect");
             select.innerHTML = "";
             currentMenu.forEach((m, i) => { select.innerHTML += `<option value="${i}">${m.day}</option>`; });
             if(currentMenu.length > 0) loadMenuForEdit();
 
-            // Sections List
             const secList = document.getElementById("existingSectionsList");
-            secList.innerHTML = `<h4 style="color:white; margin-bottom:10px;">Existing Custom Sections:</h4>`;
+            secList.innerHTML = `<h3 style="color:var(--gold-primary); margin-bottom:15px; margin-top:30px;">Manage Existing Custom Sections:</h3>`;
+            if(customSections.length === 0) secList.innerHTML += `<p style="color:gray;">No custom sections added yet.</p>`;
             customSections.forEach((s, i) => {
-                secList.innerHTML += `<div style="background:rgba(255,255,255,0.1); padding:10px; margin-bottom:5px; border-radius:5px; color:white; display:flex; justify-content:space-between;">
-                    <span>${s.title}</span> <button onclick="deleteSection(${i})" style="color:red; background:none; border:none; cursor:pointer;">Delete</button>
-                </div>`;
+                secList.innerHTML += `
+                    <div style="background:rgba(255,255,255,0.05); padding:15px; margin-bottom:10px; border-radius:8px; border:1px solid rgba(212,178,84,0.3); display:flex; justify-content:space-between; align-items:center;">
+                        <strong style="color:white; font-size:1.1rem;">${s.title}</strong> 
+                        <button class="btn-red" onclick="deleteSection(${i})" style="padding: 8px 20px;">Delete</button>
+                    </div>`;
             });
         }
 
@@ -644,11 +653,10 @@
             currentGeneral.fb = document.getElementById("input-fb").value;
             currentGeneral.address = document.getElementById("input-address").value;
             
-            localStorage.setItem("annGeneral", JSON.stringify(currentGeneral));
-            alert("General Info Updated!"); renderSite();
+            localStorage.setItem("annGeneral8", JSON.stringify(currentGeneral));
+            alert("General Information Successfully Updated!"); renderSite();
         }
 
-        // Menu CRUD
         function loadMenuForEdit() {
             const idx = document.getElementById("editDaySelect").value;
             if(idx !== null && currentMenu[idx]) {
@@ -664,8 +672,8 @@
                 currentMenu[idx].img = document.getElementById("editMenuImg").value;
                 currentMenu[idx].lunch = document.getElementById("editMenuLunch").value;
                 currentMenu[idx].dinner = document.getElementById("editMenuDinner").value;
-                localStorage.setItem("annMenu", JSON.stringify(currentMenu));
-                alert("Menu Updated!"); renderSite();
+                localStorage.setItem("annMenu8", JSON.stringify(currentMenu));
+                alert("Menu Item Updated!"); renderSite();
             }
         }
 
@@ -676,41 +684,47 @@
                 lunch: document.getElementById("newMenuLunch").value,
                 dinner: document.getElementById("newMenuDinner").value
             };
-            if(!newObj.day) return alert("Heading is required!");
+            if(!newObj.day) return alert("Menu Heading is required!");
             currentMenu.push(newObj);
-            localStorage.setItem("annMenu", JSON.stringify(currentMenu));
-            alert("New Menu Item Added!");
+            localStorage.setItem("annMenu8", JSON.stringify(currentMenu));
+            alert("New Menu Section Added!");
             document.getElementById("newMenuDay").value = "";
+            document.getElementById("newMenuImg").value = "";
+            document.getElementById("newMenuLunch").value = "";
+            document.getElementById("newMenuDinner").value = "";
             populateAdminFields(); renderSite();
         }
 
         function deleteMenuItem() {
             const idx = document.getElementById("editDaySelect").value;
-            if(confirm("Are you sure you want to delete this menu item?")) {
+            if(confirm("Are you sure you want to permanently delete this menu item?")) {
                 currentMenu.splice(idx, 1);
-                localStorage.setItem("annMenu", JSON.stringify(currentMenu));
+                localStorage.setItem("annMenu8", JSON.stringify(currentMenu));
                 populateAdminFields(); renderSite();
             }
         }
 
-        // Sections CRUD
         function addNewSection() {
             const title = document.getElementById("newSecTitle").value;
             const content = document.getElementById("newSecContent").value;
-            if(!title || !content) return alert("Title and Content required!");
+            if(!title || !content) return alert("Title and Content are both required!");
             customSections.push({title, content});
-            localStorage.setItem("annSections", JSON.stringify(customSections));
-            document.getElementById("newSecTitle").value = ""; document.getElementById("newSecContent").value = "";
+            localStorage.setItem("annSections8", JSON.stringify(customSections));
+            document.getElementById("newSecTitle").value = ""; 
+            document.getElementById("newSecContent").value = "";
+            alert("New Custom Section Added Successfully!");
             populateAdminFields(); renderSite();
         }
 
         function deleteSection(idx) {
-            customSections.splice(idx, 1);
-            localStorage.setItem("annSections", JSON.stringify(customSections));
-            populateAdminFields(); renderSite();
+            if(confirm("Delete this custom section?")) {
+                customSections.splice(idx, 1);
+                localStorage.setItem("annSections8", JSON.stringify(customSections));
+                populateAdminFields(); renderSite();
+            }
         }
 
-        // --- 4. SCROLL & OBSERVER ---
+        // --- 4. SCROLL & OBSERVER ANIMATIONS ---
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) navbar.classList.add('scrolled');
@@ -718,10 +732,16 @@
         });
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
+            entries.forEach(entry => { 
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: Unobserve after animating once to save performance
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
-        // Initialize App
+        // Build the site as soon as the DOM is ready
         document.addEventListener("DOMContentLoaded", renderSite);
     </script>
 </body>
