@@ -455,4 +455,274 @@
                 <!-- TAB 2: MANAGE MENU -->
                 <div id="tab-menu" style="display:none;">
                     <div class="admin-group" style="border-color: var(--pure-veg-green);">
-                        <h3 style="color: var(--pure-veg-green); margi
+                        <h3 style="color: var(--pure-veg-green); margin-bottom: 10px;">Add New Menu Item</h3>
+                        <input type="text" id="newMenuDay" placeholder="Heading (e.g., FESTIVAL SPECIAL)">
+                        <input type="text" id="newMenuImg" placeholder="Image URL">
+                        <textarea id="newMenuLunch" rows="2" placeholder="Lunch Details"></textarea>
+                        <textarea id="newMenuDinner" rows="2" placeholder="Dinner Details"></textarea>
+                        <button class="btn-gold" onclick="addNewMenuItem()">+ Add to Menu</button>
+                    </div>
+                    <hr style="border-color: rgba(212,178,84,0.2); margin: 30px 0;">
+                    <h3 style="color: var(--gold-light); margin-bottom: 15px;">Edit Existing Menu</h3>
+                    <select id="editDaySelect" class="admin-group" style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--gold-primary);" onchange="loadMenuForEdit()"></select>
+                    <div class="admin-group">
+                        <label>Image URL</label>
+                        <input type="text" id="editMenuImg">
+                        <label>Lunch</label>
+                        <textarea id="editMenuLunch" rows="2"></textarea>
+                        <label>Dinner</label>
+                        <textarea id="editMenuDinner" rows="2"></textarea>
+                    </div>
+                    <button class="btn-gold" onclick="saveMenuUpdate()">Update Selected Menu</button>
+                    <button class="btn-red" onclick="deleteMenuItem()" style="margin-left: 10px;">Delete Item</button>
+                </div>
+
+                <!-- TAB 3: CUSTOM SECTIONS -->
+                <div id="tab-sections" style="display:none;">
+                    <div class="admin-group">
+                        <h3 style="color: var(--gold-light); margin-bottom: 10px;">Add a completely new section to the website</h3>
+                        <input type="text" id="newSecTitle" placeholder="Section Title (e.g., Catering Services)">
+                        <textarea id="newSecContent" rows="4" placeholder="Section Description / Content"></textarea>
+                        <button class="btn-gold" onclick="addNewSection()" style="margin-top: 15px;">+ Add Custom Section</button>
+                    </div>
+                    <div id="existingSectionsList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <img src="logo.png" alt="Icon" height="60" onerror="this.style.display='none'">
+        <h3 class="royal-font" style="color: var(--gold-primary); font-size: 2.5rem; margin: 10px 0;">AnnAamrit</h3>
+        <p class="hindi-font" style="color: var(--text-cream); opacity: 0.8;">शुद्धता और परिष्कार की गारंटी</p>
+        <p style="opacity: 0.4; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 AnnAamrit. All rights reserved. | <a href="#" onclick="openAdminPrompt()" style="color: gray; text-decoration: none;">Admin Login</a></p>
+    </footer>
+
+    <!-- SCRIPTS FOR FULL DYNAMIC CMS -->
+    <script>
+        // --- 1. INITIALIZE DATABASE (LocalStorage) ---
+        
+        // Exact Food Imagery based on menu items requested
+        const defaultMenu = [
+            { day: "MONDAY", img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
+            { day: "TUESDAY", img: "https://images.unsplash.com/photo-1626779844431-15a133b3a726?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "खीर + 4-चना दाल पराठा + चना छोला + सलाद" },
+            { day: "WEDNESDAY", img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800", lunch: "पुलाव + 2-रोटी + चना दाल तड़का + कढ़ी पकोड़ा + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (फ्राइड) + खीर + सलाद" },
+            { day: "THURSDAY", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800", lunch: "बेसन कढ़ी पकोड़ा + चावल + 2-रोटी + हरी सब्जियाँ पकोड़ा + सलाद", dinner: "खीर + 8-पूरी / 6-रोटी + हरी सब्जियाँ (कढ़ी) + सलाद" },
+            { day: "FRIDAY", img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
+            { day: "SATURDAY", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800", lunch: "वेज खिचड़ी (देसी घी) + चोखा + अचार/दही + पापड़-चिप्स + सलाद", dinner: "4-सत्तू पराठा / 6-रोटी + बैगन चोखा + चना छोला + सलाद" },
+            { day: "SUNDAY", img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc0?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "6-रोटी + मटर पनीर + हरी सब्जियाँ + सलाद" }
+        ];
+
+        const defaultGeneral = {
+            heroTitle: "AnnAamrit", heroHindi: "भारत की रसोई...", heroSub: "Har Nivala Ek Aashirvaad",
+            aboutText: "AnnAamrit was born from a simple yet profound realization: the deep yearning for home and purity. In a fast-paced world, students and professionals are starved not just of nutrition, but of the emotional comfort of 'Ghar Ka Khana'. Our kitchen strictly adheres to traditional, 100% Pure Vegetarian and organic-style cooking methods. We prepare every meal as if it is being served to our own family, ensuring that our food acts as medicine, nourishment, and a blessing.",
+            whatsapp: "9128965956", insta: "ann_aamrit", fb: "AnnAamrit",
+            address: "Behind PnB, M G Nagar, Kanji Factory Road, Kankarbagh, Patna"
+        };
+
+        let currentMenu = [];
+        let currentGeneral = {};
+        let customSections = [];
+
+        try {
+            currentMenu = JSON.parse(localStorage.getItem("annMenu")) || defaultMenu;
+            currentGeneral = JSON.parse(localStorage.getItem("annGeneral")) || defaultGeneral;
+            customSections = JSON.parse(localStorage.getItem("annSections")) || [];
+        } catch (e) {
+            currentMenu = defaultMenu;
+            currentGeneral = defaultGeneral;
+            customSections = [];
+        }
+
+        // --- 2. RENDER ENTIRE WEBSITE ---
+        function renderSite() {
+            try {
+                // Render General Info
+                document.getElementById("display-heroTitle").innerText = currentGeneral.heroTitle;
+                document.getElementById("display-heroHindi").innerText = currentGeneral.heroHindi;
+                document.getElementById("display-heroSub").innerText = currentGeneral.heroSub;
+                document.getElementById("display-aboutText").innerText = currentGeneral.aboutText;
+                
+                document.getElementById("display-whatsapp").innerText = "+91 " + currentGeneral.whatsapp;
+                document.getElementById("display-whatsappLink").href = "https://wa.me/91" + currentGeneral.whatsapp;
+                document.getElementById("display-insta").innerText = currentGeneral.insta;
+                document.getElementById("display-instaLink").href = "https://instagram.com/" + currentGeneral.insta;
+                document.getElementById("display-fb").innerText = currentGeneral.fb;
+                document.getElementById("display-fbLink").href = "https://facebook.com/" + currentGeneral.fb;
+                document.getElementById("display-address").innerText = currentGeneral.address;
+
+                // Render Menu
+                const menuContainer = document.getElementById("menuGridContainer");
+                menuContainer.innerHTML = "";
+                currentMenu.forEach(item => {
+                    menuContainer.innerHTML += `
+                        <div class="menu-card fade-in">
+                            <img src="${item.img}" alt="Menu Food" class="menu-image">
+                            <div class="menu-content">
+                                <div class="menu-day royal-font">${item.day}</div>
+                                <div class="meal-time"><i class="fas fa-sun"></i> LUNCH</div>
+                                <div class="meal-desc">${item.lunch}</div>
+                                <div class="meal-time" style="margin-top: 15px;"><i class="fas fa-moon"></i> DINNER</div>
+                                <div class="meal-desc">${item.dinner}</div>
+                            </div>
+                        </div>`;
+                });
+
+                // Render Custom Sections
+                const secContainer = document.getElementById("dynamicSectionsContainer");
+                secContainer.innerHTML = "";
+                customSections.forEach((sec, index) => {
+                    secContainer.innerHTML += `
+                        <section class="section">
+                            <div class="section-header fade-in"><h2 class="royal-font">${sec.title}</h2></div>
+                            <div class="content-container fade-in"><p>${sec.content}</p></div>
+                        </section>`;
+                });
+
+                // Re-trigger animations
+                document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            } catch (error) {
+                console.error("Rendering error:", error);
+            }
+        }
+
+        // --- 3. ADMIN PANEL LOGIC ---
+        function openAdminPrompt() {
+            const password = prompt("Enter Admin Password (Hint: AAnnAamrit39):");
+            if(password === "RJAannaamrit@@@09") {
+                document.getElementById("adminModal").style.display = "flex";
+                populateAdminFields();
+            } else if (password !== null) {
+                alert("Security Alert: Incorrect Password!");
+            }
+        }
+
+        function closeAdmin() { document.getElementById("adminModal").style.display = "none"; }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.admin-body > div').forEach(d => d.style.display = 'none');
+            event.target.classList.add('active');
+            document.getElementById(tabId).style.display = 'block';
+        }
+
+        function populateAdminFields() {
+            // General
+            document.getElementById("input-heroTitle").value = currentGeneral.heroTitle;
+            document.getElementById("input-heroHindi").value = currentGeneral.heroHindi;
+            document.getElementById("input-heroSub").value = currentGeneral.heroSub;
+            document.getElementById("input-aboutText").value = currentGeneral.aboutText;
+            document.getElementById("input-whatsapp").value = currentGeneral.whatsapp;
+            document.getElementById("input-insta").value = currentGeneral.insta;
+            document.getElementById("input-fb").value = currentGeneral.fb;
+            document.getElementById("input-address").value = currentGeneral.address;
+
+            // Menu Dropdown
+            const select = document.getElementById("editDaySelect");
+            select.innerHTML = "";
+            currentMenu.forEach((m, i) => { select.innerHTML += `<option value="${i}">${m.day}</option>`; });
+            if(currentMenu.length > 0) loadMenuForEdit();
+
+            // Sections List
+            const secList = document.getElementById("existingSectionsList");
+            secList.innerHTML = `<h4 style="color:white; margin-bottom:10px;">Existing Custom Sections:</h4>`;
+            customSections.forEach((s, i) => {
+                secList.innerHTML += `<div style="background:rgba(255,255,255,0.1); padding:10px; margin-bottom:5px; border-radius:5px; color:white; display:flex; justify-content:space-between;">
+                    <span>${s.title}</span> <button onclick="deleteSection(${i})" style="color:red; background:none; border:none; cursor:pointer;">Delete</button>
+                </div>`;
+            });
+        }
+
+        function saveGeneralInfo() {
+            currentGeneral.heroTitle = document.getElementById("input-heroTitle").value;
+            currentGeneral.heroHindi = document.getElementById("input-heroHindi").value;
+            currentGeneral.heroSub = document.getElementById("input-heroSub").value;
+            currentGeneral.aboutText = document.getElementById("input-aboutText").value;
+            currentGeneral.whatsapp = document.getElementById("input-whatsapp").value;
+            currentGeneral.insta = document.getElementById("input-insta").value;
+            currentGeneral.fb = document.getElementById("input-fb").value;
+            currentGeneral.address = document.getElementById("input-address").value;
+            
+            localStorage.setItem("annGeneral", JSON.stringify(currentGeneral));
+            alert("General Info Updated!"); renderSite();
+        }
+
+        // Menu CRUD
+        function loadMenuForEdit() {
+            const idx = document.getElementById("editDaySelect").value;
+            if(idx !== null && currentMenu[idx]) {
+                document.getElementById("editMenuImg").value = currentMenu[idx].img;
+                document.getElementById("editMenuLunch").value = currentMenu[idx].lunch;
+                document.getElementById("editMenuDinner").value = currentMenu[idx].dinner;
+            }
+        }
+
+        function saveMenuUpdate() {
+            const idx = document.getElementById("editDaySelect").value;
+            if(idx !== null && currentMenu[idx]) {
+                currentMenu[idx].img = document.getElementById("editMenuImg").value;
+                currentMenu[idx].lunch = document.getElementById("editMenuLunch").value;
+                currentMenu[idx].dinner = document.getElementById("editMenuDinner").value;
+                localStorage.setItem("annMenu", JSON.stringify(currentMenu));
+                alert("Menu Updated!"); renderSite();
+            }
+        }
+
+        function addNewMenuItem() {
+            const newObj = {
+                day: document.getElementById("newMenuDay").value,
+                img: document.getElementById("newMenuImg").value || "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600",
+                lunch: document.getElementById("newMenuLunch").value,
+                dinner: document.getElementById("newMenuDinner").value
+            };
+            if(!newObj.day) return alert("Heading is required!");
+            currentMenu.push(newObj);
+            localStorage.setItem("annMenu", JSON.stringify(currentMenu));
+            alert("New Menu Item Added!");
+            document.getElementById("newMenuDay").value = "";
+            populateAdminFields(); renderSite();
+        }
+
+        function deleteMenuItem() {
+            const idx = document.getElementById("editDaySelect").value;
+            if(confirm("Are you sure you want to delete this menu item?")) {
+                currentMenu.splice(idx, 1);
+                localStorage.setItem("annMenu", JSON.stringify(currentMenu));
+                populateAdminFields(); renderSite();
+            }
+        }
+
+        // Sections CRUD
+        function addNewSection() {
+            const title = document.getElementById("newSecTitle").value;
+            const content = document.getElementById("newSecContent").value;
+            if(!title || !content) return alert("Title and Content required!");
+            customSections.push({title, content});
+            localStorage.setItem("annSections", JSON.stringify(customSections));
+            document.getElementById("newSecTitle").value = ""; document.getElementById("newSecContent").value = "";
+            populateAdminFields(); renderSite();
+        }
+
+        function deleteSection(idx) {
+            customSections.splice(idx, 1);
+            localStorage.setItem("annSections", JSON.stringify(customSections));
+            populateAdminFields(); renderSite();
+        }
+
+        // --- 4. SCROLL & OBSERVER ---
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+
+        // Initialize App
+        document.addEventListener("DOMContentLoaded", renderSite);
+    </script>
+</body>
+</html>
