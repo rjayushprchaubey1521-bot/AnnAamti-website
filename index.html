@@ -6,12 +6,11 @@
     <title>AnnAamrit | भारत की रसोई - Premium Cloud Kitchen</title>
     <meta name="description" content="AnnAamrit: जहाँ स्वाद भी संस्कार है, और हर निवाला आशीर्वाद है। 100% Pure Veg premium home-style meals in Patna.">
     
-    <!-- Royal Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- DESIGN TOKENS --- */
+        /* --- PREMIUM DESIGN TOKENS --- */
         :root {
             --bg-center: #093b22; 
             --bg-edge: #011208;   
@@ -20,8 +19,8 @@
             --text-cream: #f8f9fa;
             --accent-orange: #FF8C00;
             --pure-veg-green: #2ecc71;
-            --spiritual-red: #ff2a2a;
-            --glass-bg: rgba(1, 18, 8, 0.85);
+            --spiritual-red: #ff1100;
+            --glass-bg: rgba(1, 18, 8, 0.75);
             --transition-speed: 0.4s;
         }
 
@@ -30,209 +29,203 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            /* Sanatan Deep Green Vignette Gradient */
             background: radial-gradient(circle at center, var(--bg-center) 0%, var(--bg-edge) 100%);
             background-attachment: fixed;
             color: var(--text-cream);
             position: relative;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* --- SANATAN TRADITIONAL DAMASK TEXTURE --- */
+        /* --- SPLASH SCREEN LOADER --- */
+        #splash-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-edge); z-index: 99999;
+            display: flex; justify-content: center; align-items: center;
+            transition: opacity 1s ease-out;
+        }
+        .splash-logo {
+            width: 150px; animation: pulse 1.5s infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(212, 178, 84, 0.8));
+        }
+        @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.8; } 100% { transform: scale(1.05); opacity: 1; } }
+
+        /* --- SANATAN DAMASK TEXTURE --- */
         body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            /* High-end traditional floral/damask pattern base64 */
+            content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23d4b254" fill-opacity="0.04" d="M50 0c27.614 0 50 22.386 50 50s-22.386 50-50 50S0 77.614 0 50 22.386 0 50 0zm0 15c-19.33 0-35 15.67-35 35s15.67 35 35 35 35-15.67 35-35-15.67-35-35-35zm0 10c13.807 0 25 11.193 25 25s-11.193 25-25 25-25-11.193-25-25 11.193-25 25-25zm0 10c8.284 0 15 6.716 15 15s-6.716 15-15 15-15-6.716-15-15 6.716-15 15-15z"/></svg>');
-            background-size: 200px;
-            z-index: -3;
-            pointer-events: none;
+            background-size: 200px; z-index: -3; pointer-events: none;
         }
 
-        /* --- BRAND LOGO WATERMARK EVERYWHERE --- */
+        /* --- GLOBAL LOGO WATERMARK --- */
         body::after {
-            content: '';
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70vw; height: 70vh;
-            background-image: url('logo.png'); /* User's custom Logo */
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.04;
-            z-index: -2;
-            pointer-events: none;
+            content: ''; position: fixed; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); width: 60vw; height: 60vh;
+            background-image: url('logo.png'); background-size: contain; 
+            background-repeat: no-repeat; background-position: center;
+            opacity: 0.04; z-index: -2; pointer-events: none;
         }
 
         .royal-font { font-family: 'Playfair Display', serif; }
         .hindi-font { font-family: 'Noto Sans Devanagari', sans-serif; }
 
-        /* --- NAVBAR --- */
+        /* --- NAVBAR & PURE VEG BADGE --- */
         .navbar {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: var(--transition-speed);
+            position: fixed; top: 0; width: 100%; padding: 15px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: var(--transition-speed);
             border-bottom: 1px solid rgba(212, 178, 84, 0.1);
-            background: rgba(1, 18, 8, 0.6);
-            backdrop-filter: blur(10px);
+            background: rgba(1, 18, 8, 0.6); backdrop-filter: blur(12px);
         }
         .nav-brand {
-            display: flex; align-items: center; gap: 15px;
-            text-decoration: none; color: var(--gold-primary);
-            font-size: 2.2rem; font-weight: 700; letter-spacing: 1px;
+            display: flex; align-items: center; gap: 15px; text-decoration: none;
+            color: var(--gold-primary); font-size: 2.2rem; font-weight: 700; letter-spacing: 1px;
         }
         .nav-logo-icon { height: 45px; filter: drop-shadow(0 0 5px rgba(212,178,84,0.5)); }
         
-        .nav-right-container {
-            display: flex; align-items: center; gap: 30px;
-        }
+        .nav-right { display: flex; align-items: center; gap: 30px; }
         .nav-links { display: flex; align-items: center; gap: 20px;}
         .nav-links a {
-            color: var(--text-cream); text-decoration: none;
-            font-weight: 500; font-size: 0.95rem; text-transform: uppercase;
-            letter-spacing: 1px; transition: var(--transition-speed);
+            color: var(--text-cream); text-decoration: none; font-weight: 500; font-size: 0.95rem;
+            text-transform: uppercase; letter-spacing: 1px; transition: var(--transition-speed);
         }
         .nav-links a:hover { color: var(--gold-primary); }
 
-        /* --- PURE VEG BADGE (Top Right) --- */
         .pure-veg-badge {
-            display: inline-flex; align-items: center; gap: 8px;
+            display: flex; align-items: center; gap: 8px;
             background: rgba(46, 204, 113, 0.15); border: 1px solid var(--pure-veg-green);
             color: var(--pure-veg-green); padding: 6px 15px; border-radius: 30px;
             font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;
             box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
         }
         .pure-veg-icon {
-            border: 2px solid var(--pure-veg-green); border-radius: 2px;
-            padding: 2px; width: 16px; height: 16px;
-            display: flex; justify-content: center; align-items: center;
+            border: 2px solid var(--pure-veg-green); border-radius: 2px; padding: 2px;
+            width: 16px; height: 16px; display: flex; justify-content: center; align-items: center;
         }
         .pure-veg-icon::after {
-            content: ''; width: 6px; height: 6px;
-            background: var(--pure-veg-green); border-radius: 50%;
+            content: ''; width: 6px; height: 6px; background: var(--pure-veg-green); border-radius: 50%;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- CINEMATIC HERO SECTION --- */
         .hero {
-            min-height: 100vh; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; text-align: center;
-            padding: 120px 20px 50px; position: relative;
+            min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+            justify-content: center; text-align: center; padding: 120px 20px 50px; position: relative;
+            overflow: hidden;
         }
+        .hero-video-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: -1; opacity: 0.25; 
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(1,18,8,0.7) 0%, rgba(1,18,8,1) 100%); z-index: 0;
+        }
+
+        .hero-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center;}
         
-        /* JAI SHREE RAM IN RED */
         .hero-top-spiritual {
-            color: var(--spiritual-red); font-size: 1.5rem;
-            margin-bottom: 25px; letter-spacing: 2px; font-weight: 700;
-            text-shadow: 0 0 15px rgba(255, 42, 42, 0.6);
+            color: var(--spiritual-red); font-size: 1.8rem; margin-bottom: 20px;
+            letter-spacing: 3px; font-weight: 800; text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
         }
-
-        .main-logo-icon {
-            height: 160px; margin-bottom: 20px;
-            filter: drop-shadow(0 0 25px rgba(212, 178, 84, 0.6));
-        }
-
+        .main-logo-icon { height: 160px; margin-bottom: 20px; filter: drop-shadow(0 0 25px rgba(212, 178, 84, 0.6)); }
         .brand-title {
-            color: var(--gold-light); font-size: 6.5rem; font-weight: 800;
-            line-height: 1; margin-bottom: 5px;
-            text-shadow: 2px 4px 15px rgba(0,0,0,0.8); letter-spacing: 2px;
+            color: var(--gold-light); font-size: 6.5rem; font-weight: 800; line-height: 1;
+            margin-bottom: 5px; text-shadow: 2px 4px 15px rgba(0,0,0,0.8); letter-spacing: 2px;
         }
-
         .hero-tagline-hindi {
-            font-size: 3rem; color: var(--accent-orange);
-            margin-top: 10px; margin-bottom: 10px;
+            font-size: 3.5rem; color: var(--accent-orange); margin-top: 10px; margin-bottom: 10px;
             text-shadow: 0 0 15px rgba(255, 140, 0, 0.5); font-weight: 700;
-        }
-
-        .quote-box {
-            border-top: 1px solid var(--gold-primary); border-bottom: 1px solid var(--gold-primary);
-            padding: 15px 40px; margin: 20px 0 40px; background: rgba(0,0,0,0.3);
-            border-radius: 10px;
-        }
-        .quote-text {
-            font-size: 1.6rem; color: var(--gold-light); font-weight: 600; letter-spacing: 1px;
         }
 
         /* --- TRUST BADGES --- */
         .trust-grid {
             display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
-            max-width: 1000px; margin: 0 auto 40px;
+            max-width: 1000px; margin: 0 auto 40px; position: relative; z-index: 1;
         }
         .trust-card {
-            border: 1px solid rgba(212, 178, 84, 0.5); border-radius: 10px;
-            padding: 15px 25px; display: flex; flex-direction: column; align-items: center;
-            gap: 10px; background: rgba(1, 18, 8, 0.7); min-width: 200px; backdrop-filter: blur(5px);
-            transition: var(--transition-speed);
+            border: 1px solid rgba(212, 178, 84, 0.5); border-radius: 10px; padding: 15px 25px;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            background: rgba(1, 18, 8, 0.7); min-width: 200px; backdrop-filter: blur(5px);
         }
-        .trust-card:hover { border-color: var(--gold-primary); transform: translateY(-5px); }
         .trust-card i { color: var(--gold-primary); font-size: 2rem; }
 
         /* --- SECTIONS COMMON --- */
         .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 {
-            color: var(--gold-light); font-size: 3.5rem;
-            border-bottom: 2px solid var(--gold-primary); display: inline-block; padding-bottom: 10px;
-        }
-        .content-container {
-            background: rgba(1, 18, 8, 0.85); border: 1px solid var(--gold-primary);
-            border-radius: 15px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px); line-height: 1.8; font-size: 1.2rem; text-align: center;
+            color: var(--gold-light); font-size: 3.5rem; border-bottom: 2px solid var(--gold-primary);
+            display: inline-block; padding-bottom: 10px; text-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
-        /* --- MENU IMAGE GRID --- */
-        .menu-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px;
+        /* --- EMOTIONAL ABOUT US (Split Layout) --- */
+        .about-split {
+            display: flex; align-items: center; gap: 40px; margin-bottom: 60px;
+            background: var(--glass-bg); border: 1px solid rgba(212, 178, 84, 0.3);
+            border-radius: 20px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
+        .about-split.reverse { flex-direction: row-reverse; }
+        .about-text-box { flex: 1; }
+        .about-image-box { flex: 1; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 2px solid var(--gold-primary); }
+        .about-image-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+        .about-image-box:hover img { transform: scale(1.05); }
+
+        .about-header-text { font-size: 38px; color: var(--gold-light); margin-bottom: 10px; }
+        .about-tagline { color: var(--accent-orange); font-size: 20px; font-weight: 600; margin-bottom: 30px; }
+        .about-text-box p { font-size: 1.1rem; margin-bottom: 15px; line-height: 1.8; color: var(--text-cream); }
+        .highlight { font-weight: bold; color: var(--gold-primary); }
+
+        /* --- PRICING TIERS --- */
+        .pricing-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 60px; }
+        .pricing-card {
+            background: rgba(1, 18, 8, 0.9); border: 1px solid var(--gold-primary);
+            border-radius: 15px; padding: 30px; width: 320px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); transition: var(--transition-speed);
+        }
+        .pricing-card:hover { transform: translateY(-10px); border-color: var(--accent-orange); }
+        .pricing-title { color: var(--gold-light); font-size: 1.8rem; margin-bottom: 10px; font-weight: 700; }
+        .pricing-price { color: var(--accent-orange); font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; }
+        .pricing-features { list-style: none; padding: 0; margin-bottom: 30px; color: var(--text-cream); text-align: left; }
+        .pricing-features li { margin-bottom: 12px; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;}
+        .pricing-features li i { color: var(--pure-veg-green); margin-right: 10px; }
+
+        /* --- MENU IMAGE GRID --- */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
         .menu-card {
             background: rgba(1, 18, 8, 0.9); border: 1px solid rgba(212, 178, 84, 0.4);
             border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             transition: var(--transition-speed); position: relative;
         }
-        .menu-card:hover {
-            transform: translateY(-10px); border-color: var(--accent-orange);
-            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.3);
-        }
-        .menu-image {
-            width: 100%; height: 250px; object-fit: cover;
-            border-bottom: 3px solid var(--gold-primary);
-        }
+        .menu-card:hover { transform: translateY(-10px); border-color: var(--accent-orange); }
+        .menu-image { width: 100%; height: 250px; object-fit: cover; border-bottom: 3px solid var(--gold-primary); }
         .menu-content { padding: 30px; text-align: left; }
-        .menu-day {
-            color: var(--gold-light); font-size: 1.8rem; font-weight: 700;
-            margin-bottom: 20px; text-transform: uppercase; text-align: center;
-            border-bottom: 1px dashed rgba(212,178,84,0.3); padding-bottom: 10px;
-        }
+        .menu-day { color: var(--gold-light); font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; text-align: center; border-bottom: 1px dashed rgba(212,178,84,0.3); padding-bottom: 10px; }
         .meal-time { color: var(--accent-orange); font-weight: 700; margin-top: 15px; font-size: 1.1rem; }
         .meal-desc { color: var(--text-cream); font-size: 1rem; margin-top: 5px; line-height: 1.5; }
 
-        /* --- CONTACT SECTION --- */
-        .contact-wrapper {
-            display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;
-        }
+        /* --- CONTACT & BUTTONS --- */
+        .contact-wrapper { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
         .contact-card {
             background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 178, 84, 0.3);
             padding: 30px; border-radius: 12px; text-align: center; flex: 1; min-width: 280px; max-width: 350px;
-            transition: var(--transition-speed);
         }
-        .contact-card:hover { border-color: var(--gold-primary); background: rgba(0,0,0,0.6); }
         .contact-card i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 15px; }
         .contact-card h3 { color: var(--gold-light); margin-bottom: 10px; font-size: 1.5rem; }
         .contact-card a, .contact-card p { color: var(--text-cream); text-decoration: none; font-size: 1.1rem; }
-        .contact-card a:hover { color: var(--gold-primary); }
+        
+        /* FLOATING WHATSAPP BUTTON */
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center;
+            align-items: center; font-size: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            z-index: 1001; transition: transform 0.3s; text-decoration: none;
+        }
+        .float-wa:hover { transform: scale(1.1); }
 
-        /* --- BUTTONS --- */
         .btn-gold {
             background: linear-gradient(135deg, #d4b254, #fbe69e, #d4b254); color: #021a0e;
             padding: 15px 40px; border: none; border-radius: 30px; font-size: 1.2rem; font-weight: 700;
             cursor: pointer; text-transform: uppercase; transition: var(--transition-speed);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4); text-decoration: none; display: inline-block; width: 100%; text-align: center;
         }
         .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(212, 178, 84, 0.6); }
 
@@ -242,83 +235,78 @@
             background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center;
         }
         .admin-wrapper {
-            background: var(--bg-center); border: 2px solid var(--gold-primary);
-            border-radius: 15px; width: 95%; max-width: 900px;
-            max-height: 90vh; display: flex; flex-direction: column; overflow: hidden;
+            background: var(--bg-center); border: 2px solid var(--gold-primary); border-radius: 15px;
+            width: 95%; max-width: 900px; max-height: 90vh; display: flex; flex-direction: column; overflow: hidden;
         }
-        .admin-header {
-            padding: 20px; background: var(--bg-edge); border-bottom: 1px solid var(--gold-primary);
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .admin-tabs { display: flex; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(212,178,84,0.3); }
-        .admin-tab {
-            padding: 15px 20px; cursor: pointer; color: white; font-weight: bold;
-            border-right: 1px solid rgba(212,178,84,0.3);
-        }
+        .admin-header { padding: 20px; background: var(--bg-edge); border-bottom: 1px solid var(--gold-primary); display: flex; justify-content: space-between; align-items: center; }
+        .admin-tabs { display: flex; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(212,178,84,0.3); overflow-x: auto; }
+        .admin-tab { padding: 15px 20px; cursor: pointer; color: white; font-weight: bold; border-right: 1px solid rgba(212,178,84,0.3); white-space: nowrap; }
         .admin-tab.active { background: var(--accent-orange); color: #000; }
         .admin-body { padding: 30px; overflow-y: auto; flex: 1; }
-        
         .admin-group { margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(212,178,84,0.3); }
         .admin-group label { display: block; color: var(--gold-light); margin-bottom: 8px; font-weight: bold; font-size: 1.1rem; }
         .admin-group input, .admin-group textarea {
-            width: 100%; padding: 12px; background: rgba(255,255,255,0.05);
-            border: 1px solid var(--gold-primary); color: white; border-radius: 5px;
-            font-family: 'Poppins', sans-serif; font-size: 1rem;
+            width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold-primary);
+            color: white; border-radius: 5px; font-family: 'Poppins', sans-serif; font-size: 1rem;
         }
-        
         .btn-red { background: #e74c3c; color: white; padding: 12px 30px; border: none; border-radius: 30px; cursor: pointer; font-weight: bold;}
 
-        /* Animations */
         .fade-in { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
-            .brand-title { font-size: 4rem; }
+            .brand-title { font-size: 4.5rem; }
             .hero-tagline-hindi { font-size: 2.2rem; }
             .nav-links { display: none; }
-            .nav-right-container { flex-direction: column; gap: 10px; align-items: flex-end; }
+            .about-split, .about-split.reverse { flex-direction: column; padding: 20px; }
+            .about-image-box { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <div id="splash-screen">
+        <img src="logo.png" alt="AnnAamrit" class="splash-logo" onerror="this.style.display='none'">
+    </div>
+
+    <a href="#" id="floating-wa" target="_blank" class="float-wa">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-brand royal-font">
             <img src="logo.png" alt="Brand Logo" class="nav-logo-icon" onerror="this.style.display='none'">
             AnnAamrit
         </a>
-        <div class="nav-right-container">
+        <div class="nav-right">
             <div class="nav-links">
                 <a href="#about">Story</a>
+                <a href="#pricing">Plans</a>
                 <a href="#menu">Menu</a>
                 <a href="#contact">Contact</a>
             </div>
-            <!-- PURE VEG BADGE MOVED TO TOP RIGHT -->
             <div class="pure-veg-badge">
                 <div class="pure-veg-icon"></div> 100% Pure Veg
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="hero">
-        <!-- RED SPIRITUAL TEXT -->
-        <div class="hero-top-spiritual hindi-font fade-in">
-            <span>卐</span> ॥ जय श्री राम ॥ <span>卐</span>
-        </div>
-        
-        <img src="logo.png" alt="AnnAamrit Logo" class="main-logo-icon fade-in" onerror="this.style.display='none'">
-        
-        <!-- WRAPPED IN DIV FOR SAFE JS UPDATES -->
-        <div id="hero-data-container">
+        <video autoplay loop muted playsinline class="hero-video-bg">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-top-spiritual hindi-font fade-in">
+                <span>卐</span> ॥ जय श्री राम ॥ <span>卐</span>
+            </div>
+            
+            <img src="logo.png" alt="AnnAamrit Logo" class="main-logo-icon fade-in" onerror="this.style.display='none'">
+            
             <h1 class="brand-title royal-font fade-in" id="display-heroTitle">AnnAamrit</h1>
             <h2 class="hero-tagline-hindi hindi-font fade-in" id="display-heroHindi">भारत की रसोई...</h2>
             <p class="royal-font fade-in" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 20px;" id="display-heroSub">Har Nivala Ek Aashirvaad</p>
-        </div>
-
-        <div class="quote-box fade-in">
-            <p class="quote-text hindi-font">“जहाँ स्वाद भी संस्कार है, और हर निवाला आशीर्वाद है।”</p>
         </div>
 
         <div class="trust-grid hindi-font fade-in">
@@ -329,48 +317,70 @@
         </div>
     </header>
 
-    <!-- BRAND STORY SECTION -->
     <section class="section" id="about">
         <div class="section-header fade-in">
-            <h2 class="royal-font">Brand Introduction</h2>
+            <h2 class="royal-font">Our Legacy</h2>
         </div>
-        <div class="content-container fade-in">
-            <img src="logo.png" alt="AnnAamrit Logo" style="height: 80px; margin-bottom: 20px;" onerror="this.style.display='none'">
-            <p id="display-aboutText">AnnAamrit was born from a simple yet profound realization: the deep yearning for home and purity. In a fast-paced world, students and professionals are starved not just of nutrition, but of the emotional comfort of 'Ghar Ka Khana'. Our kitchen strictly adheres to traditional, 100% Pure Vegetarian and organic-style cooking methods. We prepare every meal as if it is being served to our own family, ensuring that our food acts as medicine, nourishment, and a blessing.</p>
-            <p class="hindi-font" style="font-size: 1.5rem; margin-top: 30px; color: var(--gold-light); font-weight: 700;">“हम भोजन नहीं, माँ का प्यार परोसते हैं।”</p>
+
+        <div class="about-split fade-in">
+            <div class="about-text-box">
+                <div class="about-header-text royal-font" id="display-aboutHeader">AnnAamrit</div>
+                <div class="about-tagline hindi-font" id="display-aboutTagline">Bharat ki Rasoi — Har Nivala, Ek Aashirwad</div>
+                <h3 class="royal-font" style="color:var(--accent-orange); font-size: 1.8rem; margin-bottom: 15px;">Who We Are</h3>
+                <p id="display-aboutP1">AnnAamrit is not just a food brand — it is a revival of India’s lost food culture. In today’s fast-moving world, food has become convenient but disconnected from purity. AnnAamrit stands as a reminder that Bharat was, is, and will always remain an <span class="highlight">“Annapurna Desh”</span>.</p>
+                <p id="display-aboutP2">Built from real-life struggles — not luxury setups. Students lacked healthy food, professionals compromised health, and families lost trust in outside meals. From Day 01, our mission was clear: <span class="highlight">to create food people can trust without doubt.</span></p>
+            </div>
+            <div class="about-image-box">
+                <img src="story-img-1.jpg" alt="The Mother's Touch" onerror="this.src='https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800'">
+            </div>
+        </div>
+
+        <div class="about-split reverse fade-in">
+            <div class="about-text-box">
+                <h3 class="royal-font" style="color:var(--accent-orange); font-size: 1.8rem; margin-bottom: 15px;">Who We Serve</h3>
+                <ul style="list-style: none; padding: 0; color: var(--text-cream); font-size: 1.1rem; line-height: 1.8;">
+                    <li><i class="fas fa-check-circle" style="color:var(--pure-veg-green); margin-right:10px;"></i><b>Students:</b> Affordable, clean, energy-rich meals.</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--pure-veg-green); margin-right:10px;"></i><b>Working Professionals:</b> Time-saving, reliable food.</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--pure-veg-green); margin-right:10px;"></i><b>Families:</b> Safe and home-style meals.</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--pure-veg-green); margin-right:10px;"></i><b>Health-Conscious:</b> Sattvic and disciplined diet.</li>
+                </ul>
+            </div>
+            <div class="about-image-box">
+                <img src="story-img-2.jpg" alt="Serving Professionals and Students" onerror="this.src='https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800'">
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;" class="fade-in">
+            <p class="highlight" style="font-size: 1.5rem;">Bharat was, is, and will always remain Annapurna.</p>
+            <div style="font-size: 1.8rem; color: var(--gold-light); margin-top: 20px;" class="hindi-font">“हम भोजन नहीं, माँ का प्यार परोसते हैं।”</div>
         </div>
     </section>
 
-    <!-- DYNAMIC MENU SECTION WITH FOOD-SPECIFIC IMAGES -->
+    <section class="section" id="pricing">
+        <div class="section-header fade-in">
+            <h2 class="royal-font">Subscription Plans</h2>
+        </div>
+        <div class="pricing-grid fade-in" id="pricingGridContainer">
+            </div>
+    </section>
+
     <section class="section" id="menu">
         <div class="section-header fade-in">
-            <h2 class="royal-font">Premium Menu Plans</h2>
+            <h2 class="royal-font">Weekly Thali Menu</h2>
         </div>
         <div style="text-align: center; margin-bottom: 40px;" class="fade-in">
             <span style="background: var(--accent-orange); color: #000; padding: 10px 20px; border-radius: 30px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 0 15px rgba(255,140,0,0.4);">
-                🚫🧅 Onion-Garlic Free (Satvik) Available | 🍬 Sugar Free Available
+                🚫🧅 Onion-Garlic Free (Satvik) | 🍬 Sugar Free Available (+ ₹7.5/meal)
             </span>
         </div>
-        
-        <!-- HARDCODED HTML FALLBACK TO PREVENT BLANK PAGE BUG -->
-        <div class="menu-grid hindi-font" id="menuGridContainer">
-            <div class="menu-card fade-in">
-                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800" alt="Menu" class="menu-image">
-                <div class="menu-content">
-                    <div class="menu-day royal-font">Loading Menu...</div>
-                    <div class="meal-desc">Please wait while we load our delicious pure veg menu for you.</div>
-                </div>
-            </div>
-        </div>
+        <div class="menu-grid hindi-font" id="menuGridContainer"></div>
     </section>
 
-    <!-- DYNAMIC CUSTOM SECTIONS CONTAINER -->
     <div id="dynamicSectionsContainer"></div>
 
-    <!-- CONTACT INFORMATION -->
     <section class="section" id="contact">
         <div class="section-header fade-in">
-            <h2 class="royal-font">Get In Touch</h2>
+            <h2 class="royal-font">Join The AnnAamrit Family</h2>
         </div>
         <div class="contact-wrapper fade-in">
             <div class="contact-card">
@@ -390,70 +400,60 @@
                 <a href="#" id="display-fbLink" target="_blank"><i class="fab fa-facebook-f" style="margin-right:8px;"></i> <span id="display-fb">AnnAamrit</span></a>
             </div>
         </div>
-        
-        <!-- Subscribe Button inside Contact section as requested by flow -->
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="#contact" class="btn-gold" onclick="alert('Thank you! Redirecting to WhatsApp for Subscription...'); window.location.href=document.getElementById('display-whatsappLink').href;">Subscribe Now</a>
-        </div>
     </section>
 
-    <!-- ADMIN CMS MODAL -->
     <div class="admin-modal" id="adminModal">
         <div class="admin-wrapper">
             <div class="admin-header">
-                <h2 class="royal-font" style="color: var(--gold-primary); margin:0;">Admin Dashboard</h2>
+                <h2 class="royal-font" style="color: var(--gold-primary); margin:0;">Admin Control Panel</h2>
                 <button onclick="closeAdmin()" style="background: transparent; color: white; border: 1px solid white; padding: 8px 20px; border-radius: 5px; cursor:pointer; font-weight:bold;">Close</button>
             </div>
             <div class="admin-tabs">
-                <div class="admin-tab active" onclick="switchTab('tab-general')">General Info</div>
-                <div class="admin-tab" onclick="switchTab('tab-menu')">Manage Menu</div>
+                <div class="admin-tab active" onclick="switchTab('tab-general')">General / About</div>
+                <div class="admin-tab" onclick="switchTab('tab-pricing')">Pricing Plans</div>
+                <div class="admin-tab" onclick="switchTab('tab-menu')">Daily Menu</div>
                 <div class="admin-tab" onclick="switchTab('tab-sections')">Custom Sections</div>
             </div>
             
             <div class="admin-body">
-                <!-- TAB 1: GENERAL INFO -->
                 <div id="tab-general">
                     <div class="admin-group">
-                        <label>Brand Name (Hero)</label>
-                        <input type="text" id="input-heroTitle">
+                        <label>Hero Texts</label>
+                        <input type="text" id="input-heroTitle" placeholder="AnnAamrit">
+                        <input type="text" id="input-heroHindi" placeholder="भारत की रसोई..." style="margin-top:5px;">
+                        <input type="text" id="input-heroSub" placeholder="Har Nivala Ek Aashirvaad" style="margin-top:5px;">
                     </div>
                     <div class="admin-group">
-                        <label>Hindi Tagline</label>
-                        <input type="text" id="input-heroHindi">
+                        <label>About Us Paragraphs</label>
+                        <textarea id="input-aboutP1" rows="3"></textarea>
+                        <textarea id="input-aboutP2" rows="3" style="margin-top:5px;"></textarea>
                     </div>
                     <div class="admin-group">
-                        <label>Sub Tagline</label>
-                        <input type="text" id="input-heroSub">
+                        <label>Contact & Social Links</label>
+                        <input type="text" id="input-whatsapp" placeholder="WhatsApp Number (10 digits)">
+                        <input type="text" id="input-insta" placeholder="Instagram ID" style="margin-top:5px;">
+                        <input type="text" id="input-fb" placeholder="Facebook ID" style="margin-top:5px;">
+                        <textarea id="input-address" rows="2" placeholder="Full Address" style="margin-top:5px;"></textarea>
                     </div>
-                    <div class="admin-group">
-                        <label>Brand Introduction (About)</label>
-                        <textarea id="input-aboutText" rows="6"></textarea>
-                    </div>
-                    <div class="admin-group">
-                        <label>WhatsApp Number (e.g. 9128965956)</label>
-                        <input type="text" id="input-whatsapp">
-                    </div>
-                    <div class="admin-group">
-                        <label>Instagram ID</label>
-                        <input type="text" id="input-insta">
-                    </div>
-                    <div class="admin-group">
-                        <label>Facebook ID</label>
-                        <input type="text" id="input-fb">
-                    </div>
-                    <div class="admin-group">
-                        <label>Full Address</label>
-                        <textarea id="input-address" rows="3"></textarea>
-                    </div>
-                    <button class="btn-gold" onclick="saveGeneralInfo()">Save General Info</button>
+                    <button class="btn-gold" onclick="saveGeneralInfo()">Save Updates</button>
                 </div>
 
-                <!-- TAB 2: MANAGE MENU -->
+                <div id="tab-pricing" style="display:none;">
+                    <div class="admin-group" style="background: rgba(212, 178, 84, 0.1);">
+                        <h3 style="color: var(--gold-light); margin-bottom: 15px;">Add New Plan</h3>
+                        <input type="text" id="newPlanName" placeholder="Plan Name (e.g. Student Tiffin)">
+                        <input type="text" id="newPlanPrice" placeholder="Price (e.g. ₹ 3549 /-)">
+                        <textarea id="newPlanDesc" rows="3" placeholder="Features (Comma separated, e.g. Lunch & Dinner, Pure Veg, Free Delivery)"></textarea>
+                        <button class="btn-gold" onclick="addNewPlan()">+ Add Plan</button>
+                    </div>
+                    <div id="existingPlansList"></div>
+                </div>
+
                 <div id="tab-menu" style="display:none;">
                     <div class="admin-group" style="border-color: var(--pure-veg-green); background: rgba(46, 204, 113, 0.1);">
-                        <h3 style="color: var(--pure-veg-green); margin-bottom: 15px;">Add New Menu Item</h3>
+                        <h3 style="color: var(--pure-veg-green); margin-bottom: 15px;">Add New Menu Day</h3>
                         <input type="text" id="newMenuDay" placeholder="Heading (e.g., SPECIAL THALI)">
-                        <input type="text" id="newMenuImg" placeholder="Image URL (Unsplash Link)">
+                        <input type="text" id="newMenuImg" placeholder="Image URL (Link)">
                         <textarea id="newMenuLunch" rows="2" placeholder="Lunch Details"></textarea>
                         <textarea id="newMenuDinner" rows="2" placeholder="Dinner Details"></textarea>
                         <button class="btn-gold" onclick="addNewMenuItem()">+ Add to Menu</button>
@@ -473,12 +473,11 @@
                     <button class="btn-red" onclick="deleteMenuItem()" style="margin-left: 15px;">Delete Item</button>
                 </div>
 
-                <!-- TAB 3: CUSTOM SECTIONS -->
                 <div id="tab-sections" style="display:none;">
                     <div class="admin-group" style="background: rgba(255, 140, 0, 0.1); border-color: var(--accent-orange);">
                         <h3 style="color: var(--accent-orange); margin-bottom: 15px;">Create a New Custom Section</h3>
-                        <input type="text" id="newSecTitle" placeholder="Section Heading (e.g., Catering Services)">
-                        <textarea id="newSecContent" rows="5" placeholder="Write your content here..."></textarea>
+                        <input type="text" id="newSecTitle" placeholder="Section Heading (e.g., Party Orders)">
+                        <textarea id="newSecContent" rows="5" placeholder="Write your customized content here..."></textarea>
                         <button class="btn-gold" onclick="addNewSection()">+ Add Custom Section</button>
                     </div>
                     <div id="existingSectionsList"></div>
@@ -487,7 +486,6 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <img src="logo.png" alt="Icon" height="80" onerror="this.style.display='none'">
         <h3 class="royal-font" style="color: var(--gold-primary); font-size: 3rem; margin: 15px 0 5px;">AnnAamrit</h3>
@@ -498,72 +496,98 @@
         </p>
     </footer>
 
-    <!-- SCRIPTS FOR FULL DYNAMIC CMS (Zero-Fail Architecture) -->
     <script>
-        // --- 1. INITIALIZE DATABASE WITH SAFE FALLBACKS ---
-        
-        // Accurate Food Images replacing random thalis
+        // --- SPLASH SCREEN REMOVER ---
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                setTimeout(() => splash.style.display = 'none', 1000);
+            }, 2000); // Shows golden logo for 2 seconds
+        });
+
+        // --- DATABASES (LocalStorage Final V10) ---
         const defaultMenu = [
             { day: "MONDAY", img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
-            { day: "TUESDAY", img: "https://images.unsplash.com/photo-1626779844431-15a133b3a726?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "खीर + 4-चना दाल पराठा + चना छोला + सलाद" }, // Paratha image
-            { day: "WEDNESDAY", img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800", lunch: "पुलाव + 2-रोटी + चना दाल तड़का + कढ़ी पकोड़ा + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (फ्राइड) + खीर + सलाद" }, // Pulao image
-            { day: "THURSDAY", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800", lunch: "बेसन कढ़ी पकोड़ा + चावल + 2-रोटी + हरी सब्जियाँ पकोड़ा + सलाद", dinner: "खीर + 8-पूरी / 6-रोटी + हरी सब्जियाँ (कढ़ी) + सलाद" }, // Yellow Kadhi image
+            { day: "TUESDAY", img: "https://images.unsplash.com/photo-1626779844431-15a133b3a726?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "खीर + 4-चना दाल पराठा + चना छोला + सलाद" },
+            { day: "WEDNESDAY", img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800", lunch: "पुलाव + 2-रोटी + चना दाल तड़का + कढ़ी पकोड़ा + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (फ्राइड) + खीर + सलाद" },
+            { day: "THURSDAY", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800", lunch: "बेसन कढ़ी पकोड़ा + चावल + 2-रोटी + हरी सब्जियाँ पकोड़ा + सलाद", dinner: "खीर + 8-पूरी / 6-रोटी + हरी सब्जियाँ (कढ़ी) + सलाद" },
             { day: "FRIDAY", img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
-            { day: "SATURDAY", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800", lunch: "वेज खिचड़ी (देसी घी) + चोखा + अचार/दही + पापड़-चिप्स + सलाद", dinner: "4-सत्तू पराठा / 6-रोटी + बैगन चोखा + चना छोला + सलाद" }, // Khichdi Thali
-            { day: "SUNDAY", img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc0?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "6-रोटी + मटर पनीर + हरी सब्जियाँ + सलाद" } // Matar Paneer image
+            { day: "SATURDAY", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800", lunch: "वेज खिचड़ी (देसी घी) + चोखा + अचार/दही + पापड़-चिप्स + सलाद", dinner: "4-सत्तू पराठा / 6-रोटी + बैगन चोखा + चना छोला + सलाद" },
+            { day: "SUNDAY", img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc0?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "6-रोटी + मटर पनीर + हरी सब्जियाँ + सलाद" }
+        ];
+
+        const defaultPlans = [
+            { name: "Student Tiffin", price: "₹ 3549 /-", features: "Convenient and Youthful, Lunch & Dinner, 100% Pure Veg, Free Home Delivery" },
+            { name: "Office Tiffin", price: "₹ 3299 /-", features: "Balanced for Professionals, Custom Timings, Satvik Options, Spill-proof Packaging" },
+            { name: "Budget Tiffin", price: "₹ 2799 /-", features: "Nutrient-Rich for Families, Dinner Only, Home-style Taste, Perfect for Daily Routine" }
         ];
 
         const defaultGeneral = {
             heroTitle: "AnnAamrit", heroHindi: "भारत की रसोई...", heroSub: "Har Nivala Ek Aashirvaad",
-            aboutText: "AnnAamrit was born from a simple yet profound realization: the deep yearning for home and purity. In a fast-paced world, students and professionals are starved not just of nutrition, but of the emotional comfort of 'Ghar Ka Khana'. Our kitchen strictly adheres to traditional, 100% Pure Vegetarian and organic-style cooking methods. We prepare every meal as if it is being served to our own family, ensuring that our food acts as medicine, nourishment, and a blessing.",
+            aboutP1: "AnnAamrit is not just a food brand — it is a revival of India’s lost food culture. In today’s fast-moving world, food has become convenient but disconnected from purity. AnnAamrit stands as a reminder that Bharat was, is, and will always remain an “Annapurna Desh”.",
+            aboutP2: "Built from real-life struggles — not luxury setups. Students lacked healthy food, professionals compromised health, and families lost trust in outside meals. From Day 01, our mission was clear: to create food people can trust without doubt.",
             whatsapp: "9128965956", insta: "ann_aamrit", fb: "AnnAamrit",
             address: "Behind PnB, M G Nagar, Kanji Factory Road, Kankarbagh, Patna"
         };
 
-        let currentMenu = [];
-        let currentGeneral = {};
-        let customSections = [];
+        let currentMenu = []; let currentGeneral = {}; let customSections = []; let currentPlans = [];
 
-        // Safe Parsing to prevent crashes
         try {
-            currentMenu = JSON.parse(localStorage.getItem("annMenu8")) || defaultMenu;
-            currentGeneral = JSON.parse(localStorage.getItem("annGeneral8")) || defaultGeneral;
-            customSections = JSON.parse(localStorage.getItem("annSections8")) || [];
+            currentMenu = JSON.parse(localStorage.getItem("annMenuFinal10")) || defaultMenu;
+            currentGeneral = JSON.parse(localStorage.getItem("annGeneralFinal10")) || defaultGeneral;
+            customSections = JSON.parse(localStorage.getItem("annSectionsFinal10")) || [];
+            currentPlans = JSON.parse(localStorage.getItem("annPlansFinal10")) || defaultPlans;
         } catch (e) {
-            console.error("Local storage cleared due to error");
-            currentMenu = defaultMenu;
-            currentGeneral = defaultGeneral;
-            customSections = [];
+            currentMenu = defaultMenu; currentGeneral = defaultGeneral; customSections = []; currentPlans = defaultPlans;
         }
 
-        // --- 2. RENDER ENTIRE WEBSITE SAFELY ---
         function renderSite() {
             try {
-                // 2.1 General Info
                 if(document.getElementById("display-heroTitle")) document.getElementById("display-heroTitle").innerText = currentGeneral.heroTitle;
                 if(document.getElementById("display-heroHindi")) document.getElementById("display-heroHindi").innerText = currentGeneral.heroHindi;
                 if(document.getElementById("display-heroSub")) document.getElementById("display-heroSub").innerText = currentGeneral.heroSub;
-                if(document.getElementById("display-aboutText")) document.getElementById("display-aboutText").innerText = currentGeneral.aboutText;
+                if(document.getElementById("display-aboutP1")) document.getElementById("display-aboutP1").innerHTML = currentGeneral.aboutP1;
+                if(document.getElementById("display-aboutP2")) document.getElementById("display-aboutP2").innerHTML = currentGeneral.aboutP2;
                 
-                if(document.getElementById("display-whatsapp")) document.getElementById("display-whatsapp").innerText = "+91 " + currentGeneral.whatsapp;
-                if(document.getElementById("display-whatsappLink")) document.getElementById("display-whatsappLink").href = "https://wa.me/91" + currentGeneral.whatsapp;
+                const waNum = "+91 " + currentGeneral.whatsapp;
+                const waLink = "https://wa.me/91" + currentGeneral.whatsapp + "?text=Namaste!%20I%20want%20to%20subscribe%20to%20AnnAamrit.";
+                
+                if(document.getElementById("display-whatsapp")) document.getElementById("display-whatsapp").innerText = waNum;
+                if(document.getElementById("display-whatsappLink")) document.getElementById("display-whatsappLink").href = waLink;
+                if(document.getElementById("floating-wa")) document.getElementById("floating-wa").href = waLink;
                 
                 if(document.getElementById("display-insta")) document.getElementById("display-insta").innerText = currentGeneral.insta;
                 if(document.getElementById("display-instaLink")) document.getElementById("display-instaLink").href = "https://instagram.com/" + currentGeneral.insta;
-                
                 if(document.getElementById("display-fb")) document.getElementById("display-fb").innerText = currentGeneral.fb;
                 if(document.getElementById("display-fbLink")) document.getElementById("display-fbLink").href = "https://facebook.com/" + currentGeneral.fb;
-                
                 if(document.getElementById("display-address")) document.getElementById("display-address").innerText = currentGeneral.address;
 
-                // 2.2 Menu Rendering
+                // Render Plans
+                const plansContainer = document.getElementById("pricingGridContainer");
+                if(plansContainer) {
+                    plansContainer.innerHTML = "";
+                    currentPlans.forEach(plan => {
+                        const featuresList = plan.features.split(',').map(f => `<li><i class="fas fa-check-circle"></i> ${f.trim()}</li>`).join('');
+                        plansContainer.innerHTML += `
+                            <div class="pricing-card">
+                                <h3 class="pricing-title royal-font">${plan.name}</h3>
+                                <div class="pricing-price">${plan.price}</div>
+                                <ul class="pricing-features hindi-font">${featuresList}</ul>
+                                <a href="${waLink}" class="btn-gold" style="font-size: 1rem;">Select Plan</a>
+                            </div>
+                        `;
+                    });
+                }
+
+                // Render Menu
                 const menuContainer = document.getElementById("menuGridContainer");
                 if(menuContainer) {
                     menuContainer.innerHTML = "";
                     currentMenu.forEach(item => {
                         menuContainer.innerHTML += `
                             <div class="menu-card fade-in">
-                                <img src="${item.img}" alt="${item.day}" class="menu-image" onerror="this.src='https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600'">
+                                <img src="${item.img}" alt="${item.day}" class="menu-image">
                                 <div class="menu-content">
                                     <div class="menu-day royal-font">${item.day}</div>
                                     <div class="meal-time"><i class="fas fa-sun"></i> LUNCH</div>
@@ -575,7 +599,7 @@
                     });
                 }
 
-                // 2.3 Custom Sections Rendering
+                // Render Custom Sections
                 const secContainer = document.getElementById("dynamicSectionsContainer");
                 if(secContainer) {
                     secContainer.innerHTML = "";
@@ -583,28 +607,20 @@
                         secContainer.innerHTML += `
                             <section class="section">
                                 <div class="section-header fade-in"><h2 class="royal-font">${sec.title}</h2></div>
-                                <div class="content-container fade-in"><p>${sec.content}</p></div>
+                                <div class="about-container fade-in" style="text-align: center;"><p style="font-size: 1.2rem; color: white;">${sec.content}</p></div>
                             </section>`;
                     });
                 }
-
-                // Re-trigger scroll animations
-                document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-            } catch (error) {
-                console.error("Critical rendering error intercepted:", error);
-            }
+            } catch (e) { console.log(e); }
         }
 
-        // --- 3. SECURE ADMIN PANEL LOGIC ---
+        // --- ADMIN SECURE LOGIN ---
         function openAdminPrompt() {
-            // Password setup as requested
             const password = prompt("Admin Login\nHint: AAnnAamrit39");
             if(password === "RJAannaamrit@@@09") {
                 document.getElementById("adminModal").style.display = "flex";
                 populateAdminFields();
-            } else if (password !== null) {
-                alert("Security Alert: Incorrect Password! Access Denied.");
-            }
+            } else if (password !== null) { alert("Security Alert: Incorrect Password! Access Denied."); }
         }
 
         function closeAdmin() { document.getElementById("adminModal").style.display = "none"; }
@@ -620,41 +636,68 @@
             document.getElementById("input-heroTitle").value = currentGeneral.heroTitle;
             document.getElementById("input-heroHindi").value = currentGeneral.heroHindi;
             document.getElementById("input-heroSub").value = currentGeneral.heroSub;
-            document.getElementById("input-aboutText").value = currentGeneral.aboutText;
+            document.getElementById("input-aboutP1").value = currentGeneral.aboutP1;
+            document.getElementById("input-aboutP2").value = currentGeneral.aboutP2;
             document.getElementById("input-whatsapp").value = currentGeneral.whatsapp;
             document.getElementById("input-insta").value = currentGeneral.insta;
             document.getElementById("input-fb").value = currentGeneral.fb;
             document.getElementById("input-address").value = currentGeneral.address;
 
-            const select = document.getElementById("editDaySelect");
-            select.innerHTML = "";
+            // Load Plans
+            const plansList = document.getElementById("existingPlansList");
+            plansList.innerHTML = `<h3 style="color:var(--gold-primary); margin:20px 0 10px;">Manage Existing Plans:</h3>`;
+            currentPlans.forEach((p, i) => {
+                plansList.innerHTML += `
+                    <div style="background:rgba(255,255,255,0.05); padding:15px; margin-bottom:10px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                        <strong style="color:white;">${p.name} (${p.price})</strong> 
+                        <button class="btn-red" onclick="deletePlan(${i})" style="padding: 8px 20px;">Delete</button>
+                    </div>`;
+            });
+
+            // Load Menu Edit Dropdown
+            const select = document.getElementById("editDaySelect"); select.innerHTML = "";
             currentMenu.forEach((m, i) => { select.innerHTML += `<option value="${i}">${m.day}</option>`; });
             if(currentMenu.length > 0) loadMenuForEdit();
 
+            // Load Custom Sections
             const secList = document.getElementById("existingSectionsList");
-            secList.innerHTML = `<h3 style="color:var(--gold-primary); margin-bottom:15px; margin-top:30px;">Manage Existing Custom Sections:</h3>`;
-            if(customSections.length === 0) secList.innerHTML += `<p style="color:gray;">No custom sections added yet.</p>`;
+            secList.innerHTML = `<h3 style="color:var(--gold-primary); margin:20px 0 10px;">Manage Custom Sections:</h3>`;
             customSections.forEach((s, i) => {
                 secList.innerHTML += `
-                    <div style="background:rgba(255,255,255,0.05); padding:15px; margin-bottom:10px; border-radius:8px; border:1px solid rgba(212,178,84,0.3); display:flex; justify-content:space-between; align-items:center;">
-                        <strong style="color:white; font-size:1.1rem;">${s.title}</strong> 
+                    <div style="background:rgba(255,255,255,0.05); padding:15px; margin-bottom:10px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                        <strong style="color:white;">${s.title}</strong> 
                         <button class="btn-red" onclick="deleteSection(${i})" style="padding: 8px 20px;">Delete</button>
                     </div>`;
             });
         }
 
+        // Action Functions
         function saveGeneralInfo() {
             currentGeneral.heroTitle = document.getElementById("input-heroTitle").value;
             currentGeneral.heroHindi = document.getElementById("input-heroHindi").value;
             currentGeneral.heroSub = document.getElementById("input-heroSub").value;
-            currentGeneral.aboutText = document.getElementById("input-aboutText").value;
+            currentGeneral.aboutP1 = document.getElementById("input-aboutP1").value;
+            currentGeneral.aboutP2 = document.getElementById("input-aboutP2").value;
             currentGeneral.whatsapp = document.getElementById("input-whatsapp").value;
             currentGeneral.insta = document.getElementById("input-insta").value;
             currentGeneral.fb = document.getElementById("input-fb").value;
             currentGeneral.address = document.getElementById("input-address").value;
-            
-            localStorage.setItem("annGeneral8", JSON.stringify(currentGeneral));
-            alert("General Information Successfully Updated!"); renderSite();
+            localStorage.setItem("annGeneralFinal10", JSON.stringify(currentGeneral));
+            alert("Information Updated!"); renderSite();
+        }
+
+        function addNewPlan() {
+            const name = document.getElementById("newPlanName").value;
+            const price = document.getElementById("newPlanPrice").value;
+            const features = document.getElementById("newPlanDesc").value;
+            if(!name || !price) return alert("Plan Name and Price required!");
+            currentPlans.push({name, price, features});
+            localStorage.setItem("annPlansFinal10", JSON.stringify(currentPlans));
+            alert("Plan Added!"); document.getElementById("newPlanName").value=""; document.getElementById("newPlanPrice").value=""; document.getElementById("newPlanDesc").value="";
+            populateAdminFields(); renderSite();
+        }
+        function deletePlan(idx) {
+            if(confirm("Delete this plan?")) { currentPlans.splice(idx, 1); localStorage.setItem("annPlansFinal10", JSON.stringify(currentPlans)); populateAdminFields(); renderSite(); }
         }
 
         function loadMenuForEdit() {
@@ -665,84 +708,51 @@
                 document.getElementById("editMenuDinner").value = currentMenu[idx].dinner;
             }
         }
-
         function saveMenuUpdate() {
             const idx = document.getElementById("editDaySelect").value;
             if(idx !== null && currentMenu[idx]) {
                 currentMenu[idx].img = document.getElementById("editMenuImg").value;
                 currentMenu[idx].lunch = document.getElementById("editMenuLunch").value;
                 currentMenu[idx].dinner = document.getElementById("editMenuDinner").value;
-                localStorage.setItem("annMenu8", JSON.stringify(currentMenu));
-                alert("Menu Item Updated!"); renderSite();
+                localStorage.setItem("annMenuFinal10", JSON.stringify(currentMenu)); alert("Menu Item Updated!"); renderSite();
             }
         }
-
         function addNewMenuItem() {
-            const newObj = {
-                day: document.getElementById("newMenuDay").value,
-                img: document.getElementById("newMenuImg").value || "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600",
-                lunch: document.getElementById("newMenuLunch").value,
-                dinner: document.getElementById("newMenuDinner").value
-            };
-            if(!newObj.day) return alert("Menu Heading is required!");
-            currentMenu.push(newObj);
-            localStorage.setItem("annMenu8", JSON.stringify(currentMenu));
-            alert("New Menu Section Added!");
-            document.getElementById("newMenuDay").value = "";
-            document.getElementById("newMenuImg").value = "";
-            document.getElementById("newMenuLunch").value = "";
-            document.getElementById("newMenuDinner").value = "";
-            populateAdminFields(); renderSite();
+            const newObj = { day: document.getElementById("newMenuDay").value, img: document.getElementById("newMenuImg").value || "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600", lunch: document.getElementById("newMenuLunch").value, dinner: document.getElementById("newMenuDinner").value };
+            if(!newObj.day) return alert("Menu Heading required!");
+            currentMenu.push(newObj); localStorage.setItem("annMenuFinal10", JSON.stringify(currentMenu)); alert("New Menu Added!"); populateAdminFields(); renderSite();
         }
-
         function deleteMenuItem() {
             const idx = document.getElementById("editDaySelect").value;
-            if(confirm("Are you sure you want to permanently delete this menu item?")) {
-                currentMenu.splice(idx, 1);
-                localStorage.setItem("annMenu8", JSON.stringify(currentMenu));
-                populateAdminFields(); renderSite();
-            }
+            if(confirm("Delete menu item?")) { currentMenu.splice(idx, 1); localStorage.setItem("annMenuFinal10", JSON.stringify(currentMenu)); populateAdminFields(); renderSite(); }
         }
 
         function addNewSection() {
-            const title = document.getElementById("newSecTitle").value;
-            const content = document.getElementById("newSecContent").value;
-            if(!title || !content) return alert("Title and Content are both required!");
-            customSections.push({title, content});
-            localStorage.setItem("annSections8", JSON.stringify(customSections));
-            document.getElementById("newSecTitle").value = ""; 
-            document.getElementById("newSecContent").value = "";
-            alert("New Custom Section Added Successfully!");
-            populateAdminFields(); renderSite();
+            const title = document.getElementById("newSecTitle").value; const content = document.getElementById("newSecContent").value;
+            if(!title || !content) return alert("Title and Content required!");
+            customSections.push({title, content}); localStorage.setItem("annSectionsFinal10", JSON.stringify(customSections));
+            alert("Custom Section Added!"); populateAdminFields(); renderSite();
         }
-
         function deleteSection(idx) {
-            if(confirm("Delete this custom section?")) {
-                customSections.splice(idx, 1);
-                localStorage.setItem("annSections8", JSON.stringify(customSections));
-                populateAdminFields(); renderSite();
-            }
+            if(confirm("Delete custom section?")) { customSections.splice(idx, 1); localStorage.setItem("annSectionsFinal10", JSON.stringify(customSections)); populateAdminFields(); renderSite(); }
         }
 
-        // --- 4. SCROLL & OBSERVER ANIMATIONS ---
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
         });
 
+        // Setup Animations dynamically
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { 
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // Optional: Unobserve after animating once to save performance
-                    // observer.unobserve(entry.target); 
-                }
-            });
+            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
-        // Build the site as soon as the DOM is ready
-        document.addEventListener("DOMContentLoaded", renderSite);
+        document.addEventListener("DOMContentLoaded", () => {
+            renderSite();
+            // Attach observer to initially rendered static elements
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>
