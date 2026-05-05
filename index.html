@@ -69,7 +69,7 @@
         .royal-font { font-family: 'Playfair Display', serif; }
         .hindi-font { font-family: 'Noto Sans Devanagari', sans-serif; }
 
-        /* --- NAVBAR & PURE VEG BADGE --- */
+        /* --- NAVBAR --- */
         .navbar {
             position: fixed; top: 0; width: 100%; padding: 15px 40px;
             display: flex; justify-content: space-between; align-items: center;
@@ -83,8 +83,8 @@
         }
         .nav-logo-icon { height: 45px; filter: drop-shadow(0 0 5px rgba(212,178,84,0.5)); }
         
-        .nav-right { display: flex; align-items: center; gap: 30px; }
-        .nav-links { display: flex; align-items: center; gap: 20px;}
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-links { display: flex; align-items: center; gap: 15px;}
         .nav-links a {
             color: var(--text-cream); text-decoration: none; font-weight: 500; font-size: 0.95rem;
             text-transform: uppercase; letter-spacing: 1px; transition: var(--transition-speed);
@@ -106,7 +106,7 @@
             content: ''; width: 6px; height: 6px; background: var(--pure-veg-green); border-radius: 50%;
         }
 
-        /* --- CINEMATIC HERO SECTION --- */
+        /* --- HERO SECTION --- */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column; align-items: center;
             justify-content: center; text-align: center; padding: 120px 20px 50px; position: relative;
@@ -137,7 +137,6 @@
             text-shadow: 0 0 15px rgba(255, 140, 0, 0.5); font-weight: 700;
         }
 
-        /* --- TRUST BADGES --- */
         .trust-grid {
             display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
             max-width: 1000px; margin: 0 auto 40px; position: relative; z-index: 1;
@@ -146,7 +145,9 @@
             border: 1px solid rgba(212, 178, 84, 0.5); border-radius: 10px; padding: 15px 25px;
             display: flex; flex-direction: column; align-items: center; gap: 10px;
             background: rgba(1, 18, 8, 0.7); min-width: 200px; backdrop-filter: blur(5px);
+            transition: var(--transition-speed);
         }
+        .trust-card:hover { border-color: var(--gold-primary); transform: translateY(-5px); }
         .trust-card i { color: var(--gold-primary); font-size: 2rem; }
 
         /* --- SECTIONS COMMON --- */
@@ -157,7 +158,7 @@
             display: inline-block; padding-bottom: 10px; text-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
-        /* --- EMOTIONAL ABOUT US (Split Layout) --- */
+        /* --- EMOTIONAL ABOUT US --- */
         .about-split {
             display: flex; align-items: center; gap: 40px; margin-bottom: 60px;
             background: var(--glass-bg); border: 1px solid rgba(212, 178, 84, 0.3);
@@ -168,7 +169,6 @@
         .about-image-box { flex: 1; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 2px solid var(--gold-primary); }
         .about-image-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
         .about-image-box:hover img { transform: scale(1.05); }
-
         .about-header-text { font-size: 38px; color: var(--gold-light); margin-bottom: 10px; }
         .about-tagline { color: var(--accent-orange); font-size: 20px; font-weight: 600; margin-bottom: 30px; }
         .about-text-box p { font-size: 1.1rem; margin-bottom: 15px; line-height: 1.8; color: var(--text-cream); }
@@ -195,12 +195,40 @@
             border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             transition: var(--transition-speed); position: relative;
         }
-        .menu-card:hover { transform: translateY(-10px); border-color: var(--accent-orange); }
+        .menu-card:hover { transform: translateY(-10px); border-color: var(--accent-orange); box-shadow: 0 15px 40px rgba(255, 140, 0, 0.3); }
         .menu-image { width: 100%; height: 250px; object-fit: cover; border-bottom: 3px solid var(--gold-primary); }
         .menu-content { padding: 30px; text-align: left; }
         .menu-day { color: var(--gold-light); font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; text-align: center; border-bottom: 1px dashed rgba(212,178,84,0.3); padding-bottom: 10px; }
         .meal-time { color: var(--accent-orange); font-weight: 700; margin-top: 15px; font-size: 1.1rem; }
         .meal-desc { color: var(--text-cream); font-size: 1rem; margin-top: 5px; line-height: 1.5; }
+
+        /* --- FEEDBACK / REVIEWS SECTION --- */
+        .reviews-wrapper {
+            display: flex; flex-direction: column; gap: 40px; align-items: center;
+        }
+        .reviews-grid {
+            display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; width: 100%;
+        }
+        .review-card {
+            background: rgba(1, 18, 8, 0.9); border: 1px solid rgba(212, 178, 84, 0.3);
+            border-radius: 15px; padding: 30px; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: left; position: relative;
+        }
+        .review-card .quote-icon { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: rgba(212, 178, 84, 0.2); }
+        .review-stars { color: var(--gold-primary); font-size: 1.2rem; margin-bottom: 15px; }
+        .review-text { color: var(--text-cream); font-size: 1.05rem; font-style: italic; margin-bottom: 20px; line-height: 1.6;}
+        .review-author { color: var(--accent-orange); font-weight: 700; font-size: 1.1rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;}
+        
+        .feedback-form-box {
+            background: var(--glass-bg); border: 1px solid var(--gold-primary);
+            border-radius: 15px; padding: 40px; width: 100%; max-width: 600px;
+        }
+        .feedback-form-box h3 { color: var(--gold-light); margin-bottom: 20px; font-size: 1.8rem; text-align: center;}
+        .form-input {
+            width: 100%; padding: 15px; margin-bottom: 20px; background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(212, 178, 84, 0.5); color: white; border-radius: 8px; font-family: 'Poppins', sans-serif;
+        }
+        .form-input:focus { outline: none; border-color: var(--accent-orange); }
 
         /* --- CONTACT & BUTTONS --- */
         .contact-wrapper { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
@@ -208,16 +236,15 @@
             background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 178, 84, 0.3);
             padding: 30px; border-radius: 12px; text-align: center; flex: 1; min-width: 280px; max-width: 350px;
         }
+        .contact-card:hover { border-color: var(--gold-primary); background: rgba(0,0,0,0.6); }
         .contact-card i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 15px; }
         .contact-card h3 { color: var(--gold-light); margin-bottom: 10px; font-size: 1.5rem; }
         .contact-card a, .contact-card p { color: var(--text-cream); text-decoration: none; font-size: 1.1rem; }
-        
-        /* FLOATING WHATSAPP BUTTON */
+
         .float-wa {
             position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white;
             width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center;
-            align-items: center; font-size: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            z-index: 1001; transition: transform 0.3s; text-decoration: none;
+            align-items: center; font-size: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1001; transition: transform 0.3s;
         }
         .float-wa:hover { transform: scale(1.1); }
 
@@ -245,11 +272,8 @@
         .admin-body { padding: 30px; overflow-y: auto; flex: 1; }
         .admin-group { margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(212,178,84,0.3); }
         .admin-group label { display: block; color: var(--gold-light); margin-bottom: 8px; font-weight: bold; font-size: 1.1rem; }
-        .admin-group input, .admin-group textarea {
-            width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold-primary);
-            color: white; border-radius: 5px; font-family: 'Poppins', sans-serif; font-size: 1rem;
-        }
-        .btn-red { background: #e74c3c; color: white; padding: 12px 30px; border: none; border-radius: 30px; cursor: pointer; font-weight: bold;}
+        .admin-group input, .admin-group textarea { width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold-primary); color: white; border-radius: 5px; font-family: 'Poppins', sans-serif; }
+        .btn-red { background: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;}
 
         .fade-in { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
@@ -258,8 +282,8 @@
             .brand-title { font-size: 4.5rem; }
             .hero-tagline-hindi { font-size: 2.2rem; }
             .nav-links { display: none; }
+            .nav-right { flex-direction: column; gap: 10px; align-items: flex-end; }
             .about-split, .about-split.reverse { flex-direction: column; padding: 20px; }
-            .about-image-box { width: 100%; }
         }
     </style>
 </head>
@@ -283,6 +307,7 @@
                 <a href="#about">Story</a>
                 <a href="#pricing">Plans</a>
                 <a href="#menu">Menu</a>
+                <a href="#reviews">Reviews</a>
                 <a href="#contact">Contact</a>
             </div>
             <div class="pure-veg-badge">
@@ -301,9 +326,7 @@
             <div class="hero-top-spiritual hindi-font fade-in">
                 <span>卐</span> ॥ जय श्री राम ॥ <span>卐</span>
             </div>
-            
             <img src="logo.png" alt="AnnAamrit Logo" class="main-logo-icon fade-in" onerror="this.style.display='none'">
-            
             <h1 class="brand-title royal-font fade-in" id="display-heroTitle">AnnAamrit</h1>
             <h2 class="hero-tagline-hindi hindi-font fade-in" id="display-heroHindi">भारत की रसोई...</h2>
             <p class="royal-font fade-in" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 20px;" id="display-heroSub">Har Nivala Ek Aashirvaad</p>
@@ -318,14 +341,11 @@
     </header>
 
     <section class="section" id="about">
-        <div class="section-header fade-in">
-            <h2 class="royal-font">Our Legacy</h2>
-        </div>
-
+        <div class="section-header fade-in"><h2 class="royal-font">Our Legacy</h2></div>
         <div class="about-split fade-in">
             <div class="about-text-box">
                 <div class="about-header-text royal-font" id="display-aboutHeader">AnnAamrit</div>
-                <div class="about-tagline hindi-font" id="display-aboutTagline">Bharat ki Rasoi — Har Nivala, Ek Aashirwad</div>
+                <div class="about-tagline hindi-font">Bharat ki Rasoi — Har Nivala, Ek Aashirwad</div>
                 <h3 class="royal-font" style="color:var(--accent-orange); font-size: 1.8rem; margin-bottom: 15px;">Who We Are</h3>
                 <p id="display-aboutP1">AnnAamrit is not just a food brand — it is a revival of India’s lost food culture. In today’s fast-moving world, food has become convenient but disconnected from purity. AnnAamrit stands as a reminder that Bharat was, is, and will always remain an <span class="highlight">“Annapurna Desh”</span>.</p>
                 <p id="display-aboutP2">Built from real-life struggles — not luxury setups. Students lacked healthy food, professionals compromised health, and families lost trust in outside meals. From Day 01, our mission was clear: <span class="highlight">to create food people can trust without doubt.</span></p>
@@ -334,7 +354,6 @@
                 <img src="story-img-1.jpg" alt="The Mother's Touch" onerror="this.src='https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800'">
             </div>
         </div>
-
         <div class="about-split reverse fade-in">
             <div class="about-text-box">
                 <h3 class="royal-font" style="color:var(--accent-orange); font-size: 1.8rem; margin-bottom: 15px;">Who We Serve</h3>
@@ -346,28 +365,18 @@
                 </ul>
             </div>
             <div class="about-image-box">
-                <img src="story-img-2.jpg" alt="Serving Professionals and Students" onerror="this.src='https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800'">
+                <img src="story-img-2.jpg" alt="Serving Professionals" onerror="this.src='https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800'">
             </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 50px;" class="fade-in">
-            <p class="highlight" style="font-size: 1.5rem;">Bharat was, is, and will always remain Annapurna.</p>
-            <div style="font-size: 1.8rem; color: var(--gold-light); margin-top: 20px;" class="hindi-font">“हम भोजन नहीं, माँ का प्यार परोसते हैं।”</div>
         </div>
     </section>
 
     <section class="section" id="pricing">
-        <div class="section-header fade-in">
-            <h2 class="royal-font">Subscription Plans</h2>
-        </div>
-        <div class="pricing-grid fade-in" id="pricingGridContainer">
-            </div>
+        <div class="section-header fade-in"><h2 class="royal-font">Subscription Plans</h2></div>
+        <div class="pricing-grid fade-in" id="pricingGridContainer"></div>
     </section>
 
     <section class="section" id="menu">
-        <div class="section-header fade-in">
-            <h2 class="royal-font">Weekly Thali Menu</h2>
-        </div>
+        <div class="section-header fade-in"><h2 class="royal-font">Weekly Thali Menu</h2></div>
         <div style="text-align: center; margin-bottom: 40px;" class="fade-in">
             <span style="background: var(--accent-orange); color: #000; padding: 10px 20px; border-radius: 30px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 0 15px rgba(255,140,0,0.4);">
                 🚫🧅 Onion-Garlic Free (Satvik) | 🍬 Sugar Free Available (+ ₹7.5/meal)
@@ -376,12 +385,34 @@
         <div class="menu-grid hindi-font" id="menuGridContainer"></div>
     </section>
 
+    <section class="section" id="reviews">
+        <div class="section-header fade-in"><h2 class="royal-font">Customer Reviews</h2></div>
+        <div class="reviews-wrapper">
+            <div class="reviews-grid" id="reviewsGridContainer">
+                </div>
+            
+            <div class="feedback-form-box fade-in" style="margin-top: 40px;">
+                <h3 class="royal-font">Leave Your Feedback</h3>
+                <p style="text-align: center; color: var(--text-cream); margin-bottom: 20px;">Har nivala aapko kaisa laga, hume zarur batayein.</p>
+                <form id="feedbackForm">
+                    <input type="text" id="reviewerName" class="form-input" placeholder="Your Name" required>
+                    <select id="reviewerRating" class="form-input" required>
+                        <option value="" disabled selected>Rate out of 5 Stars</option>
+                        <option value="5">⭐⭐⭐⭐⭐ - Excellent, Ghar Jaisa!</option>
+                        <option value="4">⭐⭐⭐⭐ - Very Good</option>
+                        <option value="3">⭐⭐⭐ - Good</option>
+                    </select>
+                    <textarea id="reviewerText" class="form-input" rows="4" placeholder="Your experience with AnnAamrit..." required></textarea>
+                    <button type="submit" class="btn-gold" style="width: 100%;">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <div id="dynamicSectionsContainer"></div>
 
     <section class="section" id="contact">
-        <div class="section-header fade-in">
-            <h2 class="royal-font">Join The AnnAamrit Family</h2>
-        </div>
+        <div class="section-header fade-in"><h2 class="royal-font">Get In Touch</h2></div>
         <div class="contact-wrapper fade-in">
             <div class="contact-card">
                 <i class="fab fa-whatsapp"></i>
@@ -406,12 +437,13 @@
         <div class="admin-wrapper">
             <div class="admin-header">
                 <h2 class="royal-font" style="color: var(--gold-primary); margin:0;">Admin Control Panel</h2>
-                <button onclick="closeAdmin()" style="background: transparent; color: white; border: 1px solid white; padding: 8px 20px; border-radius: 5px; cursor:pointer; font-weight:bold;">Close</button>
+                <button onclick="closeAdmin()" style="background: transparent; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 5px; cursor:pointer;">Close</button>
             </div>
             <div class="admin-tabs">
                 <div class="admin-tab active" onclick="switchTab('tab-general')">General / About</div>
-                <div class="admin-tab" onclick="switchTab('tab-pricing')">Pricing Plans</div>
-                <div class="admin-tab" onclick="switchTab('tab-menu')">Daily Menu</div>
+                <div class="admin-tab" onclick="switchTab('tab-pricing')">Pricing</div>
+                <div class="admin-tab" onclick="switchTab('tab-menu')">Menu</div>
+                <div class="admin-tab" onclick="switchTab('tab-reviews-admin')">Manage Reviews</div>
                 <div class="admin-tab" onclick="switchTab('tab-sections')">Custom Sections</div>
             </div>
             
@@ -430,7 +462,7 @@
                     </div>
                     <div class="admin-group">
                         <label>Contact & Social Links</label>
-                        <input type="text" id="input-whatsapp" placeholder="WhatsApp Number (10 digits)">
+                        <input type="text" id="input-whatsapp" placeholder="WhatsApp Number">
                         <input type="text" id="input-insta" placeholder="Instagram ID" style="margin-top:5px;">
                         <input type="text" id="input-fb" placeholder="Facebook ID" style="margin-top:5px;">
                         <textarea id="input-address" rows="2" placeholder="Full Address" style="margin-top:5px;"></textarea>
@@ -441,25 +473,15 @@
                 <div id="tab-pricing" style="display:none;">
                     <div class="admin-group" style="background: rgba(212, 178, 84, 0.1);">
                         <h3 style="color: var(--gold-light); margin-bottom: 15px;">Add New Plan</h3>
-                        <input type="text" id="newPlanName" placeholder="Plan Name (e.g. Student Tiffin)">
-                        <input type="text" id="newPlanPrice" placeholder="Price (e.g. ₹ 3549 /-)">
-                        <textarea id="newPlanDesc" rows="3" placeholder="Features (Comma separated, e.g. Lunch & Dinner, Pure Veg, Free Delivery)"></textarea>
+                        <input type="text" id="newPlanName" placeholder="Plan Name">
+                        <input type="text" id="newPlanPrice" placeholder="Price">
+                        <textarea id="newPlanDesc" rows="2" placeholder="Features (Comma separated)"></textarea>
                         <button class="btn-gold" onclick="addNewPlan()">+ Add Plan</button>
                     </div>
                     <div id="existingPlansList"></div>
                 </div>
 
                 <div id="tab-menu" style="display:none;">
-                    <div class="admin-group" style="border-color: var(--pure-veg-green); background: rgba(46, 204, 113, 0.1);">
-                        <h3 style="color: var(--pure-veg-green); margin-bottom: 15px;">Add New Menu Day</h3>
-                        <input type="text" id="newMenuDay" placeholder="Heading (e.g., SPECIAL THALI)">
-                        <input type="text" id="newMenuImg" placeholder="Image URL (Link)">
-                        <textarea id="newMenuLunch" rows="2" placeholder="Lunch Details"></textarea>
-                        <textarea id="newMenuDinner" rows="2" placeholder="Dinner Details"></textarea>
-                        <button class="btn-gold" onclick="addNewMenuItem()">+ Add to Menu</button>
-                    </div>
-                    <hr style="border-color: rgba(212,178,84,0.2); margin: 30px 0;">
-                    <h3 style="color: var(--gold-light); margin-bottom: 15px;">Edit Existing Menu</h3>
                     <select id="editDaySelect" class="admin-group" style="width: 100%; padding: 15px; background: rgba(0,0,0,0.8); color:var(--gold-primary); font-size:1.1rem; border: 1px solid var(--gold-primary);" onchange="loadMenuForEdit()"></select>
                     <div class="admin-group">
                         <label>Image URL</label>
@@ -470,14 +492,19 @@
                         <textarea id="editMenuDinner" rows="3"></textarea>
                     </div>
                     <button class="btn-gold" onclick="saveMenuUpdate()">Update Selected Menu</button>
-                    <button class="btn-red" onclick="deleteMenuItem()" style="margin-left: 15px;">Delete Item</button>
+                </div>
+
+                <div id="tab-reviews-admin" style="display:none;">
+                    <h3 style="color: var(--gold-light); margin-bottom: 15px;">Manage Customer Reviews</h3>
+                    <p style="color:gray; margin-bottom:20px;">Delete fake or inappropriate reviews below:</p>
+                    <div id="adminReviewsList"></div>
                 </div>
 
                 <div id="tab-sections" style="display:none;">
-                    <div class="admin-group" style="background: rgba(255, 140, 0, 0.1); border-color: var(--accent-orange);">
-                        <h3 style="color: var(--accent-orange); margin-bottom: 15px;">Create a New Custom Section</h3>
-                        <input type="text" id="newSecTitle" placeholder="Section Heading (e.g., Party Orders)">
-                        <textarea id="newSecContent" rows="5" placeholder="Write your customized content here..."></textarea>
+                    <div class="admin-group" style="background: rgba(255, 140, 0, 0.1);">
+                        <h3 style="color: var(--accent-orange); margin-bottom: 15px;">Create Custom Section</h3>
+                        <input type="text" id="newSecTitle" placeholder="Section Heading">
+                        <textarea id="newSecContent" rows="4" placeholder="Write content here..."></textarea>
                         <button class="btn-gold" onclick="addNewSection()">+ Add Custom Section</button>
                     </div>
                     <div id="existingSectionsList"></div>
@@ -497,16 +524,15 @@
     </footer>
 
     <script>
-        // --- SPLASH SCREEN REMOVER ---
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const splash = document.getElementById('splash-screen');
                 splash.style.opacity = '0';
                 setTimeout(() => splash.style.display = 'none', 1000);
-            }, 2000); // Shows golden logo for 2 seconds
+            }, 2000); 
         });
 
-        // --- DATABASES (LocalStorage Final V10) ---
+        // Databases
         const defaultMenu = [
             { day: "MONDAY", img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
             { day: "TUESDAY", img: "https://images.unsplash.com/photo-1626779844431-15a133b3a726?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "खीर + 4-चना दाल पराठा + चना छोला + सलाद" },
@@ -523,6 +549,12 @@
             { name: "Budget Tiffin", price: "₹ 2799 /-", features: "Nutrient-Rich for Families, Dinner Only, Home-style Taste, Perfect for Daily Routine" }
         ];
 
+        const defaultReviews = [
+            { name: "Ayush Chaubey", rating: 5, text: "Bhai sach mein ghar ki yaad aa gayi! Best premium thali in Patna. Packaging and hygiene is top notch." },
+            { name: "Priya S.", rating: 5, text: "Very hygienic and the pure veg (no onion-garlic) option is a blessing for my family." },
+            { name: "Rahul M.", rating: 4, text: "The Matar Paneer on Sunday is amazing. Highly recommend for office workers." }
+        ];
+
         const defaultGeneral = {
             heroTitle: "AnnAamrit", heroHindi: "भारत की रसोई...", heroSub: "Har Nivala Ek Aashirvaad",
             aboutP1: "AnnAamrit is not just a food brand — it is a revival of India’s lost food culture. In today’s fast-moving world, food has become convenient but disconnected from purity. AnnAamrit stands as a reminder that Bharat was, is, and will always remain an “Annapurna Desh”.",
@@ -531,15 +563,16 @@
             address: "Behind PnB, M G Nagar, Kanji Factory Road, Kankarbagh, Patna"
         };
 
-        let currentMenu = []; let currentGeneral = {}; let customSections = []; let currentPlans = [];
+        let currentMenu = []; let currentGeneral = {}; let customSections = []; let currentPlans = []; let currentReviews = [];
 
         try {
-            currentMenu = JSON.parse(localStorage.getItem("annMenuFinal10")) || defaultMenu;
-            currentGeneral = JSON.parse(localStorage.getItem("annGeneralFinal10")) || defaultGeneral;
-            customSections = JSON.parse(localStorage.getItem("annSectionsFinal10")) || [];
-            currentPlans = JSON.parse(localStorage.getItem("annPlansFinal10")) || defaultPlans;
+            currentMenu = JSON.parse(localStorage.getItem("annMenuFinal11")) || defaultMenu;
+            currentGeneral = JSON.parse(localStorage.getItem("annGeneralFinal11")) || defaultGeneral;
+            customSections = JSON.parse(localStorage.getItem("annSectionsFinal11")) || [];
+            currentPlans = JSON.parse(localStorage.getItem("annPlansFinal11")) || defaultPlans;
+            currentReviews = JSON.parse(localStorage.getItem("annReviewsFinal11")) || defaultReviews;
         } catch (e) {
-            currentMenu = defaultMenu; currentGeneral = defaultGeneral; customSections = []; currentPlans = defaultPlans;
+            currentMenu = defaultMenu; currentGeneral = defaultGeneral; customSections = []; currentPlans = defaultPlans; currentReviews = defaultReviews;
         }
 
         function renderSite() {
@@ -570,13 +603,12 @@
                     currentPlans.forEach(plan => {
                         const featuresList = plan.features.split(',').map(f => `<li><i class="fas fa-check-circle"></i> ${f.trim()}</li>`).join('');
                         plansContainer.innerHTML += `
-                            <div class="pricing-card">
+                            <div class="pricing-card fade-in">
                                 <h3 class="pricing-title royal-font">${plan.name}</h3>
                                 <div class="pricing-price">${plan.price}</div>
                                 <ul class="pricing-features hindi-font">${featuresList}</ul>
                                 <a href="${waLink}" class="btn-gold" style="font-size: 1rem;">Select Plan</a>
-                            </div>
-                        `;
+                            </div>`;
                     });
                 }
 
@@ -599,6 +631,22 @@
                     });
                 }
 
+                // Render Reviews
+                const revContainer = document.getElementById("reviewsGridContainer");
+                if(revContainer) {
+                    revContainer.innerHTML = "";
+                    currentReviews.forEach(rev => {
+                        let stars = '⭐'.repeat(rev.rating);
+                        revContainer.innerHTML += `
+                            <div class="review-card fade-in">
+                                <i class="fas fa-quote-right quote-icon"></i>
+                                <div class="review-stars">${stars}</div>
+                                <p class="review-text">"${rev.text}"</p>
+                                <div class="review-author">- ${rev.name}</div>
+                            </div>`;
+                    });
+                }
+
                 // Render Custom Sections
                 const secContainer = document.getElementById("dynamicSectionsContainer");
                 if(secContainer) {
@@ -614,7 +662,23 @@
             } catch (e) { console.log(e); }
         }
 
-        // --- ADMIN SECURE LOGIN ---
+        // --- FEEDBACK SUBMISSION LOGIC ---
+        document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("reviewerName").value;
+            const rating = parseInt(document.getElementById("reviewerRating").value);
+            const text = document.getElementById("reviewerText").value;
+            
+            // Add new review to the beginning of the array
+            currentReviews.unshift({ name, rating, text });
+            localStorage.setItem("annReviewsFinal11", JSON.stringify(currentReviews));
+            
+            alert("Dhanyawad! Your review has been submitted successfully.");
+            this.reset();
+            renderSite();
+        });
+
+        // --- ADMIN LOGIN ---
         function openAdminPrompt() {
             const password = prompt("Admin Login\nHint: AAnnAamrit39");
             if(password === "RJAannaamrit@@@09") {
@@ -622,7 +686,6 @@
                 populateAdminFields();
             } else if (password !== null) { alert("Security Alert: Incorrect Password! Access Denied."); }
         }
-
         function closeAdmin() { document.getElementById("adminModal").style.display = "none"; }
 
         function switchTab(tabId) {
@@ -645,12 +708,12 @@
 
             // Load Plans
             const plansList = document.getElementById("existingPlansList");
-            plansList.innerHTML = `<h3 style="color:var(--gold-primary); margin:20px 0 10px;">Manage Existing Plans:</h3>`;
+            plansList.innerHTML = `<h3 style="color:var(--gold-primary); margin:20px 0 10px;">Manage Plans:</h3>`;
             currentPlans.forEach((p, i) => {
                 plansList.innerHTML += `
-                    <div style="background:rgba(255,255,255,0.05); padding:15px; margin-bottom:10px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
-                        <strong style="color:white;">${p.name} (${p.price})</strong> 
-                        <button class="btn-red" onclick="deletePlan(${i})" style="padding: 8px 20px;">Delete</button>
+                    <div style="background:rgba(255,255,255,0.05); padding:10px; margin-bottom:10px; border-radius:5px; display:flex; justify-content:space-between; align-items:center;">
+                        <strong style="color:white;">${p.name}</strong> 
+                        <button class="btn-red" onclick="deletePlan(${i})">Delete</button>
                     </div>`;
             });
 
@@ -659,19 +722,29 @@
             currentMenu.forEach((m, i) => { select.innerHTML += `<option value="${i}">${m.day}</option>`; });
             if(currentMenu.length > 0) loadMenuForEdit();
 
+            // Load Reviews Admin List
+            const revAdminList = document.getElementById("adminReviewsList");
+            revAdminList.innerHTML = "";
+            currentReviews.forEach((r, i) => {
+                revAdminList.innerHTML += `
+                    <div style="background:rgba(255,255,255,0.05); padding:10px; margin-bottom:10px; border-radius:5px; display:flex; justify-content:space-between; align-items:center;">
+                        <span style="color:white;"><b>${r.name}</b>: ${r.text.substring(0,30)}...</span> 
+                        <button class="btn-red" onclick="deleteReviewAdmin(${i})">Delete</button>
+                    </div>`;
+            });
+
             // Load Custom Sections
             const secList = document.getElementById("existingSectionsList");
             secList.innerHTML = `<h3 style="color:var(--gold-primary); margin:20px 0 10px;">Manage Custom Sections:</h3>`;
             customSections.forEach((s, i) => {
                 secList.innerHTML += `
-                    <div style="background:rgba(255,255,255,0.05); padding:15px; margin-bottom:10px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+                    <div style="background:rgba(255,255,255,0.05); padding:10px; margin-bottom:10px; border-radius:5px; display:flex; justify-content:space-between; align-items:center;">
                         <strong style="color:white;">${s.title}</strong> 
-                        <button class="btn-red" onclick="deleteSection(${i})" style="padding: 8px 20px;">Delete</button>
+                        <button class="btn-red" onclick="deleteSection(${i})">Delete</button>
                     </div>`;
             });
         }
 
-        // Action Functions
         function saveGeneralInfo() {
             currentGeneral.heroTitle = document.getElementById("input-heroTitle").value;
             currentGeneral.heroHindi = document.getElementById("input-heroHindi").value;
@@ -682,7 +755,7 @@
             currentGeneral.insta = document.getElementById("input-insta").value;
             currentGeneral.fb = document.getElementById("input-fb").value;
             currentGeneral.address = document.getElementById("input-address").value;
-            localStorage.setItem("annGeneralFinal10", JSON.stringify(currentGeneral));
+            localStorage.setItem("annGeneralFinal11", JSON.stringify(currentGeneral));
             alert("Information Updated!"); renderSite();
         }
 
@@ -691,13 +764,11 @@
             const price = document.getElementById("newPlanPrice").value;
             const features = document.getElementById("newPlanDesc").value;
             if(!name || !price) return alert("Plan Name and Price required!");
-            currentPlans.push({name, price, features});
-            localStorage.setItem("annPlansFinal10", JSON.stringify(currentPlans));
-            alert("Plan Added!"); document.getElementById("newPlanName").value=""; document.getElementById("newPlanPrice").value=""; document.getElementById("newPlanDesc").value="";
-            populateAdminFields(); renderSite();
+            currentPlans.push({name, price, features}); localStorage.setItem("annPlansFinal11", JSON.stringify(currentPlans));
+            alert("Plan Added!"); populateAdminFields(); renderSite();
         }
         function deletePlan(idx) {
-            if(confirm("Delete this plan?")) { currentPlans.splice(idx, 1); localStorage.setItem("annPlansFinal10", JSON.stringify(currentPlans)); populateAdminFields(); renderSite(); }
+            if(confirm("Delete this plan?")) { currentPlans.splice(idx, 1); localStorage.setItem("annPlansFinal11", JSON.stringify(currentPlans)); populateAdminFields(); renderSite(); }
         }
 
         function loadMenuForEdit() {
@@ -714,27 +785,26 @@
                 currentMenu[idx].img = document.getElementById("editMenuImg").value;
                 currentMenu[idx].lunch = document.getElementById("editMenuLunch").value;
                 currentMenu[idx].dinner = document.getElementById("editMenuDinner").value;
-                localStorage.setItem("annMenuFinal10", JSON.stringify(currentMenu)); alert("Menu Item Updated!"); renderSite();
+                localStorage.setItem("annMenuFinal11", JSON.stringify(currentMenu)); alert("Menu Item Updated!"); renderSite();
             }
         }
-        function addNewMenuItem() {
-            const newObj = { day: document.getElementById("newMenuDay").value, img: document.getElementById("newMenuImg").value || "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=600", lunch: document.getElementById("newMenuLunch").value, dinner: document.getElementById("newMenuDinner").value };
-            if(!newObj.day) return alert("Menu Heading required!");
-            currentMenu.push(newObj); localStorage.setItem("annMenuFinal10", JSON.stringify(currentMenu)); alert("New Menu Added!"); populateAdminFields(); renderSite();
-        }
-        function deleteMenuItem() {
-            const idx = document.getElementById("editDaySelect").value;
-            if(confirm("Delete menu item?")) { currentMenu.splice(idx, 1); localStorage.setItem("annMenuFinal10", JSON.stringify(currentMenu)); populateAdminFields(); renderSite(); }
+
+        function deleteReviewAdmin(idx) {
+            if(confirm("Are you sure you want to permanently delete this customer review?")) {
+                currentReviews.splice(idx, 1);
+                localStorage.setItem("annReviewsFinal11", JSON.stringify(currentReviews));
+                populateAdminFields(); renderSite();
+            }
         }
 
         function addNewSection() {
             const title = document.getElementById("newSecTitle").value; const content = document.getElementById("newSecContent").value;
             if(!title || !content) return alert("Title and Content required!");
-            customSections.push({title, content}); localStorage.setItem("annSectionsFinal10", JSON.stringify(customSections));
+            customSections.push({title, content}); localStorage.setItem("annSectionsFinal11", JSON.stringify(customSections));
             alert("Custom Section Added!"); populateAdminFields(); renderSite();
         }
         function deleteSection(idx) {
-            if(confirm("Delete custom section?")) { customSections.splice(idx, 1); localStorage.setItem("annSectionsFinal10", JSON.stringify(customSections)); populateAdminFields(); renderSite(); }
+            if(confirm("Delete custom section?")) { customSections.splice(idx, 1); localStorage.setItem("annSectionsFinal11", JSON.stringify(customSections)); populateAdminFields(); renderSite(); }
         }
 
         window.addEventListener('scroll', () => {
@@ -743,14 +813,12 @@
             else navbar.classList.remove('scrolled');
         });
 
-        // Setup Animations dynamically
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
         document.addEventListener("DOMContentLoaded", () => {
             renderSite();
-            // Attach observer to initially rendered static elements
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         });
     </script>
