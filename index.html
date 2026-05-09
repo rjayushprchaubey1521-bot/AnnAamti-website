@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnnAamrit | भारत की रसोई - Premium Cloud Kitchen & ERP</title>
-    <meta name="description" content="AnnAamrit: जहाँ स्वाद भी संस्कार है, और हर निवाला आशीर्वाद है। 100% Pure Veg premium home-style meals in Patna.">
+    <meta name="description" content="AnnAamrit: जहाँ स्वाद भी संस्कार है, और हर निवाला आशीर्वाद है। 100% Pure Veg premium home-style meals.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -27,20 +27,11 @@
             background-attachment: fixed; color: var(--text-cream); position: relative; min-height: 100vh; overflow-x: hidden;
         }
 
-        /* --- ZERO-FAIL SPLASH SCREEN (PURE CSS) --- */
-        #splash-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-edge);
-            z-index: 99999; display: flex; justify-content: center; align-items: center;
-            animation: hideSplash 2.5s forwards; /* Auto-hides after 2.5 seconds guaranteed */
-        }
+        /* --- ZERO-FAIL CSS SPLASH SCREEN --- */
+        #splash-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-edge); z-index: 99999; display: flex; justify-content: center; align-items: center; animation: hideSplash 2.5s forwards; }
         .splash-logo { width: 150px; animation: pulse 1s infinite alternate; filter: drop-shadow(0 0 20px rgba(212, 178, 84, 0.8)); }
-        
         @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.8; } 100% { transform: scale(1.05); opacity: 1; } }
-        @keyframes hideSplash {
-            0% { opacity: 1; visibility: visible; }
-            80% { opacity: 1; visibility: visible; }
-            100% { opacity: 0; visibility: hidden; pointer-events: none; z-index: -100; }
-        }
+        @keyframes hideSplash { 0% { opacity: 1; visibility: visible; } 80% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; pointer-events: none; z-index: -100; } }
 
         /* --- SANATAN TEXTURES & WATERMARKS --- */
         body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23d4b254" fill-opacity="0.04" d="M50 0c27.614 0 50 22.386 50 50s-22.386 50-50 50S0 77.614 0 50 22.386 0 50 0zm0 15c-19.33 0-35 15.67-35 35s15.67 35 35 35 35-15.67 35-35-15.67-35-35-35zm0 10c13.807 0 25 11.193 25 25s-11.193 25-25 25-25-11.193-25-25 11.193-25 25-25zm0 10c8.284 0 15 6.716 15 15s-6.716 15-15 15-15-6.716-15-15 6.716-15 15-15z"/></svg>'); background-size: 200px; z-index: -3; pointer-events: none; }
@@ -56,7 +47,6 @@
         .nav-links { display: flex; align-items: center; gap: 15px;}
         .nav-links a { color: var(--text-cream); text-decoration: none; font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: var(--transition-speed); }
         .nav-links a:hover { color: var(--gold-primary); }
-
         .pure-veg-badge { display: flex; align-items: center; gap: 8px; background: rgba(46, 204, 113, 0.15); border: 1px solid var(--pure-veg-green); color: var(--pure-veg-green); padding: 6px 15px; border-radius: 30px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 0 10px rgba(46, 204, 113, 0.2); }
         .pure-veg-icon { border: 2px solid var(--pure-veg-green); border-radius: 2px; padding: 2px; width: 16px; height: 16px; display: flex; justify-content: center; align-items: center; }
         .pure-veg-icon::after { content: ''; width: 6px; height: 6px; background: var(--pure-veg-green); border-radius: 50%; }
@@ -70,25 +60,25 @@
         .main-logo-icon { height: 160px; margin-bottom: 20px; filter: drop-shadow(0 0 25px rgba(212, 178, 84, 0.6)); }
         .brand-title { color: var(--gold-light); font-size: 6.5rem; font-weight: 800; line-height: 1; margin-bottom: 5px; text-shadow: 2px 4px 15px rgba(0,0,0,0.8); letter-spacing: 2px; }
         .hero-tagline-hindi { font-size: 3.5rem; color: var(--accent-orange); margin-top: 10px; margin-bottom: 10px; text-shadow: 0 0 15px rgba(255, 140, 0, 0.5); font-weight: 700; }
-        
-        .trust-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto 40px; position: relative; z-index: 1; }
-        .trust-card { border: 1px solid rgba(212, 178, 84, 0.5); border-radius: 10px; padding: 15px 25px; display: flex; flex-direction: column; align-items: center; gap: 10px; background: rgba(1, 18, 8, 0.7); min-width: 200px; backdrop-filter: blur(5px); }
-        .trust-card i { color: var(--gold-primary); font-size: 2rem; }
 
-        /* --- SECTIONS COMMON --- */
+        /* --- SECTIONS & ABOUT US VERBATIM --- */
         .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 { color: var(--gold-light); font-size: 3.5rem; border-bottom: 2px solid var(--gold-primary); display: inline-block; padding-bottom: 10px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-
-        /* --- ABOUT US (EXACT HTML FROM USER) --- */
-        .about-container { background: var(--glass-bg); border: 1px solid var(--gold-primary); border-radius: 15px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); backdrop-filter: blur(10px); }
-        .about-container h3 { color: var(--accent-orange); margin-top: 40px; font-size: 1.8rem; margin-bottom: 15px; border-bottom: 1px dashed rgba(212, 178, 84, 0.3); padding-bottom: 5px;}
-        .about-container p { font-size: 1.1rem; margin-bottom: 15px; line-height: 1.8; color: var(--text-cream); }
+        
+        .about-split { display: flex; align-items: center; gap: 40px; margin-bottom: 60px; background: var(--glass-bg); border: 1px solid rgba(212, 178, 84, 0.3); border-radius: 20px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .about-split.reverse { flex-direction: row-reverse; }
+        .about-text-box { flex: 1; }
+        .about-image-box { flex: 1; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 2px solid var(--gold-primary); }
+        .about-image-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+        .about-image-box:hover img { transform: scale(1.05); }
+        
+        .about-text-box h3 { color: var(--accent-orange); font-size: 1.8rem; margin-bottom: 15px; }
+        .about-text-box p { font-size: 1.1rem; margin-bottom: 15px; line-height: 1.8; color: var(--text-cream); }
         .highlight { font-weight: bold; color: var(--gold-primary); }
         .about-box { background: rgba(0,0,0,0.4); padding: 25px; border-radius: 12px; border: 1px solid rgba(212, 178, 84, 0.3); margin-top: 20px; }
         .about-box ul { padding-left: 20px; color: var(--text-cream); font-size: 1.1rem; }
         .about-box li { margin-bottom: 10px; }
-        .about-box b { color: var(--gold-light); }
         .footer-line { text-align: center; margin-top: 50px; font-size: 22px; font-weight: bold; color: var(--gold-primary); border-top: 1px dashed rgba(212,178,84,0.3); padding-top: 30px; }
 
         /* --- PRICING & MENU --- */
@@ -113,16 +103,440 @@
         .form-section-title { color: var(--accent-orange); font-size: 1.5rem; margin: 30px 0 15px; border-bottom: 1px dashed rgba(212, 178, 84, 0.4); padding-bottom: 5px;}
         .input-group { margin-bottom: 20px; }
         .input-group label { display: block; color: var(--gold-light); font-weight: 600; margin-bottom: 5px; }
-        .input-group .hindi-label { color: #aaa; font-size: 0.9rem; font-weight: normal; margin-left: 5px; }
         .form-input, .form-select { width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212, 178, 84, 0.5); color: white; border-radius: 8px; font-family: 'Poppins', sans-serif; }
         .form-input:focus, .form-select:focus { border-color: var(--accent-orange); outline: none; }
         .radio-group { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 8px; }
         .radio-item { display: flex; align-items: center; gap: 8px; color: var(--text-cream); }
         .terms-box { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(212,178,84,0.2); font-size: 0.95rem; line-height: 1.6; height: 250px; overflow-y: auto; margin-bottom: 20px; }
         .terms-box h4 { color: var(--gold-primary); margin-top: 15px; }
-        .hindi-terms { font-size: 0.85rem; color: var(--accent-orange); font-style: italic; display: block;}
-        .btn-gold { background: linear-gradient(135deg, #d4b254, #fbe69e, #d4b254); color: #021a0e; padding: 15px 40px; border: none; border-radius: 30px; font-size: 1.2rem; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: var(--transition-speed); box-shadow: 0 10px 20px rgba(0,0,0,0.4); width: 100%; display: block; text-align: center;}
+        .btn-gold { background: linear-gradient(135deg, #d4b254, #fbe69e, #d4b254); color: #021a0e; padding: 15px 40px; border: none; border-radius: 30px; font-size: 1.2rem; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: var(--transition-speed); box-shadow: 0 10px 20px rgba(0,0,0,0.4); width: 100%; display: block; text-align: center; text-decoration: none;}
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(212, 178, 84, 0.6); }
 
-        /* --- REVIEWS --- */
+        /* --- REVIEWS & CONTACT --- */
         .reviews-grid { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; width: 100%; }
-        .review-card { background: rgba(1, 18, 8, 0.9); border: 1px solid rgba(212, 178, 84, 0.3); border-radius: 15px; padding: 30px; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        .review-card { background: rgba(1, 18, 8, 0.9); border: 1px solid rgba(212, 178, 84, 0.3); border-radius: 15px; padding: 30px; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+        .review-card .quote-icon { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: rgba(212, 178, 84, 0.2); }
+        
+        .contact-wrapper { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+        .contact-card { background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 178, 84, 0.3); padding: 30px; border-radius: 12px; text-align: center; flex: 1; min-width: 280px; max-width: 350px; }
+        .contact-card i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 15px; }
+        .contact-card h3 { color: var(--gold-light); margin-bottom: 10px; font-size: 1.5rem; }
+        .contact-card a, .contact-card p { color: var(--text-cream); text-decoration: none; font-size: 1.1rem; }
+        .float-wa { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1001; transition: transform 0.3s; text-decoration: none;}
+        .float-wa:hover { transform: scale(1.1); }
+
+        /* --- ADMIN PANEL & ERP --- */
+        .admin-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center; }
+        .admin-wrapper { background: var(--bg-center); border: 2px solid var(--gold-primary); border-radius: 15px; width: 95%; max-width: 1000px; max-height: 90vh; display: flex; flex-direction: column; overflow: hidden; }
+        .admin-header { padding: 20px; background: var(--bg-edge); border-bottom: 1px solid var(--gold-primary); display: flex; justify-content: space-between; align-items: center; }
+        .admin-tabs { display: flex; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(212,178,84,0.3); overflow-x: auto; }
+        .admin-tab { padding: 15px 20px; cursor: pointer; color: white; font-weight: bold; border-right: 1px solid rgba(212,178,84,0.3); white-space: nowrap; }
+        .admin-tab.active { background: var(--accent-orange); color: #000; }
+        .admin-body { padding: 30px; overflow-y: auto; flex: 1; }
+        .admin-group { margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border: 1px solid rgba(212,178,84,0.3); }
+        .admin-group label { display: block; color: var(--gold-light); margin-bottom: 8px; font-weight: bold; }
+        .admin-group input, .admin-group textarea, .admin-group select { width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--gold-primary); color: white; border-radius: 5px; font-family: 'Poppins', sans-serif; margin-bottom: 10px;}
+        .btn-red { background: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;}
+        .erp-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9rem;}
+        .erp-table th, .erp-table td { border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px; text-align: left; }
+        .erp-table th { background: rgba(0,0,0,0.5); color: var(--gold-light); }
+
+        .fade-in { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .brand-title { font-size: 4.5rem; } .nav-links { display: none; }
+            .about-split, .about-split.reverse { flex-direction: column; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="splash-screen"><img src="logo.png" alt="AnnAamrit" class="splash-logo" onerror="this.style.display='none'"></div>
+
+    <a href="#" id="floating-wa" target="_blank" class="float-wa"><i class="fab fa-whatsapp"></i></a>
+
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-brand royal-font"><img src="logo.png" alt="Logo" class="nav-logo-icon" onerror="this.style.display='none'"> AnnAamrit</a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#about">Story</a> <a href="#pricing">Plans</a> <a href="#menu">Menu</a> <a href="#join">Join</a> <a href="#reviews">Reviews</a>
+            </div>
+            <div class="pure-veg-badge"><div class="pure-veg-icon"></div> 100% Pure Veg</div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <video autoplay loop muted playsinline class="hero-video-bg"><source src="video.mp4" type="video/mp4"></video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-top-spiritual hindi-font fade-in"><span>卐</span> ॥ जय श्री राम ॥ <span>卐</span></div>
+            <img src="logo.png" alt="AnnAamrit Logo" class="main-logo-icon fade-in" onerror="this.style.display='none'">
+            <h1 class="brand-title royal-font fade-in" id="display-heroTitle">AnnAamrit</h1>
+            <h2 class="hero-tagline-hindi hindi-font fade-in" id="display-heroHindi">भारत की रसोई...</h2>
+            <p class="royal-font fade-in" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 20px;" id="display-heroSub">Har Nivala Ek Aashirvaad</p>
+        </div>
+    </header>
+
+    <section class="section" id="about">
+        <div class="section-header fade-in"><h2 class="royal-font">Our Legacy</h2></div>
+        
+        <div class="about-split fade-in">
+            <div class="about-text-box">
+                <div style="font-size: 42px; text-align: center; color: var(--gold-light); margin-bottom: 10px;" class="royal-font">AnnAamrit</div>
+                <div style="text-align: center; color: var(--accent-orange); font-size: 20px; font-weight: 600; margin-bottom: 30px;">Bharat ki Rasoi — Har Nivala, Ek Aashirwad</div>
+                <h3 class="royal-font">Who We Are</h3>
+                <p id="display-aboutP1">AnnAamrit is not just a food brand — it is a revival of India’s lost food culture. In today’s fast-moving world, food has become convenient but disconnected from purity. AnnAamrit stands as a reminder that Bharat was, is, and will always remain an <span class="highlight">“Annapurna Desh”</span>.</p>
+                <h3 class="royal-font">Our Story</h3>
+                <p id="display-aboutP2">AnnAamrit was built from real-life struggles — not luxury setups. Students lacked healthy food, professionals compromised health, families lost trust in outside meals, and elders had limited safe options.<br>From Day 01, the mission was clear: <span class="highlight">to create food people can trust without doubt.</span></p>
+            </div>
+            <div class="about-image-box">
+                <img src="story-img-1.jpg" alt="Mother's Touch" onerror="this.src='https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800'">
+            </div>
+        </div>
+
+        <div class="about-split reverse fade-in">
+            <div class="about-text-box">
+                <h3 class="royal-font">Bhartiye Bhojan – Our True Identity</h3>
+                <p>What the world calls “superfood” today has always been part of Indian tradition. AnnAamrit brings back traditional meals, sattvic nutrition, and balanced eating habits.</p>
+                <div style="display:flex; gap:20px; flex-wrap:wrap; margin-top:20px;">
+                    <div class="about-box" style="flex:1;">
+                        <h4 style="color:var(--accent-orange); margin-bottom:10px;">Who We Serve</h4>
+                        <ul>
+                            <li><b>Students:</b> Affordable, clean, energy-rich meals</li>
+                            <li><b>Working Professionals:</b> Time-saving, reliable food</li>
+                            <li><b>Families:</b> Safe and home-style meals</li>
+                            <li><b>Elders:</b> Light, digestible food</li>
+                            <li><b>Health-Conscious:</b> Balanced and disciplined diet</li>
+                        </ul>
+                    </div>
+                    <div class="about-box" style="flex:1;">
+                        <h4 style="color:var(--accent-orange); margin-bottom:10px;">100% Pure Veg & Sattvic</h4>
+                        <ul>
+                            <li>No Onion</li><li>No Garlic</li><li>100% Vegetarian</li><li>Sattvic Food Principles</li>
+                        </ul>
+                        <p style="font-size:0.9rem; font-style:italic; color:#aaa; margin-top:10px;">Suitable for Sadhu-Sant, spiritual lifestyle, and pure food seekers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image-box">
+                <img src="story-img-2.jpg" alt="Professionals" onerror="this.src='https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800'">
+            </div>
+        </div>
+
+        <div class="about-container fade-in" style="text-align:center;">
+            <h3 class="royal-font">Why AnnAamrit is Different</h3>
+            <p>We prioritize <span class="highlight">purity over speed</span>, <span class="highlight">trust over trends</span>, and <span class="highlight">consistency over hype</span>. Others serve food. <span class="highlight">We serve responsibility.</span></p>
+            <h3 class="royal-font">Quality Control</h3>
+            <ul style="list-style:none; padding:0; display:flex; justify-content:center; gap:20px; flex-wrap:wrap; font-size:1.1rem;">
+                <li><i class="fas fa-check-circle" style="color:var(--pure-veg-green);"></i> Ingredient Quality</li>
+                <li><i class="fas fa-check-circle" style="color:var(--pure-veg-green);"></i> Kitchen Hygiene</li>
+                <li><i class="fas fa-check-circle" style="color:var(--pure-veg-green);"></i> Standard Cooking</li>
+                <li><i class="fas fa-check-circle" style="color:var(--pure-veg-green);"></i> Packaging Discipline</li>
+                <li><i class="fas fa-check-circle" style="color:var(--pure-veg-green);"></i> On-Time Delivery</li>
+            </ul>
+            <h3 class="royal-font" style="margin-top:30px;">Our Vision</h3>
+            <p>To build AnnAamrit as India’s most trusted food system — where every individual eats safely, wisely, and peacefully.</p>
+            <p class="highlight" style="font-size: 1.5rem; margin-top: 20px;">Bharat was, is, and will always remain Annapurna.</p>
+            <div class="footer-line royal-font">AnnAamrit — Not Just Food, A Daily Blessing 🌿</div>
+        </div>
+    </section>
+
+    <section class="section" id="pricing">
+        <div class="section-header fade-in"><h2 class="royal-font">Subscription Plans</h2></div>
+        <div class="pricing-grid fade-in" id="pricingGridContainer"></div>
+    </section>
+    
+    <section class="section" id="menu">
+        <div class="section-header fade-in"><h2 class="royal-font">Weekly Thali Menu</h2></div>
+        <div style="text-align: center; margin-bottom: 40px;" class="fade-in">
+            <span style="background: var(--accent-orange); color: #000; padding: 10px 20px; border-radius: 30px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 0 15px rgba(255,140,0,0.4);">
+                🚫🧅 Onion-Garlic Free (Satvik) Available | 🍬 Sugar Free Available (+ ₹7.5/meal)
+            </span>
+        </div>
+        <div class="menu-grid hindi-font" id="menuGridContainer"></div>
+    </section>
+
+    <section class="section" id="join">
+        <div class="form-container fade-in">
+            <div style="text-align: center; margin-bottom: 40px; border-bottom: 2px solid var(--gold-primary); padding-bottom: 20px;">
+                <h2 class="royal-font" style="color: var(--gold-light); font-size: 2.5rem; margin-bottom:0;">Customer Joining Form</h2>
+                <p class="hindi-font" style="color: var(--accent-orange); font-size: 1.2rem;">"Har Nivala, Ek Aashirwad"</p>
+            </div>
+            <form id="corporateForm">
+                <h3 class="form-section-title royal-font">Section 1: Personal Information <span class="hindi-font" style="font-size:1rem; color:#aaa;">/ व्यक्तिगत विवरण</span></h3>
+                <div class="input-group"><label>1. Full Name:</label><input type="text" class="form-input" required></div>
+                <div class="input-group"><label>2. Father’s / Guardian’s Name:</label><input type="text" class="form-input" required></div>
+                <div style="display: flex; gap: 20px;">
+                    <div class="input-group" style="flex: 1;"><label>3. Age:</label><input type="number" class="form-input" required></div>
+                    <div class="input-group" style="flex: 2;"><label>4. Gender:</label><select class="form-input" required><option value="">Select...</option><option>Male</option><option>Female</option><option>Other</option></select></div>
+                </div>
+                <div class="input-group"><label>5. WhatsApp Number (Primary):</label><input type="tel" class="form-input" required></div>
+                <div class="input-group"><label>6. Alternate Contact:</label><input type="tel" class="form-input"></div>
+                <div class="input-group"><label>7. Email ID (Optional):</label><input type="email" class="form-input"></div>
+                <div class="input-group"><label>8. Occupation:</label><select class="form-input" required><option value="">Select...</option><option>Student</option><option>Office Professional</option><option>Business Person</option><option>Family / Senior Citizen</option></select></div>
+
+                <h3 class="form-section-title royal-font">Section 2: Address & Emergency Details</h3>
+                <div class="input-group"><label>9. Current Address (Hostel/Office):</label><textarea class="form-input" rows="2" required></textarea></div>
+                <div class="input-group"><label>10. Landmark (Pin Location):</label><input type="text" class="form-input" required></div>
+                <div class="input-group"><label>11. Permanent Address:</label><textarea class="form-input" rows="2" required></textarea></div>
+                <div style="display: flex; gap: 20px;">
+                    <div class="input-group" style="flex: 1;"><label>12. Emergency Contact Person:</label><input type="text" class="form-input" required></div>
+                    <div class="input-group" style="flex: 1;"><label>13. Relation:</label><input type="text" class="form-input" required></div>
+                </div>
+                <div class="input-group"><label>14. Emergency Number:</label><input type="tel" class="form-input" required></div>
+
+                <h3 class="form-section-title royal-font">Section 3: Food Preferences & Health</h3>
+                <div class="input-group">
+                    <label>15. Food Type:</label>
+                    <select class="form-input" required><option value="">Select...</option><option>Pure Veg (Standard)</option><option>Jain Food (No Onion/Garlic)</option><option>Satvik Food</option></select>
+                </div>
+                <div class="input-group" style="display: flex; gap: 20px;">
+                    <div style="flex: 1;"><label>16. Spice Level:</label><select class="form-input" required><option value="">Select...</option><option>Low</option><option>Medium</option><option>Regular</option></select></div>
+                    <div style="flex: 1;"><label>17. Meal Time:</label><select class="form-input" required><option value="">Select...</option><option>Lunch</option><option>Dinner</option><option>Full Day Plan</option></select></div>
+                </div>
+                <div class="input-group">
+                    <label>18. Medical Condition / Allergies (CRITICAL):</label>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom:10px;">
+                        <label><input type="checkbox"> Diabetes</label><label><input type="checkbox"> High BP</label><label><input type="checkbox"> Thyroid</label><label><input type="checkbox"> Digestive Issue</label>
+                    </div>
+                    <input type="text" class="form-input" placeholder="Any food allergy? (e.g. Peanuts, Dairy)">
+                </div>
+
+                <h3 class="form-section-title royal-font">Section 4: Subscription & Payment</h3>
+                <div style="display: flex; gap: 20px;">
+                    <div class="input-group" style="flex: 1;"><label>19. Plan Category:</label><select class="form-input" required><option value="">Select...</option><option>Student Plan</option><option>Office Professional</option><option>Family Plan</option><option>Customized Diet</option></select></div>
+                    <div class="input-group" style="flex: 1;"><label>20. Plan Duration:</label><select class="form-input" required><option value="">Select...</option><option>15 Days Trial</option><option>30 Days Standard</option><option>Custom</option></select></div>
+                </div>
+                <div style="display: flex; gap: 20px;">
+                    <div class="input-group" style="flex: 1;"><label>21. Payment Mode:</label><select class="form-input" required><option value="">Select...</option><option>UPI</option><option>Cash</option><option>Bank Transfer</option></select></div>
+                    <div class="input-group" style="flex: 1;"><label>22. Transaction ID:</label><input type="text" class="form-input" placeholder="If paid online"></div>
+                </div>
+
+                <h3 class="form-section-title royal-font">Section 5: Terms of Trust & Quality</h3>
+                <div class="terms-box" style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(212,178,84,0.2); font-size: 0.95rem; line-height: 1.6; height: 250px; overflow-y: auto; margin-bottom: 20px;">
+                    <h4 style="color: var(--gold-primary);">Freshness & Safety</h4><p>Ann-Amrit serves food without harmful preservatives. Food must be consumed within 2 hours of delivery. / डिलीवरी के 2 घंटे के भीतर भोजन ग्रहण करना अनिवार्य है।</p>
+                    <h4 style="color: var(--gold-primary);">Refund Policy</h4><p>Prepaid subscription amounts are strictly non-refundable.</p>
+                    <h4 style="color: var(--gold-primary);">Validity, Extensions & Proof of Absence</h4><p>A standard 30-day plan includes max 04 days normal extension. Further extensions strictly granted ONLY for genuine emergencies upon mandatory submission of valid documentary proof (Admit Card, Official Travel Ticket, Medical Receipt).</p>
+                    <h4 style="color: var(--gold-primary);">Pause Policy</h4><p>Inform us via WhatsApp at least 12 hours in advance. Uninformed skips will be counted as consumed.</p>
+                    <h4 style="color: var(--gold-primary);">Service Interruption & Delivery Protocol</h4><p>Delivery partner will wait max 5-7 minutes. Services may be suspended for mandatory kitchen maintenance.</p>
+                    <h4 style="color: var(--gold-primary);">Code of Conduct</h4><p>Respectful behavior with staff is expected. Misbehavior leads to immediate termination without refund.</p>
+                </div>
+
+                <h3 class="form-section-title royal-font">Section 6: Declaration</h3>
+                <div class="input-group">
+                    <label style="display:flex; align-items:start; gap:10px; cursor:pointer;">
+                        <input type="checkbox" required style="margin-top:5px; width:20px; height:20px;">
+                        <span style="font-weight:normal;">I confirm that all information provided is accurate. I respect Ann-Amrit's vision of healthy Bharat-inspired food and agree to all rules.<br><span class="hindi-font" style="color:var(--accent-orange)">मैं घोषणा करता हूँ कि दी गई जानकारी सही है और मैं सभी नियमों का पालन करूँगा।</span></span>
+                    </label>
+                </div>
+                <div style="display: flex; gap: 20px; margin-top:20px;">
+                    <div class="input-group" style="flex: 2;"><label>Customer Signature (Type Name):</label><input type="text" class="form-input" required></div>
+                    <div class="input-group" style="flex: 1;"><label>Date:</label><input type="date" class="form-input" required></div>
+                </div>
+                <div style="background: rgba(0,0,0,0.8); padding: 15px; border: 1px dashed gray; margin-top:20px; text-align:center;">
+                    <h4 style="color:gray;">🏢 Official Use Only / केवल कार्यालय उपयोग हेतु</h4>
+                    <p style="color:gray; font-size:0.8rem;">Customer ID: _____ | Plan Assigned: _____ | Delivery Zone: _____ | Verified By: _____</p>
+                </div>
+                <button type="submit" class="btn-gold" style="margin-top:20px; width: 100%;">Submit Application & Pay</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="section" id="reviews">
+        <div class="section-header fade-in"><h2 class="royal-font">Customer Reviews</h2></div>
+        <div class="pricing-grid" id="reviewsGridContainer"></div>
+        <div class="form-container fade-in" style="margin-top: 40px; max-width: 600px; padding: 40px; text-align:center;">
+            <h3 class="royal-font" style="color:var(--gold-light); margin-bottom: 20px;">Leave Your Feedback</h3>
+            <form id="feedbackForm" style="text-align:left;">
+                <div class="input-group"><input type="text" id="reviewerName" class="form-input" placeholder="Your Name" required></div>
+                <div class="input-group">
+                    <select id="reviewerRating" class="form-input" required><option value="" disabled selected>Rate out of 5 Stars</option><option value="5">⭐⭐⭐⭐⭐ - Excellent!</option><option value="4">⭐⭐⭐⭐ - Very Good</option><option value="3">⭐⭐⭐ - Good</option></select>
+                </div>
+                <div class="input-group"><textarea id="reviewerText" class="form-input" rows="3" placeholder="Your experience..." required></textarea></div>
+                <button type="submit" class="btn-gold">Submit Review</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="dynamicSectionsContainer"></div>
+
+    <section class="section" id="contact">
+        <div class="section-header fade-in"><h2 class="royal-font">Get In Touch</h2></div>
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;" class="fade-in">
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 178, 84, 0.3); padding: 30px; border-radius: 12px; text-align: center; flex: 1; min-width: 280px; max-width: 350px;">
+                <i class="fab fa-whatsapp" style="font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 15px;"></i><h3 style="color: var(--gold-light); margin-bottom: 10px;">WhatsApp</h3><a href="#" id="display-whatsappLink" style="color: white; text-decoration:none;"><span id="display-whatsapp">+91 9128965956</span></a>
+            </div>
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 178, 84, 0.3); padding: 30px; border-radius: 12px; text-align: center; flex: 1; min-width: 280px; max-width: 350px;">
+                <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 15px;"></i><h3 style="color: var(--gold-light); margin-bottom: 10px;">Office</h3><p id="display-address">Behind PnB, M G Nagar, Kankarbagh, Patna</p>
+            </div>
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 178, 84, 0.3); padding: 30px; border-radius: 12px; text-align: center; flex: 1; min-width: 280px; max-width: 350px;">
+                <i class="fas fa-hashtag" style="font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 15px;"></i><h3 style="color: var(--gold-light); margin-bottom: 10px;">Social</h3><a href="#" id="display-instaLink" style="color: white; text-decoration:none; display:block;"><i class="fab fa-instagram"></i> <span id="display-insta">ann_aamrit</span></a><a href="#" id="display-fbLink" style="color: white; text-decoration:none;"><i class="fab fa-facebook-f"></i> <span id="display-fb">AnnAamrit</span></a>
+            </div>
+        </div>
+    </section>
+
+    <div class="admin-modal" id="adminModal">
+        <div style="background: var(--bg-center); border: 2px solid var(--gold-primary); border-radius: 15px; width: 95%; max-width: 1100px; max-height: 90vh; display: flex; flex-direction: column; overflow: hidden;">
+            <div style="padding: 20px; background: var(--bg-edge); border-bottom: 1px solid var(--gold-primary); display: flex; justify-content: space-between; align-items: center;">
+                <h2 class="royal-font" style="color: var(--gold-primary); margin:0;">Admin & Operations Control Panel</h2>
+                <button onclick="closeAdmin()" style="background: transparent; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 5px; cursor:pointer;">Close</button>
+            </div>
+            <div style="display: flex; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(212,178,84,0.3); overflow-x: auto;">
+                <div class="admin-tab active" onclick="switchTab('tab-general')" style="padding: 15px 20px; cursor: pointer; color: white; border-right: 1px solid rgba(212,178,84,0.3);">Website Content</div>
+                <div class="admin-tab" onclick="switchTab('tab-menu')" style="padding: 15px 20px; cursor: pointer; color: white; border-right: 1px solid rgba(212,178,84,0.3);">Menu & Plans</div>
+                <div class="admin-tab" onclick="switchTab('tab-erp')" style="padding: 15px 20px; cursor: pointer; background: rgba(255, 140, 0, 0.2); color: var(--gold-light);">Management ERP</div>
+            </div>
+            
+            <div class="admin-body" style="padding: 30px; overflow-y: auto; flex: 1;">
+                <div id="tab-general">
+                    <div style="margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px;"><label style="color:var(--gold-light); display:block; margin-bottom:5px;">Contact Info</label><input type="text" id="input-whatsapp" placeholder="WhatsApp Number" style="width:100%; padding:10px; margin-bottom:10px;"><input type="text" id="input-insta" placeholder="Instagram ID" style="width:100%; padding:10px; margin-bottom:10px;"><input type="text" id="input-fb" placeholder="Facebook ID" style="width:100%; padding:10px; margin-bottom:10px;"><textarea id="input-address" rows="2" style="width:100%; padding:10px; margin-bottom:10px;"></textarea><button class="btn-gold" onclick="saveGeneralInfo()">Save Updates</button></div>
+                    <div style="margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px;"><label style="color:var(--gold-light); display:block; margin-bottom:10px;">Manage Reviews</label><div id="adminReviewsList"></div></div>
+                    <div style="margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px;"><label style="color:var(--gold-light); display:block; margin-bottom:10px;">Add Custom Section</label><input type="text" id="newSecTitle" placeholder="Title" style="width:100%; padding:10px; margin-bottom:10px;"><textarea id="newSecContent" rows="3" placeholder="Content" style="width:100%; padding:10px; margin-bottom:10px;"></textarea><button class="btn-gold" onclick="addNewSection()">Add Section</button><div id="existingSectionsList" style="margin-top:15px;"></div></div>
+                </div>
+
+                <div id="tab-menu" style="display:none;">
+                    <div style="margin-bottom: 20px; background: rgba(212,178,84,0.1); padding: 20px; border-radius: 8px;"><h3 style="color: var(--gold-light); margin-bottom: 10px;">Add Plan</h3><input type="text" id="newPlanName" placeholder="Plan Name" style="width:100%; padding:10px; margin-bottom:10px;"><input type="text" id="newPlanPrice" placeholder="Price" style="width:100%; padding:10px; margin-bottom:10px;"><textarea id="newPlanDesc" rows="2" placeholder="Features (Comma separated)" style="width:100%; padding:10px; margin-bottom:10px;"></textarea><button class="btn-gold" onclick="addNewPlan()">Add Plan</button></div>
+                    <div id="existingPlansList" style="margin-bottom:30px;"></div>
+                    <select id="editDaySelect" style="width: 100%; padding: 15px; background: rgba(0,0,0,0.8); color:var(--gold-primary); font-size:1.1rem; border: 1px solid var(--gold-primary); margin-bottom:15px;" onchange="loadMenuForEdit()"></select>
+                    <div style="margin-bottom: 20px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px;"><label style="color:var(--gold-light); display:block; margin-bottom:5px;">Image URL</label><input type="text" id="editMenuImg" style="width:100%; padding:10px; margin-bottom:10px;"><label style="color:var(--gold-light); display:block; margin-bottom:5px;">Lunch</label><textarea id="editMenuLunch" rows="2" style="width:100%; padding:10px; margin-bottom:10px;"></textarea><label style="color:var(--gold-light); display:block; margin-bottom:5px;">Dinner</label><textarea id="editMenuDinner" rows="2" style="width:100%; padding:10px; margin-bottom:10px;"></textarea></div><button class="btn-gold" onclick="saveMenuUpdate()">Update Menu</button>
+                </div>
+
+                <div id="tab-erp" style="display:none;">
+                    <h3 style="color: var(--accent-orange); margin-bottom: 20px;">Daily Kitchen Operations Log</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 1px solid rgba(212,178,84,0.3);">
+                            <label style="color:var(--gold-light); display:block;">Date</label><input type="date" id="erpDate" style="width:100%; padding:10px; margin-bottom:10px;" required>
+                            <label style="color:var(--gold-light); display:block;">Total Daily Income (₹)</label><input type="number" id="erpIncome" placeholder="e.g. 15000" style="width:100%; padding:10px; margin-bottom:10px;">
+                            <label style="color:var(--gold-light); display:block;">Payment Method & TXN IDs</label><input type="text" id="erpTxn" placeholder="Cash: 5k, UPI IDs: ..." style="width:100%; padding:10px; margin-bottom:10px;">
+                            <label style="color:var(--gold-light); display:block;">Staff Attendance</label><input type="text" id="erpStaff" placeholder="e.g. 5/6 Present" style="width:100%; padding:10px; margin-bottom:10px;">
+                        </div>
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,17,0,0.3);">
+                            <label style="color:var(--gold-light); display:block;">Raw Material Purchases (₹)</label><input type="number" id="erpPurchases" placeholder="Veggies, grocery cost" style="width:100%; padding:10px; margin-bottom:10px;">
+                            <label style="color:var(--gold-light); display:block;">Transport/Fuel Cost & Vehicle No.</label><input type="text" id="erpFuel" placeholder="BR01XX1234 - ₹500" style="width:100%; padding:10px; margin-bottom:10px;">
+                            <label style="color:var(--gold-light); display:block;">Kitchen Maintenance / Bill (₹)</label><input type="text" id="erpMaintenance" placeholder="Gas/Electric or Repairs" style="width:100%; padding:10px; margin-bottom:10px;">
+                        </div>
+                    </div>
+                    <button class="btn-gold" style="margin-top:20px;" onclick="saveErpLog()">Submit Daily Report</button>
+                    <hr style="border-color: rgba(212,178,84,0.2); margin: 30px 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                        <h3 style="color: var(--gold-light);">Monthly Financial Log</h3><button class="btn-gold" style="width: auto; padding: 10px 20px;" onclick="generateMonthlyReport()">Generate P&L Report</button>
+                    </div>
+                    <div style="overflow-x: auto; margin-top: 15px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <thead><tr><th style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px; background: rgba(0,0,0,0.5); color: var(--gold-light);">Date</th><th style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px; background: rgba(0,0,0,0.5); color: var(--gold-light);">Income</th><th style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px; background: rgba(0,0,0,0.5); color: var(--gold-light);">Purchases</th><th style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px; background: rgba(0,0,0,0.5); color: var(--gold-light);">Fuel</th><th style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px; background: rgba(0,0,0,0.5); color: var(--gold-light);">Maint.</th><th style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px; background: rgba(0,0,0,0.5); color: var(--gold-light);">Staff</th><th style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px; background: rgba(0,0,0,0.5); color: var(--gold-light);">Action</th></tr></thead>
+                            <tbody id="erpTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="text-align:center; padding: 40px 20px; background:var(--bg-edge); border-top:1px solid rgba(212,178,84,0.2);">
+            <img src="logo.png" alt="Icon" height="60" onerror="this.style.display='none'">
+            <h3 class="royal-font" style="color: var(--gold-primary); font-size: 2.5rem; margin: 10px 0;">AnnAamrit</h3>
+            <p class="hindi-font" style="color: var(--text-cream); opacity: 0.8;">शुद्धता और परिष्कार की गारंटी</p>
+            <p style="opacity: 0.5; font-size: 0.9rem; margin-top: 20px;">&copy; 2026 AnnAamrit. All rights reserved. | <a href="#" onclick="openAdminPrompt()" style="color: #666; text-decoration: none;">Management Login</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const defaultMenu = [
+            { day: "MONDAY", img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
+            { day: "TUESDAY", img: "https://images.unsplash.com/photo-1626779844431-15a133b3a726?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "खीर + 4-चना दाल पराठा + चना छोला + सलाद" },
+            { day: "WEDNESDAY", img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800", lunch: "पुलाव + 2-रोटी + चना दाल तड़का + कढ़ी पकोड़ा + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (फ्राइड) + खीर + सलाद" },
+            { day: "THURSDAY", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800", lunch: "बेसन कढ़ी पकोड़ा + चावल + 2-रोटी + हरी सब्जियाँ पकोड़ा + सलाद", dinner: "खीर + 8-पूरी / 6-रोटी + हरी सब्जियाँ (कढ़ी) + सलाद" },
+            { day: "FRIDAY", img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ (भूना हुआ) + सलाद", dinner: "6-रोटी + हरी सब्जियाँ (भूना हुआ) + सलाद" },
+            { day: "SATURDAY", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800", lunch: "वेज खिचड़ी (देसी घी) + चोखा + अचार/दही + पापड़-चिप्स + सलाद", dinner: "4-सत्तू पराठा / 6-रोटी + बैगन चोखा + चना छोला + सलाद" },
+            { day: "SUNDAY", img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc0?q=80&w=800", lunch: "चावल + 2-रोटी + दाल + हरी सब्जियाँ + सलाद", dinner: "6-रोटी + मटर पनीर + हरी सब्जियाँ + सलाद" }
+        ];
+
+        const defaultPlans = [
+            { name: "Student Plan", price: "₹ 3549 /-", features: "Convenient and Youthful, Lunch & Dinner, 100% Pure Veg, Free Home Delivery" },
+            { name: "Office Plan", price: "₹ 3299 /-", features: "Balanced for Professionals, Custom Timings, Satvik Options, Spill-proof" }
+        ];
+        const defaultReviews = [{ name: "Ayush Chaubey", rating: 5, text: "Best premium thali in Patna. Packaging and hygiene is top notch." }];
+        const defaultGeneral = { whatsapp: "9128965956", insta: "ann_aamrit", fb: "AnnAamrit", address: "Behind PnB, M G Nagar, Kankarbagh, Patna" };
+
+        let currentMenu = JSON.parse(localStorage.getItem("annM15")) || defaultMenu;
+        let currentGeneral = JSON.parse(localStorage.getItem("annG15")) || defaultGeneral;
+        let currentPlans = JSON.parse(localStorage.getItem("annP15")) || defaultPlans;
+        let currentReviews = JSON.parse(localStorage.getItem("annR15")) || defaultReviews;
+        let erpLogs = JSON.parse(localStorage.getItem("annERP15")) || [];
+        let customSections = JSON.parse(localStorage.getItem("annS15")) || [];
+
+        function renderSite() {
+            const waLink = "https://wa.me/91" + currentGeneral.whatsapp;
+            if(document.getElementById("display-whatsapp")) document.getElementById("display-whatsapp").innerText = "+91 " + currentGeneral.whatsapp;
+            if(document.getElementById("display-whatsappLink")) document.getElementById("display-whatsappLink").href = waLink;
+            if(document.getElementById("floating-wa")) document.getElementById("floating-wa").href = waLink;
+            if(document.getElementById("display-insta")) document.getElementById("display-insta").innerText = currentGeneral.insta;
+            if(document.getElementById("display-instaLink")) document.getElementById("display-instaLink").href = "https://instagram.com/" + currentGeneral.insta;
+            if(document.getElementById("display-fb")) document.getElementById("display-fb").innerText = currentGeneral.fb;
+            if(document.getElementById("display-fbLink")) document.getElementById("display-fbLink").href = "https://facebook.com/" + currentGeneral.fb;
+            if(document.getElementById("display-address")) document.getElementById("display-address").innerText = currentGeneral.address;
+
+            const pCont = document.getElementById("pricingGridContainer"); if(pCont) pCont.innerHTML = "";
+            currentPlans.forEach(p => { if(pCont) pCont.innerHTML += `<div class="pricing-card fade-in" style="background:rgba(1,18,8,0.9); border:1px solid var(--gold-primary); border-radius:15px; padding:30px; text-align:center;"><h3 class="royal-font" style="color:var(--gold-light); font-size:1.8rem; margin-bottom:10px;">${p.name}</h3><div style="color:var(--accent-orange); font-size:2.5rem; font-weight:800; margin-bottom:20px;">${p.price}</div><ul style="list-style:none; padding:0; margin-bottom:30px; text-align:left; color:white;">${p.features.split(',').map(f=>`<li style="margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:8px;"><i class="fas fa-check-circle" style="color:var(--pure-veg-green); margin-right:10px;"></i> ${f.trim()}</li>`).join('')}</ul><a href="#join" class="btn-gold" style="font-size: 1rem;">Select Plan</a></div>`; });
+
+            const mCont = document.getElementById("menuGridContainer"); if(mCont) mCont.innerHTML = "";
+            currentMenu.forEach(m => { if(mCont) mCont.innerHTML += `<div class="menu-card fade-in" style="background:rgba(1,18,8,0.9); border:1px solid rgba(212,178,84,0.4); border-radius:15px; overflow:hidden;"><img src="${m.img}" style="width:100%; height:250px; object-fit:cover; border-bottom:3px solid var(--gold-primary);"><div style="padding:30px;"><div class="royal-font" style="color:var(--gold-light); font-size:1.8rem; font-weight:700; margin-bottom:20px; text-align:center; border-bottom:1px dashed rgba(212,178,84,0.3); padding-bottom:10px;">${m.day}</div><div style="color:var(--accent-orange); font-weight:700;"><i class="fas fa-sun"></i> LUNCH</div><div style="color:white; margin-top:5px;">${m.lunch}</div><div style="color:var(--accent-orange); font-weight:700; margin-top:20px;"><i class="fas fa-moon"></i> DINNER</div><div style="color:white; margin-top:5px;">${m.dinner}</div></div></div>`; });
+
+            const rCont = document.getElementById("reviewsGridContainer"); if(rCont) rCont.innerHTML = "";
+            currentReviews.forEach(r => { if(rCont) rCont.innerHTML += `<div class="review-card fade-in" style="background:rgba(1,18,8,0.9); border:1px solid rgba(212,178,84,0.3); border-radius:15px; padding:30px; width:350px; position:relative;"><i class="fas fa-quote-right" style="position:absolute; top:20px; right:20px; font-size:2rem; color:rgba(212,178,84,0.2);"></i><div style="color:var(--gold-primary); font-size:1.2rem; margin-bottom:15px;">${'⭐'.repeat(r.rating)}</div><p style="color:white; font-style:italic; margin-bottom:20px;">"${r.text}"</p><div style="color:var(--accent-orange); font-weight:700; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">- ${r.name}</div></div>`; });
+
+            const sCont = document.getElementById("dynamicSectionsContainer"); if(sCont) sCont.innerHTML = "";
+            customSections.forEach((sec) => { if(sCont) sCont.innerHTML += `<section class="section"><div class="section-header fade-in"><h2 class="royal-font">${sec.title}</h2></div><div class="form-container fade-in" style="text-align: center;"><p style="font-size: 1.2rem; color: white;">${sec.content}</p></div></section>`; });
+
+            document.querySelectorAll('.fade-in').forEach(el => { observer.observe(el); });
+        }
+
+        const fbForm = document.getElementById("feedbackForm");
+        if(fbForm) fbForm.addEventListener("submit", function(e) { e.preventDefault(); currentReviews.unshift({ name: document.getElementById("reviewerName").value, rating: parseInt(document.getElementById("reviewerRating").value), text: document.getElementById("reviewerText").value }); localStorage.setItem("annR15", JSON.stringify(currentReviews)); alert("Review Submitted!"); this.reset(); renderSite(); });
+        const corpForm = document.getElementById('corporateForm');
+        if(corpForm) corpForm.addEventListener('submit', (e) => { e.preventDefault(); alert("Application Submitted! Management will contact you for payment verification."); });
+
+        // ERP & ADMIN
+        function openAdminPrompt() { if(prompt("Management Login\nHint: AAnnAamrit39")==="RJAannaamrit@@@09"){ document.getElementById("adminModal").style.display="flex"; populateAdminFields(); } else { alert("Denied!"); } }
+        function closeAdmin() { document.getElementById("adminModal").style.display="none"; }
+        function switchTab(id) { document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active')); document.querySelectorAll('.admin-body > div').forEach(d=>d.style.display='none'); event.target.classList.add('active'); document.getElementById(id).style.display='block'; }
+
+        function populateAdminFields() {
+            document.getElementById("input-whatsapp").value = currentGeneral.whatsapp; document.getElementById("input-insta").value = currentGeneral.insta; document.getElementById("input-fb").value = currentGeneral.fb; document.getElementById("input-address").value = currentGeneral.address;
+            
+            let pList = document.getElementById("existingPlansList"); pList.innerHTML="<h3 style='color:var(--gold-primary); margin-bottom:10px;'>Existing Plans:</h3>"; currentPlans.forEach((p,i)=>{ pList.innerHTML+=`<div style="background:rgba(255,255,255,0.05); padding:10px; margin-bottom:5px; display:flex; justify-content:space-between; align-items:center;"><span>${p.name}</span><button style="background:#e74c3c; color:white; border:none; padding:5px 10px; border-radius:5px;" onclick="delPlan(${i})">Del</button></div>`; });
+            let sel = document.getElementById("editDaySelect"); sel.innerHTML=""; currentMenu.forEach((m,i)=>{ sel.innerHTML+=`<option value="${i}">${m.day}</option>`; }); loadMenuForEdit();
+            let rList = document.getElementById("adminReviewsList"); rList.innerHTML=""; currentReviews.forEach((r,i)=>{ rList.innerHTML+=`<div style="background:rgba(255,255,255,0.05); padding:10px; margin-bottom:5px; display:flex; justify-content:space-between; align-items:center;"><span><b>${r.name}</b>: ${r.text.substring(0,30)}...</span><button style="background:#e74c3c; color:white; border:none; padding:5px 10px; border-radius:5px;" onclick="delRev(${i})">Del</button></div>`; });
+            let sList = document.getElementById("existingSectionsList"); sList.innerHTML=""; customSections.forEach((s,i)=>{ sList.innerHTML+=`<div style="background:rgba(255,255,255,0.05); padding:10px; margin-bottom:5px; display:flex; justify-content:space-between; align-items:center;"><span>${s.title}</span><button style="background:#e74c3c; color:white; border:none; padding:5px 10px; border-radius:5px;" onclick="delSec(${i})">Del</button></div>`; });
+            renderErpTable();
+        }
+
+        function saveGeneralInfo() { currentGeneral.whatsapp=document.getElementById("input-whatsapp").value; currentGeneral.insta=document.getElementById("input-insta").value; currentGeneral.fb=document.getElementById("input-fb").value; currentGeneral.address=document.getElementById("input-address").value; localStorage.setItem("annG15", JSON.stringify(currentGeneral)); alert("Saved!"); renderSite(); }
+        function addNewPlan() { currentPlans.push({name:document.getElementById("newPlanName").value, price:document.getElementById("newPlanPrice").value, features:document.getElementById("newPlanDesc").value}); localStorage.setItem("annP15", JSON.stringify(currentPlans)); populateAdminFields(); renderSite(); }
+        function delPlan(i) { currentPlans.splice(i,1); localStorage.setItem("annP15", JSON.stringify(currentPlans)); populateAdminFields(); renderSite(); }
+        function loadMenuForEdit() { let idx = document.getElementById("editDaySelect").value; if(currentMenu[idx]){ document.getElementById("editMenuImg").value=currentMenu[idx].img; document.getElementById("editMenuLunch").value=currentMenu[idx].lunch; document.getElementById("editMenuDinner").value=currentMenu[idx].dinner; } }
+        function saveMenuUpdate() { let idx = document.getElementById("editDaySelect").value; currentMenu[idx].img=document.getElementById("editMenuImg").value; currentMenu[idx].lunch=document.getElementById("editMenuLunch").value; currentMenu[idx].dinner=document.getElementById("editMenuDinner").value; localStorage.setItem("annM15", JSON.stringify(currentMenu)); alert("Saved!"); renderSite(); }
+        function delRev(i) { currentReviews.splice(i,1); localStorage.setItem("annR15", JSON.stringify(currentReviews)); populateAdminFields(); renderSite(); }
+        function addNewSection() { customSections.push({title:document.getElementById("newSecTitle").value, content:document.getElementById("newSecContent").value}); localStorage.setItem("annS15", JSON.stringify(customSections)); populateAdminFields(); renderSite(); }
+        function delSec(i) { customSections.splice(i,1); localStorage.setItem("annS15", JSON.stringify(customSections)); populateAdminFields(); renderSite(); }
+        
+        function saveErpLog() {
+            const date = document.getElementById("erpDate").value; const inc = document.getElementById("erpIncome").value || 0; const pur = document.getElementById("erpPurchases").value || 0; const fuel = document.getElementById("erpFuel").value || "-"; const maint = document.getElementById("erpMaintenance").value || "-"; const staff = document.getElementById("erpStaff").value || "-"; const txn = document.getElementById("erpTxn").value || "-";
+            if(!date) return alert("Date required!"); erpLogs.unshift({ date, inc, pur, fuel, maint, staff, txn }); localStorage.setItem("annERP15", JSON.stringify(erpLogs)); alert("Logged!"); renderErpTable();
+        }
+        function renderErpTable() {
+            const tbody = document.getElementById("erpTableBody"); tbody.innerHTML = "";
+            erpLogs.forEach((log, i) => { tbody.innerHTML += `<tr><td style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px;">${log.date}</td><td style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px;">₹${log.inc}</td><td style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px;">₹${log.pur}</td><td style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px;">${log.fuel}</td><td style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px;">${log.maint}</td><td style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px;">${log.staff}</td><td style="border: 1px solid rgba(212, 178, 84, 0.3); padding: 10px;"><button style="background:#e74c3c; color:white; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;" onclick="delErp(${i})">X</button></td></tr>`; });
+        }
+        function delErp(i) { erpLogs.splice(i,1); localStorage.setItem("annERP15", JSON.stringify(erpLogs)); renderErpTable(); }
+        function generateMonthlyReport() { let tInc = 0; let tPur = 0; erpLogs.forEach(l => { tInc += parseInt(l.inc); tPur += parseInt(l.pur); }); alert(`--- P&L ESTIMATE ---\n\nIncome: ₹${tInc}\nPurchases: ₹${tPur}\n\nMargin: ₹${tInc - tPur}`); }
+
+        window.addEventListener('scroll', () => { const nb = document.getElementById('navbar'); if(window.scrollY>50) nb.classList.add('scrolled'); else nb.classList.remove('scrolled'); });
+        const observer = new IntersectionObserver((e) => { e.forEach(en => { if(en.isIntersecting) en.target.classList.add('visible'); }); }, { threshold: 0.1 });
+        
+        document.addEventListener("DOMContentLoaded", renderSite);
+    </script>
+</body>
+</html>
